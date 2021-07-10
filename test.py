@@ -1,7 +1,8 @@
 import collections
 import os
 
-from attack import NoAttacker, LabelFlipping
+from aggregators import FedAvgAggregator, MedianAggregator, TrimmedMeanAggregator, KrumAggregator, MultiKrumAggregator
+from data_attacker import NoDataAttacker, LabelAttacker
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
@@ -28,11 +29,9 @@ def keras_model():
 fed_tester = FedTester(
     keras_model,
     dataset,
-    lambda x, y: collections.OrderedDict(
-        x=tf.reshape(x, (-1, 784)),
-        y=tf.reshape(y, (-1, 1)),
-    ),
-    LabelFlipping(0)
+    lambda x, y: (tf.reshape(x, (-1, 784)), y),
+    KrumAggregator(),
+    LabelAttacker(0.3)
 )
 
-fed_tester.perform_fed_training(30)
+fed_tester.perform_fed_training(1000)

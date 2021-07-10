@@ -1,11 +1,12 @@
 import time
-from typing import Callable, OrderedDict
+from typing import Callable, Tuple
 import tensorflow as tf
-import tensorflow_federated as tff
 import numpy as np
 
 import partitioner
-from attack import BaseAttacker
+from aggregators import AbstractAggregator
+from data_attacker import AbstractDataAttacker, NoDataAttacker
+from model_attacker import AbstractModelAttacker, NoModelAttacker
 
 NUM_CLIENTS = 100
 TRAINING_FRACTION = .1
@@ -26,11 +27,22 @@ class Dataset(object):
 
 
 class FedTester:
-    def __init__(self, model: Callable[[], tf.keras.Model], dataset: Dataset, preprocessor: Callable[[any, any], OrderedDict], attacker: BaseAttacker) -> None:
-        self.keras_model = model
+    def __init__(self, model_fn: Callable[[], tf.keras.Model],
+                 dataset: Dataset,
+                 data_preprocessor: Callable[[any, any], Tuple],
+                 aggregator: AbstractAggregator,
+                 data_attacker: AbstractDataAttacker = NoDataAttacker(),
+                 model_attacker: AbstractModelAttacker = None
+                 ) -> None:
+        self.model_fn = model_fn
         self.dataset = dataset
-        self.preprocessor = preprocessor
-        self.attacker = attacker
+        self.data_preprocessor = data_preprocessor
+        self.aggregator = aggregator
+        self.client_trainer = NoModelAttacker(self.model_fn,
+                                              tf.keras.optimizers.SGD(),
+                                              tf.keras.losses.SparseCategoricalCrossentropy())
+        self.data_attacker = data_attacker
+        self.model_attacker = model_attacker
         self.partitioned_data = None
         self.example_input = None
         self.partition_dataset()
@@ -46,45 +58,37 @@ class FedTester:
         count = int(fraction * NUM_CLIENTS)
         return np.random.choice(range(NUM_CLIENTS), replace=False, size=count)
 
-    def create_client_data(self, data):
+    def create_client_data(self, data, epochs=NUM_EPOCHS):
         return tf.data.Dataset.from_tensor_slices(data) \
-            .repeat(NUM_EPOCHS) \
+            .repeat(epochs) \
             .shuffle(SHUFFLE_BUFFER) \
             .batch(BATCH_SIZE) \
-            .map(self.preprocessor) \
+            .map(self.data_preprocessor) \
             .prefetch(PREFETCH_BUFFER)
 
     def make_federated_data(self):
-        return [self.create_client_data(self.partitioned_data[client]) for client in FedTester.pick_clients(TRAINING_FRACTION)]
+        return [(client, self.create_client_data(self.partitioned_data[client])) for client in
+                FedTester.pick_clients(TRAINING_FRACTION)]
 
-    def model_fn(self):
-        # We _must_ create a new model here, and _not_ capture it from an external
-        # scope. TFF will call this within different graph contexts.
-        keras_model = self.keras_model()
-        return tff.learning.from_keras_model(
-            keras_model,
-            input_spec=self.example_input,
-            loss=tf.keras.losses.SparseCategoricalCrossentropy(),
-            metrics=[tf.keras.metrics.SparseCategoricalAccuracy()])
+    def initialize_federated(self):
+        self.partitioned_data = self.data_attacker.attack(self.partitioned_data)
+        server_model = self.model_fn()
+        server_model.compile(metrics=tf.keras.metrics.SparseCategoricalAccuracy())
+        self.aggregator.clear_aggregator()
+        test_data = self.create_client_data((self.dataset.x_test, self.dataset.y_test), 1)
+        return server_model, test_data
 
     def perform_fed_training(self, number_of_rounds: int = NUM_ROUNDS):
-        self.partitioned_data = self.attacker.attack(self.partitioned_data)
-        self.example_input = self.create_client_data(self.partitioned_data[0]).element_spec
-        test_data = [self.create_client_data((tf.convert_to_tensor(self.dataset.x_test),
-                                              tf.convert_to_tensor(self.dataset.y_test)))]
-
-        iterative_process = tff.learning.build_federated_averaging_process(
-            self.model_fn,
-            client_optimizer_fn=lambda: tf.keras.optimizers.SGD(learning_rate=0.01),
-            server_optimizer_fn=lambda: tf.keras.optimizers.SGD(learning_rate=1.0))
-
-        state = iterative_process.initialize()
-        evaluation = tff.learning.build_federated_evaluation(self.model_fn)
-
         t = time.time()
+        server_model, test_data = self.initialize_federated()
+        byzantine = 0
+        if self.data_attacker is not None:
+            byzantine = int(len(self.data_attacker.get_attacked_clients())*TRAINING_FRACTION)
         for round_num in range(1, number_of_rounds + 1):
-            state, metrics = iterative_process.next(state, self.make_federated_data())
-            # print('round {:2d}, metrics={}'.format(round_num, metrics))
-            print('round {:2d}, test results={}'.format(round_num, evaluation(state.model, test_data)))
+            for client, client_dataset in self.make_federated_data():
+                self.aggregator.add_client_delta(self.client_trainer.forward_pass(client_dataset, server_model))
+            self.aggregator.aggregate(server_model, byzantine)
+            print('Training round: {}\t\taccuracy = {}'
+                  .format(round_num, server_model.evaluate(test_data, verbose=0)[1]))
 
-        print(time.time() - t)
+        print('Training duration {}'.format(time.time() - t))
