@@ -3,6 +3,8 @@ from typing import Callable
 
 import tensorflow as tf
 
+from constants import NUM_EPOCHS
+
 
 class AbstractModelAttacker(abc.ABC):
     @abc.abstractmethod
@@ -27,8 +29,6 @@ class NoModelAttacker(AbstractModelAttacker):
             optimizer=self.optimizer,
             loss=self.loss
         )
-        local_model.fit(dataset, verbose=0)
+        local_model.fit(dataset, epochs=NUM_EPOCHS, verbose=0)
         weights_delta = tf.nest.map_structure(tf.subtract, local_model.get_weights(), old_weights)
         return weights_delta
-
-
