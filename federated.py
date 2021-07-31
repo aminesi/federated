@@ -39,7 +39,7 @@ class Dataset(object):
 
     def make_federated_data(self):
         return [(client, self.create_client_data(self.partitioned_data[client])) for client in
-                FedTester.pick_clients(TRAINING_FRACTION)]
+                pick_clients(TRAINING_FRACTION)]
 
     def attack_data(self, data_attacker: AbstractDataAttacker):
         self.partitioned_data = data_attacker.attack(self.partitioned_data)
@@ -60,11 +60,6 @@ class FedTester:
                                               tf.keras.losses.SparseCategoricalCrossentropy())
         self.data_attacker = data_attacker
         self.model_attacker = model_attacker
-
-    @staticmethod
-    def pick_clients(fraction: float):
-        count = int(fraction * NUM_CLIENTS)
-        return np.random.choice(range(NUM_CLIENTS), replace=False, size=count)
 
     def initialize_federated(self):
         self.dataset.attack_data(self.data_attacker)

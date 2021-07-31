@@ -1,5 +1,5 @@
 from aggregators import FedAvgAggregator, MedianAggregator, TrimmedMeanAggregator, KrumAggregator, MultiKrumAggregator
-from data_attacker import NoDataAttacker, LabelAttacker
+from data_attacker import NoDataAttacker, LabelAttacker, NoiseMutator, DeleteMutator, UnbalanceMutator, OverlapMutator
 
 import tensorflow as tf
 import numpy as np
@@ -50,7 +50,7 @@ fed_tester = FedTester(
     mnist_model,
     dataset,
     FedAvgAggregator(),
-    LabelAttacker(0.3)
+    OverlapMutator(0.3, 1)
 )
 
 fed_tester.perform_fed_training(100)
