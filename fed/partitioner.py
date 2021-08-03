@@ -1,7 +1,7 @@
 from typing import List, Union
 import numpy as np
 
-from constants import NUM_CLIENTS
+from utils.constants import NUM_CLIENTS
 
 
 def map_deg(non_iid_deg: float, class_count: int) -> int:

@@ -1,13 +1,15 @@
-from aggregators import FedAvgAggregator, MedianAggregator, TrimmedMeanAggregator, KrumAggregator, MultiKrumAggregator
-from config import get_model, load_data
-from data_attacker import NoDataAttacker, LabelAttacker, NoiseMutator, DeleteMutator, UnbalanceMutator, OverlapMutator
-from federated import FedTester
+from attacks.data_attacker import LabelAttacker
+from fed.aggregators import MedianAggregator
+from config import get_model, load_data, get_num_round
+from fed.federated import FedTester
+from attacks.model_attacker import SignFlipModelAttacker
 
 fed_tester = FedTester(
     get_model,
     load_data(),
-    FedAvgAggregator(),
-    # OverlapMutator(0.3, 1)
+    MedianAggregator(),
+    data_attacker=LabelAttacker(0.6)
+    # model_attacker=SignFlipModelAttacker(0.3, 2)
 )
 
-fed_tester.perform_fed_training(1000)
+fed_tester.perform_fed_training(get_num_round())

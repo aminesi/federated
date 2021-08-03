@@ -1,20 +1,17 @@
-from abc import ABC, abstractmethod
-from typing import List, Tuple, Set
+from abc import abstractmethod
+from typing import List, Tuple
 
 import numpy as np
 
-from constants import pick_clients
-from partitioner import get_indices_by_class
+from attacks.attacker import AbstractAttacker
+from utils.constants import pick_clients
+from fed.partitioner import get_indices_by_class
 
 
-class AbstractDataAttacker(ABC):
+class AbstractDataAttacker(AbstractAttacker):
 
     def __init__(self, fraction: float) -> None:
-        self.fraction = fraction
-        self.attacked_clients = set()
-
-    def get_attacked_clients(self) -> Set[int]:
-        return self.attacked_clients
+        super().__init__(fraction)
 
     @abstractmethod
     def attack(self, partitioned_data: List[Tuple[np.ndarray, np.ndarray]]) -> List[Tuple[np.ndarray, np.ndarray]]:
@@ -59,13 +56,17 @@ class NoiseMutator(AbstractDataAttacker):
         print(self.__class__.__name__ + " started.")
         self.attacked_clients = pick_clients(self.fraction)
         for client in self.attacked_clients:
-            x_train = partitioned_data[client][0] / 255
+            x_train = partitioned_data[client][0]
+            is_int8 = x_train.dtype == np.uint8
+            if is_int8:
+                x_train = x_train / 255
             for i, x in enumerate(x_train):
                 std = np.std(x) * self.sigma_multiplier
                 x = x + np.random.normal(0, std, x.shape)
                 x = np.clip(x, 0, 1)
                 x_train[i] = x
-            x_train = np.round(x_train * 255).astype(np.uint8)
+            if is_int8:
+                x_train = np.round(x_train * 255).astype(np.uint8)
             partitioned_data[client] = (x_train, partitioned_data[client][1])
         self.attacked_clients = set(self.attacked_clients)
         print(self.__class__.__name__ + " finished.")

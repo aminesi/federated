@@ -1,9 +1,10 @@
 from typing import Callable, Tuple
 
-import partitioner
-from constants import *
-from data_attacker import AbstractDataAttacker
 import tensorflow as tf
+
+from attacks.data_attacker import AbstractDataAttacker
+from utils.constants import *
+from fed.partitioner import get_partitioned_indices
 
 
 class Dataset(object):
@@ -21,7 +22,7 @@ class Dataset(object):
         self.partition_dataset(non_iid_deg)
 
     def partition_dataset(self, non_iid_deg: float):
-        partitioned_indices = partitioner.get_partitioned_indices(self.y_train, non_iid_deg)
+        partitioned_indices = get_partitioned_indices(self.y_train, non_iid_deg)
         self.partitioned_data = [(self.x_train[client_indices],
                                   self.y_train[client_indices])
                                  for client_indices in partitioned_indices]

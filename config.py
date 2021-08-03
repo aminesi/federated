@@ -3,7 +3,7 @@ from typing import Dict
 import tensorflow as tf
 import numpy as np
 
-from util import Dataset
+from utils.util import Dataset
 
 with open('config.json') as config_file:
     config: Dict[str, any] = json.load(config_file)
@@ -25,10 +25,14 @@ def throw_conf_error(param):
                          .format(param, possible_configs[param]))
 
 
+def get_param(param):
+    if param in config:
+        return config[param]
+    throw_conf_error(param)
+
+
 def get_non_iid_deg():
-    if 'non_iid_deg' in config:
-        return config['non_iid_deg']
-    throw_conf_error('non_iid_deg')
+    return get_param('non_iid_deg')
 
 
 def load_data():
@@ -93,3 +97,7 @@ def get_loss():
         return tf.keras.losses.SparseCategoricalCrossentropy()
     else:
         throw_conf_error('dataset')
+
+
+def get_num_round():
+    return get_param('num_of_rounds')

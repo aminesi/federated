@@ -1,15 +1,12 @@
 import time
-from typing import Callable, Tuple
+from typing import Callable
 import tensorflow as tf
-import numpy as np
 
-import partitioner
-from aggregators import AbstractAggregator
-from config import get_optimizer, get_loss
-from constants import *
-from data_attacker import AbstractDataAttacker, NoDataAttacker
-from model_attacker import AbstractModelAttacker, NoModelAttacker
-from util import Dataset
+from fed.aggregators import AbstractAggregator
+from utils.constants import *
+from attacks.data_attacker import AbstractDataAttacker, NoDataAttacker
+from attacks.model_attacker import AbstractModelAttacker, NoModelAttacker
+from utils.util import Dataset
 
 
 class FedTester:
@@ -22,9 +19,7 @@ class FedTester:
         self.model_fn = model_fn
         self.dataset = dataset
         self.aggregator = aggregator
-        self.client_trainer = NoModelAttacker(self.model_fn,
-                                              get_optimizer(),
-                                              get_loss())
+        self.benign_trainer = NoModelAttacker()
         self.data_attacker = data_attacker
         self.model_attacker = model_attacker
 
@@ -44,9 +39,15 @@ class FedTester:
             byzantine = int(len(self.data_attacker.get_attacked_clients()) * TRAINING_FRACTION)
         for round_num in range(1, number_of_rounds + 1):
             for client, client_dataset in self.dataset.make_federated_data():
-                self.aggregator.add_client_delta(self.client_trainer.forward_pass(client_dataset, server_model))
+                trainer = self.get_trainer(client)
+                self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
             self.aggregator.aggregate(server_model, byzantine)
             print('Training round: {}\t\taccuracy = {}'
                   .format(round_num, server_model.evaluate(test_data, verbose=0)[1]))
 
         print('Training duration {}'.format(time.time() - t))
+
+    def get_trainer(self, client):
+        if self.model_attacker and client in self.model_attacker.get_attacked_clients():
+            return self.model_attacker
+        return self.benign_trainer
