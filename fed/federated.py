@@ -22,13 +22,20 @@ class FedTester:
         self.benign_trainer = NoModelAttacker()
         self.data_attacker = data_attacker
         self.model_attacker = model_attacker
+        self.first_trainable_layer = 0
 
     def initialize_federated(self):
         self.dataset.attack_data(self.data_attacker)
         server_model = self.model_fn()
+        first_trainable_layer = 0
+        for i, layer in enumerate(server_model.layers[::-1]):
+            if not layer.trainable:
+                first_trainable_layer = -i
+                break
+        self.set_first_trainable_layer(first_trainable_layer)
         server_model.compile(metrics=tf.keras.metrics.SparseCategoricalAccuracy())
         self.aggregator.clear_aggregator()
-        test_data = self.dataset.create_client_data((self.dataset.x_test, self.dataset.y_test))
+        test_data = self.dataset.create_test_data()
         return server_model, test_data
 
     def perform_fed_training(self, number_of_rounds: int = NUM_ROUNDS):
@@ -51,3 +58,8 @@ class FedTester:
         if self.model_attacker and client in self.model_attacker.get_attacked_clients():
             return self.model_attacker
         return self.benign_trainer
+
+    def set_first_trainable_layer(self, first_trainable_layer):
+        self.first_trainable_layer = first_trainable_layer
+        self.benign_trainer.set_first_trainable_layer(first_trainable_layer)
+        self.aggregator.set_first_trainable_layer(first_trainable_layer)

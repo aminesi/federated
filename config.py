@@ -2,8 +2,11 @@ import json
 from typing import Dict
 import tensorflow as tf
 import numpy as np
+from tensorflow.keras.applications.efficientnet import EfficientNetB7
+import os
 
-from utils.util import Dataset
+
+ADNI_ROOT = os.environ.get('adni_root', './dataset')
 
 with open('config.json') as config_file:
     config: Dict[str, any] = json.load(config_file)
@@ -43,10 +46,11 @@ def load_data():
         x_test = np.expand_dims(x_test, -1)
     elif config['dataset'] == 'cifar':
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+    elif config['dataset'] == 'adni':
+        return ADNI_ROOT
     else:
         throw_conf_error('dataset')
-    return Dataset(x_train, y_train, x_test, y_test, lambda x, y: (tf.cast(x, tf.float32) / 255.0, y),
-                   get_non_iid_deg())
+    return x_train, y_train, x_test, y_test, lambda x, y: (tf.cast(x, tf.float32) / 255.0, y), get_non_iid_deg()
 
 
 def get_model():
@@ -77,6 +81,18 @@ def get_model():
             tf.keras.layers.Dropout(0.5),
             tf.keras.layers.Dense(10, activation='softmax'),
         ])
+    elif config['dataset'] == 'adni':
+        model = EfficientNetB7(include_top=False, weights='imagenet', input_shape=(128, 128, 3))
+
+        model.trainable = False
+        # add new classifier layers
+        x1 = model(model.inputs, training=False)
+
+        flat1 = tf.keras.layers.Flatten()(x1)
+        output = tf.keras.layers.Dense(2, activation='softmax')(flat1)
+        # define new model
+        model = tf.keras.Model(inputs=model.inputs, outputs=output)
+        return model
     else:
         throw_conf_error('dataset')
 
@@ -86,17 +102,20 @@ def get_optimizer():
         return tf.keras.optimizers.SGD(0.1)
     elif config['dataset'] == 'cifar':
         return tf.keras.optimizers.SGD(0.01)
+    elif config['dataset'] == 'adni':
+        return tf.keras.optimizers.Adam(1e-4)
     else:
         throw_conf_error('dataset')
 
 
 def get_loss():
-    if config['dataset'] == 'mnist':
-        return tf.keras.losses.SparseCategoricalCrossentropy()
-    elif config['dataset'] == 'cifar':
-        return tf.keras.losses.SparseCategoricalCrossentropy()
-    else:
-        throw_conf_error('dataset')
+    return tf.keras.losses.SparseCategoricalCrossentropy()
+    # if config['dataset'] == 'mnist':
+    #     pass
+    # elif config['dataset'] == 'cifar':
+    #     return tf.keras.losses.SparseCategoricalCrossentropy()
+    # else:
+    #     throw_conf_error('dataset')
 
 
 def get_num_round():

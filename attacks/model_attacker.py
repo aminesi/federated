@@ -9,9 +9,17 @@ from utils.constants import NUM_EPOCHS, pick_clients
 
 
 class AbstractModelAttacker(AbstractAttacker):
+
+    def __init__(self, fraction: float) -> None:
+        super().__init__(fraction)
+        self.first_trainable_layer = 0
+
     @abc.abstractmethod
     def forward_pass(self, dataset: tf.data.Dataset, server_model: tf.keras.Model):
         pass
+
+    def set_first_trainable_layer(self, first_trainable_layer):
+        self.first_trainable_layer = first_trainable_layer
 
 
 class NoModelAttacker(AbstractModelAttacker):
@@ -31,7 +39,8 @@ class NoModelAttacker(AbstractModelAttacker):
             loss=self.loss
         )
         local_model.fit(dataset, epochs=NUM_EPOCHS, verbose=0)
-        weights_delta = tf.nest.map_structure(tf.subtract, local_model.get_weights(), old_weights)
+        weights_delta = tf.nest.map_structure(tf.subtract, local_model.get_weights()[self.first_trainable_layer:],
+                                              old_weights[self.first_trainable_layer:])
         return weights_delta
 
 
@@ -43,7 +52,8 @@ class RandomModelAttacker(AbstractModelAttacker):
         self.attacked_clients = set(pick_clients(fraction))
 
     def forward_pass(self, dataset: tf.data.Dataset, server_model: tf.keras.Model):
-        return [np.random.normal(0, self.std, layer_weight.shape) for layer_weight in server_model.get_weights()]
+        return [np.random.normal(0, self.std, layer_weight.shape)
+                for layer_weight in server_model.get_weights()[self.first_trainable_layer:]]
 
 
 class SignFlipModelAttacker(NoModelAttacker):

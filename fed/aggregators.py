@@ -7,6 +7,7 @@ import numpy as np
 class AbstractAggregator(abc.ABC):
     def __init__(self) -> None:
         self.layers_delta: List[List[np.ndarray]] = []
+        self.first_trainable_layer = 0
 
     def clear_aggregator(self):
         self.layers_delta = []
@@ -21,23 +22,31 @@ class AbstractAggregator(abc.ABC):
     def aggregate(self, server_model: tf.keras.Model, num_byzantine: int):
         pass
 
+    def set_first_trainable_layer(self, first_trainable_layer):
+        self.first_trainable_layer = first_trainable_layer
+
+    def apply_delta(self, server_model: tf.keras.Model, delta: List[np.ndarray]):
+        old_weights = server_model.get_weights()
+        updated_part = [old + d for old, d in zip(old_weights[self.first_trainable_layer:], delta)]
+        new_weights = old_weights[:self.first_trainable_layer] + updated_part
+        server_model.set_weights(new_weights)
+        self.clear_aggregator()
+
 
 class FedAvgAggregator(AbstractAggregator):
     def aggregate(self, server_model: tf.keras.Model, num_byzantine: int):
-        layers = []
-        for i, layer in enumerate(self.layers_delta):
-            layers.append(server_model.get_weights()[i] + np.mean(layer, axis=0))
-        server_model.set_weights(layers)
-        self.clear_aggregator()
+        delta = []
+        for layer in self.layers_delta:
+            delta.append(np.mean(layer, axis=0))
+        self.apply_delta(server_model, delta)
 
 
 class MedianAggregator(AbstractAggregator):
     def aggregate(self, server_model: tf.keras.Model, num_byzantine: int):
-        layers = []
-        for i, layer in enumerate(self.layers_delta):
-            layers.append(server_model.get_weights()[i] + np.median(layer, axis=0))
-        server_model.set_weights(layers)
-        self.clear_aggregator()
+        delta = []
+        for layer in self.layers_delta:
+            delta.append(np.median(layer, axis=0))
+        self.apply_delta(server_model, delta)
 
 
 class TrimmedMeanAggregator(AbstractAggregator):
@@ -49,7 +58,7 @@ class TrimmedMeanAggregator(AbstractAggregator):
         self.beta = beta
 
     def aggregate(self, server_model: tf.keras.Model, num_byzantine: int):
-        layers = []
+        delta = []
         num_clients = len(self.layers_delta[0])
         exclusions = int(np.round(2 * self.beta * num_clients))
         low = exclusions // 2
@@ -60,9 +69,8 @@ class TrimmedMeanAggregator(AbstractAggregator):
             high = min(num_clients, high + 1)
         for i, layer in enumerate(self.layers_delta):
             layer = np.sort(layer, axis=0)[low:high]
-            layers.append(server_model.get_weights()[i] + np.mean(layer, axis=0))
-        server_model.set_weights(layers)
-        self.clear_aggregator()
+            delta.append(np.mean(layer, axis=0))
+        self.apply_delta(server_model, delta)
 
 
 class MultiKrumAggregator(AbstractAggregator):
@@ -92,11 +100,10 @@ class MultiKrumAggregator(AbstractAggregator):
 
         distances.sort(axis=0)
         best_clients = np.argsort(distances[:k + 1].sum(axis=0))[:min(self.m, num_clients)]
-        layers = []
-        for i, layer in enumerate(self.layers_delta):
-            layers.append(server_model.get_weights()[i] + np.mean(np.stack(layer)[best_clients], axis=0))
-        server_model.set_weights(layers)
-        self.clear_aggregator()
+        delta = []
+        for layer in self.layers_delta:
+            delta.append(np.mean(np.stack(layer)[best_clients], axis=0))
+        self.apply_delta(server_model, delta)
 
 
 class KrumAggregator(MultiKrumAggregator):
