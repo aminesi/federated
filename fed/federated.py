@@ -1,5 +1,5 @@
 import time
-from typing import Callable
+from typing import Callable, Dict, Any
 import tensorflow as tf
 
 from fed.aggregators import AbstractAggregator
@@ -40,7 +40,8 @@ class FedTester:
         test_data = self.dataset.create_test_data()
         return server_model, test_data
 
-    def perform_fed_training(self, number_of_rounds: int = NUM_ROUNDS):
+    def perform_fed_training(self, number_of_rounds: int = NUM_ROUNDS) -> Dict[str, Any]:
+        results = {}
         t = time.time()
         server_model, test_data = self.initialize_federated()
         attacker = self.data_attacker
@@ -59,13 +60,24 @@ class FedTester:
                 trainer = self.get_trainer(client)
                 self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
             self.aggregator.aggregate(server_model, byzantine)
-            print('Training round: {}\t\taccuracy = {}'
-                  .format(round_num, server_model.evaluate(test_data, verbose=0)[1]))
+            main_accuracy = server_model.evaluate(test_data, verbose=0)[1]
+            if 'main_accuracy' not in results:
+                results['main_accuracy'] = []
+            results['main_accuracy'].append(main_accuracy)
+            print('Training round: {}\t\taccuracy = {}'.format(round_num, main_accuracy))
             if self.model_attacker is not None and isinstance(self.model_attacker, BackdoorAttack):
                 back_data = self.dataset.create_test_data(self.model_attacker.x_test, self.model_attacker.y_test)
-                print('backdoor accuracy: {}'.format(server_model.evaluate(back_data, verbose=0)[1]))
+                backdoor_accuracy = server_model.evaluate(back_data, verbose=0)[1]
+                if 'backdoor_accuracy' not in results:
+                    results['backdoor_accuracy'] = []
+                results['backdoor_accuracy'].append(backdoor_accuracy)
+                print('backdoor accuracy: {}'.format(backdoor_accuracy))
 
-        print('Training duration {}'.format(time.time() - t))
+        t = time.time() - t
+        results['time'] = t
+        print('Training duration {}'.format(t))
+
+        return results
 
     def get_trainer(self, client):
         if self.model_attacker and client in self.model_attacker.get_attacked_clients():

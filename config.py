@@ -6,6 +6,7 @@ from tensorflow.keras.applications.efficientnet import EfficientNetB7
 import os
 
 ADNI_ROOT = os.environ.get('adni_root', './dataset')
+RESULTS_ROOT = os.environ.get('results_root', './results')
 
 with open('config.json') as config_file:
     config: Dict[str, any] = json.load(config_file)
@@ -146,3 +147,18 @@ def get_loss():
 
 def get_num_round():
     return get_param('num-rounds')
+
+
+def get_result_dir():
+    attack = get_param('attack', 'clean')
+    if attack != 'clean':
+        attack = '{}-{}'.format(attack.replace('-', ''), get_param('attack-fraction'))
+    dir_name = '{}-{}--{}--{}/'.format(get_param('dataset'), get_non_iid_deg(),
+                                       get_param('aggregator', 'fed-avg').replace('-', ''),
+                                       attack)
+    path = os.path.join(RESULTS_ROOT, dir_name)
+    os.makedirs(path, exist_ok=True)
+    return path
+
+
+get_result_dir()

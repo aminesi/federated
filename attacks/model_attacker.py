@@ -22,9 +22,6 @@ class AbstractModelAttacker(AbstractAttacker):
     def set_first_trainable_layer(self, first_trainable_layer):
         self.first_trainable_layer = first_trainable_layer
 
-    def evaluate(self, server_model: tf.keras.Model):
-        pass
-
 
 class NoModelAttacker(AbstractModelAttacker):
 
@@ -128,7 +125,6 @@ class BackdoorAttack(NoModelAttacker):
         return np.random.choice(pool, min(int(np.round(.05 * len(labels))), len(pool)), False)
 
     def forward_pass(self, dataset: tf.data.Dataset, server_model: tf.keras.Model):
-        print('back')
         weights_delta = super().forward_pass(dataset, server_model)
 
         # for epoch in range(NUM_EPOCHS):
@@ -141,6 +137,3 @@ class BackdoorAttack(NoModelAttacker):
 
         weights_delta = tf.nest.map_structure(lambda x: x * 10 / self.chosen_attackers, weights_delta)
         return weights_delta
-
-    def evaluate(self, server_model: tf.keras.Model):
-        print('Backdoor accuracy: {}'.format(server_model.evaluate(x_test, y_test, verbose=0)[1]))

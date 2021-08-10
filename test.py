@@ -1,17 +1,18 @@
 from attacks.data_attacker import LabelAttacker, NoiseMutator, OverlapMutator, DeleteMutator, UnbalanceMutator
 from fed.aggregators import MedianAggregator, FedAvgAggregator, KrumAggregator, TrimmedMeanAggregator
-from config import get_model, load_data, get_num_round, get_param, throw_conf_error
+from config import get_model, load_data, get_num_round, get_param, throw_conf_error, get_result_dir
 from fed.federated import FedTester
 from attacks.model_attacker import SignFlipModelAttacker, BackdoorAttack, RandomModelAttacker
 from utils.util import ADNIDataset, Dataset
+import numpy as np
 
-result = load_data()
+data_loader_result = load_data()
 
 dataset = None
-if isinstance(result, str):
-    dataset = ADNIDataset(result)
+if isinstance(data_loader_result, str):
+    dataset = ADNIDataset(data_loader_result)
 else:
-    dataset = Dataset(*result)
+    dataset = Dataset(*data_loader_result)
 
 
 def get_aggregator():
@@ -61,4 +62,15 @@ fed_tester = FedTester(
     **get_attacks()
 )
 
-fed_tester.perform_fed_training(get_num_round())
+results = fed_tester.perform_fed_training(get_num_round())
+
+results_dir = get_result_dir()
+for key in results:
+    file_path = results_dir + key
+    result = results[key]
+    if key == 'time':
+        with open(file_path, 'w') as file:
+            file.write(str(result))
+            file.close()
+    else:
+        np.save(file_path, np.array(result))
