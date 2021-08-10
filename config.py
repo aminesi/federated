@@ -110,12 +110,6 @@ def get_optimizer():
 
 def get_loss():
     return tf.keras.losses.SparseCategoricalCrossentropy()
-    # if config['dataset'] == 'mnist':
-    #     pass
-    # elif config['dataset'] == 'cifar':
-    #     return tf.keras.losses.SparseCategoricalCrossentropy()
-    # else:
-    #     throw_conf_error('dataset')
 
 
 def get_num_round():

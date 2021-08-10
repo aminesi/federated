@@ -4,6 +4,7 @@ import os
 import tensorflow as tf
 
 from attacks.data_attacker import AbstractDataAttacker
+from attacks.model_attacker import BackdoorAttack
 from utils.constants import *
 from fed.partitioner import get_partitioned_indices
 
@@ -46,7 +47,12 @@ class Dataset(object):
             self.partitioned_data = data_attacker.attack(self.partitioned_data)
 
     def create_test_data(self):
-        return self.create_client_data((self.x_test, self.y_test))
+        x, y = list(zip(*[self.data_preprocessor(x, y) for x, y in zip(self.x_test, self.y_test)]))
+        return np.array(x), np.array(y)
+
+    def backdoor(self, model_attacker: BackdoorAttack):
+        self.partitioned_data = model_attacker.attack_train(self.partitioned_data)
+        model_attacker.attack_test(self.x_test, self.y_test)
 
 
 class ADNIDataset(Dataset):

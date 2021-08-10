@@ -1,6 +1,5 @@
 {
-  "dataset": "adni",
+  "dataset": "cifar",
   "num_of_rounds": 100,
   "non_iid_deg": 0
-
 }

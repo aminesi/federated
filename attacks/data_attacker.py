@@ -58,15 +58,15 @@ class NoiseMutator(AbstractDataAttacker):
         for client in self.attacked_clients:
             x_train = partitioned_data[client][0]
             is_int8 = x_train.dtype == np.uint8
-            if is_int8:
-                x_train = x_train / 255
+            x_train = x_train / 255
             for i, x in enumerate(x_train):
                 std = np.std(x) * self.sigma_multiplier
                 x = x + np.random.normal(0, std, x.shape)
                 x = np.clip(x, 0, 1)
                 x_train[i] = x
+            x_train = x_train * 255
             if is_int8:
-                x_train = np.round(x_train * 255).astype(np.uint8)
+                x_train = np.round(x_train).astype(np.uint8)
             partitioned_data[client] = (x_train, partitioned_data[client][1])
         self.attacked_clients = set(self.attacked_clients)
         print(self.__class__.__name__ + " finished.")

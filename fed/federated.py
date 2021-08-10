@@ -5,7 +5,7 @@ import tensorflow as tf
 from fed.aggregators import AbstractAggregator
 from utils.constants import *
 from attacks.data_attacker import AbstractDataAttacker, NoDataAttacker
-from attacks.model_attacker import AbstractModelAttacker, NoModelAttacker
+from attacks.model_attacker import AbstractModelAttacker, NoModelAttacker, BackdoorAttack
 from utils.util import Dataset
 
 
@@ -26,6 +26,8 @@ class FedTester:
 
     def initialize_federated(self):
         self.dataset.attack_data(self.data_attacker)
+        if self.model_attacker is not None and isinstance(self.model_attacker, BackdoorAttack):
+            self.dataset.backdoor(self.model_attacker)
         server_model = self.model_fn()
         first_trainable_layer = 0
         for i, layer in enumerate(server_model.layers[::-1]):
@@ -41,16 +43,26 @@ class FedTester:
     def perform_fed_training(self, number_of_rounds: int = NUM_ROUNDS):
         t = time.time()
         server_model, test_data = self.initialize_federated()
-        byzantine = 0
-        if self.data_attacker is not None:
-            byzantine = int(len(self.data_attacker.get_attacked_clients()) * TRAINING_FRACTION)
+        attacker = self.data_attacker
+        if self.model_attacker:
+            attacker = self.model_attacker
+        byzantine = int(len(attacker.get_attacked_clients()) * TRAINING_FRACTION)
         for round_num in range(1, number_of_rounds + 1):
-            for client, client_dataset in self.dataset.make_federated_data():
+            data = self.dataset.make_federated_data()
+            if self.model_attacker and isinstance(self.model_attacker, BackdoorAttack):
+                attackers = 0
+                for client, _ in data:
+                    if client in self.model_attacker.get_attacked_clients():
+                        attackers += 1
+                self.model_attacker.chosen_attackers = attackers
+            for client, client_dataset in data:
                 trainer = self.get_trainer(client)
                 self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
             self.aggregator.aggregate(server_model, byzantine)
             print('Training round: {}\t\taccuracy = {}'
-                  .format(round_num, server_model.evaluate(test_data, verbose=0)[1]))
+                  .format(round_num, server_model.evaluate(*test_data, verbose=0)[1]))
+            if self.model_attacker is not None:
+                self.model_attacker.evaluate(test_data, server_model)
 
         print('Training duration {}'.format(time.time() - t))
 
@@ -62,4 +74,6 @@ class FedTester:
     def set_first_trainable_layer(self, first_trainable_layer):
         self.first_trainable_layer = first_trainable_layer
         self.benign_trainer.set_first_trainable_layer(first_trainable_layer)
+        if self.model_attacker:
+            self.model_attacker.set_first_trainable_layer(first_trainable_layer)
         self.aggregator.set_first_trainable_layer(first_trainable_layer)
