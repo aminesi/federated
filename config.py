@@ -5,7 +5,6 @@ import numpy as np
 from tensorflow.keras.applications.efficientnet import EfficientNetB7
 import os
 
-
 ADNI_ROOT = os.environ.get('adni_root', './dataset')
 
 with open('config.json') as config_file:
@@ -14,9 +13,12 @@ with open('config.json') as config_file:
 
 possible_configs = {
     'dataset': {'mnist', 'cifar'},
-    'aggregator': {'fed-avg', 'median', 'tr-mean', 'krum', 'm-krum'},
-    'attack': {'type', 'fraction', 'args'},
-    'non_iid_deg': 'float between 0 and 1'
+    'aggregator': {'fed-avg', 'median', 'trimmed-mean', 'krum'},
+    'attack': {'label-flip', 'noise-data', 'overlap-data', 'delete-data', 'unbalance-data', 'random-update',
+               'sign-flip', 'backdoor'},
+    'attack-fraction': 'float between 0 and 1',
+    'non-iid-deg': 'float between 0 and 1',
+    'num-rounds': 'integer value'
 
 }
 
@@ -28,14 +30,16 @@ def throw_conf_error(param):
                          .format(param, possible_configs[param]))
 
 
-def get_param(param):
+def get_param(param, default_val=None):
     if param in config:
         return config[param]
+    if default_val is not None:
+        return default_val
     throw_conf_error(param)
 
 
 def get_non_iid_deg():
-    return get_param('non_iid_deg')
+    return get_param('non-iid-deg')
 
 
 def load_data():
@@ -141,4 +145,4 @@ def get_loss():
 
 
 def get_num_round():
-    return get_param('num_of_rounds')
+    return get_param('num-rounds')

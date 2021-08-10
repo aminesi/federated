@@ -48,7 +48,7 @@ class LabelAttacker(AbstractDataAttacker):
 
 class NoiseMutator(AbstractDataAttacker):
 
-    def __init__(self, fraction: float, sigma_multiplier: float) -> None:
+    def __init__(self, fraction: float, sigma_multiplier: float = 1) -> None:
         super().__init__(fraction)
         self.sigma_multiplier = sigma_multiplier
 
@@ -75,7 +75,7 @@ class NoiseMutator(AbstractDataAttacker):
 
 class DeleteMutator(AbstractDataAttacker):
 
-    def __init__(self, fraction: float, delete_percentage: float) -> None:
+    def __init__(self, fraction: float, delete_percentage: float = 0.75) -> None:
         super().__init__(fraction)
         self.delete_percentage = delete_percentage
 
@@ -98,7 +98,7 @@ class DeleteMutator(AbstractDataAttacker):
 
 class UnbalanceMutator(AbstractDataAttacker):
 
-    def __init__(self, fraction: float, unbalance_percentage: float) -> None:
+    def __init__(self, fraction: float, unbalance_percentage: float = 0.75) -> None:
         super().__init__(fraction)
         self.unbalance_percentage = unbalance_percentage
 
@@ -129,7 +129,7 @@ class UnbalanceMutator(AbstractDataAttacker):
 
 class OverlapMutator(AbstractDataAttacker):
 
-    def __init__(self, fraction: float, overlap_percentage: float) -> None:
+    def __init__(self, fraction: float, overlap_percentage: float = 0.75) -> None:
         super().__init__(fraction)
         self.overlap_percentage = overlap_percentage
 

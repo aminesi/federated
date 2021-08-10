@@ -1,5 +1,8 @@
 {
+  "num-rounds": 100,
   "dataset": "mnist",
-  "num_of_rounds": 100,
-  "non_iid_deg": 0
+  "non-iid-deg": 0,
+  "aggregator": "krum",
+  "attack": "random-update",
+  "attack-fraction": 0.5
 }
