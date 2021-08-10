@@ -46,19 +46,23 @@ class Dataset(object):
         if data_attacker is not None:
             self.partitioned_data = data_attacker.attack(self.partitioned_data)
 
-    def create_test_data(self):
-        x, y = list(zip(*[self.data_preprocessor(x, y) for x, y in zip(self.x_test, self.y_test)]))
-        return np.array(x), np.array(y)
+    def create_test_data(self, x_test=None, y_test=None):
+        if x_test is None:
+            x_test = self.x_test
+        if y_test is None:
+            y_test = self.y_test
+        return self.create_client_data((x_test, y_test))
 
     def backdoor(self, model_attacker: BackdoorAttack):
         self.partitioned_data = model_attacker.attack_train(self.partitioned_data)
-        model_attacker.attack_test(self.x_test, self.y_test)
+        self.x_test, self.y_test = model_attacker.attack_test(self.x_test, self.y_test)
 
 
 class ADNIDataset(Dataset):
 
     def __init__(self, root_dir: str):
-        super(ADNIDataset, self).__init__(None, np.array([]), None, np.array([]), lambda x, y: (x, y))
+        super(ADNIDataset, self).__init__(None, np.array([]), None, np.array([]),
+                                          lambda x, y: (tf.cast(x, tf.float32) / 255.0, y))
         if not root_dir.endswith('/'):
             root_dir += '/'
         self.x_test = np.load(root_dir + 'x_test.npy')
@@ -73,6 +77,7 @@ class ADNIDataset(Dataset):
                 self.partitioned_data.append((np.load(path + 'x_train.npy'), np.load(path + 'y_train.npy')))
 
     def create_client_data(self, data):
+        data = self.data_preprocessor(*data)
         gen_params = {"featurewise_center": False, "samplewise_center": False, "featurewise_std_normalization": False,
                       "samplewise_std_normalization": False, "zca_whitening": False, "rotation_range": 5,
                       "shear_range": 0.1, "horizontal_flip": True, "vertical_flip": True, "fill_mode": 'constant',
@@ -82,3 +87,10 @@ class ADNIDataset(Dataset):
         gen.fit(data[0], seed=1)
 
         return gen.flow(data[0], data[1], batch_size=BATCH_SIZE, shuffle=True)
+
+    def create_test_data(self, x_test=None, y_test=None):
+        if x_test is None:
+            x_test = self.x_test
+        if y_test is None:
+            y_test = self.y_test
+        return super(ADNIDataset, self).create_client_data((x_test, y_test))

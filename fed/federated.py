@@ -60,9 +60,10 @@ class FedTester:
                 self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
             self.aggregator.aggregate(server_model, byzantine)
             print('Training round: {}\t\taccuracy = {}'
-                  .format(round_num, server_model.evaluate(*test_data, verbose=0)[1]))
-            if self.model_attacker is not None:
-                self.model_attacker.evaluate(test_data, server_model)
+                  .format(round_num, server_model.evaluate(test_data, verbose=0)[1]))
+            if self.model_attacker is not None and isinstance(self.model_attacker, BackdoorAttack):
+                back_data = self.dataset.create_test_data(self.model_attacker.x_test, self.model_attacker.y_test)
+                print('backdoor accuracy: {}'.format(server_model.evaluate(back_data, verbose=0)[1]))
 
         print('Training duration {}'.format(time.time() - t))
 

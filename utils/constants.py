@@ -13,10 +13,9 @@ NUM_ROUNDS = 100
 if config.get_param('dataset') == 'adni':
     NUM_CLIENTS = 6
     TRAINING_FRACTION = 1
-    BATCH_SIZE = 32
-    NUM_EPOCHS = 1
+    NUM_EPOCHS = 2
 
 
 def pick_clients(fraction: float):
-    count = int(fraction * NUM_CLIENTS)
+    count = int(np.round(fraction * NUM_CLIENTS))
     return np.random.choice(range(NUM_CLIENTS), replace=False, size=count)

@@ -51,16 +51,11 @@ class MedianAggregator(AbstractAggregator):
 
 class TrimmedMeanAggregator(AbstractAggregator):
 
-    def __init__(self, beta: float) -> None:
-        super().__init__()
-        if not (0 <= beta < 0.5):
-            raise ValueError('beta shoulb be in in [0,1/2) interval')
-        self.beta = beta
-
     def aggregate(self, server_model: tf.keras.Model, num_byzantine: int):
         delta = []
         num_clients = len(self.layers_delta[0])
-        exclusions = int(np.round(2 * self.beta * num_clients))
+        beta = num_byzantine / num_clients
+        exclusions = int(np.round(2 * beta * num_clients))
         low = exclusions // 2
         high = exclusions // 2
         high += exclusions % 2

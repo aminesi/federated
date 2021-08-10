@@ -22,7 +22,7 @@ class AbstractModelAttacker(AbstractAttacker):
     def set_first_trainable_layer(self, first_trainable_layer):
         self.first_trainable_layer = first_trainable_layer
 
-    def evaluate(self, test_data: tf.data.Dataset, server_model: tf.keras.Model):
+    def evaluate(self, server_model: tf.keras.Model):
         pass
 
 
@@ -83,6 +83,8 @@ class BackdoorAttack(NoModelAttacker):
         self.margin_relative_size = 0.05
         self.backdoor_test_samples = []
         self.chosen_attackers = 0
+        self.x_test = []
+        self.y_test = []
 
     def attack_train(self, partitioned_data: List[Tuple[np.ndarray, np.ndarray]]) -> \
             List[Tuple[np.ndarray, np.ndarray]]:
@@ -102,7 +104,9 @@ class BackdoorAttack(NoModelAttacker):
         attacked_indices = self.pick_attacked_samples(y_test)
         y_test[attacked_indices] = self.target_class
         x_test[attacked_indices] = self.add_pattern((x_test[attacked_indices]))
-        self.backdoor_test_samples = attacked_indices
+        self.x_test = x_test[attacked_indices]
+        self.y_test = y_test[attacked_indices]
+        return np.delete(x_test, attacked_indices, 0), np.delete(y_test, attacked_indices, 0)
 
     def add_pattern(self, x: np.ndarray):
         height, width, channel = x.shape[1:]
@@ -138,8 +142,5 @@ class BackdoorAttack(NoModelAttacker):
         weights_delta = tf.nest.map_structure(lambda x: x * 10 / self.chosen_attackers, weights_delta)
         return weights_delta
 
-    def evaluate(self, test_data: tf.data.Dataset, server_model: tf.keras.Model):
-        x_test, y_test = test_data
-        x_test = x_test[self.backdoor_test_samples]
-        y_test = y_test[self.backdoor_test_samples]
+    def evaluate(self, server_model: tf.keras.Model):
         print('Backdoor accuracy: {}'.format(server_model.evaluate(x_test, y_test, verbose=0)[1]))
