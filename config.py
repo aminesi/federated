@@ -4,11 +4,13 @@ import tensorflow as tf
 import numpy as np
 from tensorflow.keras.applications.efficientnet import EfficientNetB7
 import os
+import shutil
 
-ADNI_ROOT = os.environ.get('adni_root', './dataset')
-RESULTS_ROOT = os.environ.get('results_root', './results')
+ADNI_ROOT = os.environ.get('ADNI_ROOT', './dataset')
+RESULTS_ROOT = os.environ.get('RESULTS_ROOT', './results')
+CONFIG_PATH = os.environ.get('CONFIG_PATH', './config.json')
 
-with open('config.json') as config_file:
+with open(CONFIG_PATH) as config_file:
     config: Dict[str, any] = json.load(config_file)
     config_file.close()
 
@@ -158,7 +160,5 @@ def get_result_dir():
                                        attack)
     path = os.path.join(RESULTS_ROOT, dir_name)
     os.makedirs(path, exist_ok=True)
+    shutil.copy(CONFIG_PATH, path)
     return path
-
-
-get_result_dir()
