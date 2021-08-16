@@ -60,11 +60,13 @@ class FedTester:
                 trainer = self.get_trainer(client)
                 self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
             self.aggregator.aggregate(server_model, byzantine)
+
             main_accuracy = server_model.evaluate(test_data, verbose=0)[1]
             if 'main_accuracy' not in results:
                 results['main_accuracy'] = []
             results['main_accuracy'].append(main_accuracy)
             print('Training round: {}\t\taccuracy = {}'.format(round_num, main_accuracy))
+            print(np.unique(server_model.predict(self.dataset.x_test).argmax(axis=1), return_counts=True))
             if self.model_attacker is not None and isinstance(self.model_attacker, BackdoorAttack):
                 back_data = self.dataset.create_test_data(self.model_attacker.x_test, self.model_attacker.y_test)
                 backdoor_accuracy = server_model.evaluate(back_data, verbose=0)[1]

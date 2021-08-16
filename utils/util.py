@@ -61,25 +61,25 @@ class Dataset(object):
 class ADNIDataset(Dataset):
 
     def __init__(self, root_dir: str):
-        super(ADNIDataset, self).__init__(None, np.array([]), None, np.array([]),
-                                          lambda x, y: (tf.cast(x, tf.float32) / 255.0, y))
+        super(ADNIDataset, self).__init__(None, np.array([]), None, np.array([]), lambda x, y: (x, y))
         if not root_dir.endswith('/'):
             root_dir += '/'
-        self.x_test = np.load(root_dir + 'x_test.npy')
-        self.y_test = np.load(root_dir + 'y_test.npy')
+        self.x_test = np.load(root_dir + 'X_test_ax.npz.npy')
+        self.y_test = np.load(root_dir + 'Y_test_ax.npz.npy')
 
-        self.x_val = np.load(root_dir + 'x_val.npy')
-        self.y_val = np.load(root_dir + 'y_val.npy')
+        x_train = np.load(root_dir + 'X_train_ax.npz.npy')
+        y_train = np.load(root_dir + 'Y_train_ax.npz.npy')
+        center_train = np.load(root_dir + 'center_train.npy')
         self.partitioned_data = []
-        for folder in os.listdir(root_dir):
-            path = root_dir + folder + '/'
-            if os.path.isdir(path):
-                self.partitioned_data.append((np.load(path + 'x_train.npy'), np.load(path + 'y_train.npy')))
+        for i in range(len(np.unique(center_train))):
+            indices = center_train == i
+            self.partitioned_data.append((x_train[indices], y_train[indices]))
 
     def create_client_data(self, data):
         data = self.data_preprocessor(*data)
         gen_params = {"featurewise_center": False, "samplewise_center": False, "featurewise_std_normalization": False,
                       "samplewise_std_normalization": False, "zca_whitening": False, "rotation_range": 5,
+                      "width_shift_range": 0.1, "height_shift_range": 0.1,
                       "shear_range": 0.1, "horizontal_flip": True, "vertical_flip": True, "fill_mode": 'constant',
                       "cval": 0}
         gen = tf.keras.preprocessing.image.ImageDataGenerator(**gen_params)

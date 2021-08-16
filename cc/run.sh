@@ -4,7 +4,7 @@
 #SBATCH --output=%x.out
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-#SBATCH --mem=16G
+#SBATCH --mem=32G
 
 
 cd ~/federated/

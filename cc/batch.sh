@@ -1,9 +1,5 @@
 #! /bin/bash
 
-for CONF_ID in 16 26 27 28 29 30 31 32 33 34 36 37 38 39 40 41 42 45 47 48 49 63 73 ; do
-   sbatch --export=ALL,CONF_ID=$CONF_ID --job-name=fed-job-$CONF_ID cc/run.sh
-done
-
-for CONF_ID in {75..300} ; do
+for CONF_ID in 26 32 33 37 40 77 109 124 125 161 163 173 179 182 187 194 196 201 203 214 221 231 234 242 243 244 247 ; do
    sbatch --export=ALL,CONF_ID=$CONF_ID --job-name=fed-job-$CONF_ID cc/run.sh
 done

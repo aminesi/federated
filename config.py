@@ -2,11 +2,11 @@ import json
 from typing import Dict
 import tensorflow as tf
 import numpy as np
-from tensorflow.keras.applications.efficientnet import EfficientNetB7
+from tensorflow.keras.applications.efficientnet import EfficientNetB0
 import os
 import shutil
 
-ADNI_ROOT = os.environ.get('ADNI_ROOT', './dataset')
+ADNI_ROOT = os.environ.get('ADNI_ROOT', './adni')
 RESULTS_ROOT = os.environ.get('RESULTS_ROOT', './results')
 CONFIG_PATH = os.environ.get('CONFIG_PATH', './config.json')
 
@@ -89,45 +89,18 @@ def get_model():
             tf.keras.layers.Dense(10, activation='softmax'),
         ])
     elif config['dataset'] == 'adni':
-        return tf.keras.models.Sequential([
-            tf.keras.layers.Conv2D(64, 3, padding='same', input_shape=(128, 128, 3), activation='relu'),
-            tf.keras.layers.Conv2D(64, 3, activation='relu'),
-            tf.keras.layers.MaxPooling2D(),
-            tf.keras.layers.Dropout(0.1),
+        model = EfficientNetB0(include_top=False, weights='imagenet', input_shape=(128, 128, 3))
 
-            tf.keras.layers.Conv2D(128, 3, padding='same', activation='relu'),
-            tf.keras.layers.Conv2D(128, 3, activation='relu'),
-            tf.keras.layers.MaxPooling2D(),
-            tf.keras.layers.Dropout(0.1),
+        model.trainable = False
+        # add new classifier layers
+        x1 = model(model.inputs, training=False)
 
-            tf.keras.layers.Conv2D(256, 3, padding='same', activation='relu'),
-            tf.keras.layers.Conv2D(256, 3, activation='relu'),
-            tf.keras.layers.MaxPooling2D(),
-            tf.keras.layers.Dropout(0.1),
-
-            tf.keras.layers.Flatten(),
-            tf.keras.layers.Dense(1024, activation='relu'),
-            tf.keras.layers.Dropout(0.5),
-            tf.keras.layers.Dense(2, activation='softmax'),
-        ])
-    # return tf.keras.models.Sequential([
-    #     tf.keras.layers.Conv2D(filters=64, input_shape=(128, 128, 3), kernel_size=3, activation="relu"),
-    #     tf.keras.layers.MaxPool2D(pool_size=2),
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Conv2D(filters=64, kernel_size=3, activation="relu"),
-    #     tf.keras.layers.MaxPool2D(pool_size=2),
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Conv2D(filters=128, kernel_size=3, activation="relu"),
-    #     tf.keras.layers.MaxPool2D(pool_size=2),
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.Conv2D(filters=256, kernel_size=3, activation="relu"),
-    #     tf.keras.layers.MaxPool2D(pool_size=2),
-    #     tf.keras.layers.BatchNormalization(),
-    #     tf.keras.layers.GlobalAveragePooling2D(),
-    #     tf.keras.layers.Dense(units=512, activation="relu"),
-    #     tf.keras.layers.Dropout(0.3),
-    #     tf.keras.layers.Dense(units=2, activation="softmax")
-    # ])
+        flat1 = tf.keras.layers.Flatten()(x1)
+        dense1 = tf.keras.layers.Dense(100, activation='relu')(flat1)
+        output = tf.keras.layers.Dense(2, activation='softmax')(dense1)
+        # define new model
+        model = tf.keras.Model(inputs=model.inputs, outputs=output)
+        return model
     else:
         throw_conf_error('dataset')
 
@@ -138,7 +111,7 @@ def get_optimizer():
     elif config['dataset'] == 'cifar':
         return tf.keras.optimizers.SGD(0.01)
     elif config['dataset'] == 'adni':
-        return tf.keras.optimizers.SGD(.0001)
+        return tf.keras.optimizers.SGD(0.001)
     else:
         throw_conf_error('dataset')
 
