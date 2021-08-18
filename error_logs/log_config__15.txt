@@ -1,0 +1,17 @@
+2021-08-18 15:50:46.587667: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-08-18 15:50:46.587788: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+---CONFIG_PATH=./config_set/config__15.json
+BackdoorAttack started.
+BackdoorAttack finished.
+Traceback (most recent call last):
+  File "test.py", line 65, in <module>
+    results = fed_tester.perform_fed_training(get_num_round())
+  File "/home/derui/researchs/federated/fed/federated.py", line 46, in perform_fed_training
+    server_model, test_data = self.initialize_federated()
+  File "/home/derui/researchs/federated/fed/federated.py", line 30, in initialize_federated
+    self.dataset.backdoor(self.model_attacker)
+  File "/home/derui/researchs/federated/utils/util.py", line 58, in backdoor
+    self.x_test, self.y_test = model_attacker.attack_test(self.x_test, self.y_test)
+  File "/home/derui/researchs/federated/attacks/model_attacker.py", line 103, in attack_test
+    x_test[attacked_indices] = self.add_pattern((x_test[attacked_indices]))
+ValueError: assignment destination is read-only
