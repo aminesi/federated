@@ -1,0 +1,1 @@
+{"num-rounds": 100, "dataset": "mnist", "attack-fraction": 0.7, "attack": "sign-flip", "aggregator": "trimmed-mean", "non-iid-deg": 0}
