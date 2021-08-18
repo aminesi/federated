@@ -1,1 +1,1 @@
-{"num-rounds": 100, "dataset": "mnist", "attack-fraction": 0.8, "attack": "overlap-data", "aggregator": "trimmed-mean", "non-iid-deg": 0}
+{"num-rounds": 100, "dataset": "mnist", "non-iid-deg": 0.4, "aggregator": "trimmed-mean", "attack": "backdoor", "attack-fraction": 0.1}

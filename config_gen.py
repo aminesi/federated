@@ -30,6 +30,7 @@ for aggregator_way in possible_configs["aggregator"]:
     for attack_way in possible_configs["attack"]:
         base_json["attack"] = attack_way 
         for non_iid_param in [0,0.4,0.7]:
+            base_json["non-iid-deg"] = non_iid_param
             for attack_frac in [0.1,0.3]:
                 base_json["attack-fraction"] = attack_frac  
                 file_name = "%s_%s.json" %(file_name_base, count)
