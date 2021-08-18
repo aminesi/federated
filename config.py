@@ -5,10 +5,14 @@ import numpy as np
 from tensorflow.keras.applications.efficientnet import EfficientNetB7
 import os
 import shutil
+import sys
 
 ADNI_ROOT = os.environ.get('ADNI_ROOT', './dataset')
 RESULTS_ROOT = os.environ.get('RESULTS_ROOT', './results')
 CONFIG_PATH = os.environ.get('CONFIG_PATH', './config.json')
+
+print("---CONFIG_PATH=%s" % CONFIG_PATH)
+sys.stdout.flush()
 
 with open(CONFIG_PATH) as config_file:
     config: Dict[str, any] = json.load(config_file)
@@ -48,7 +52,7 @@ def get_non_iid_deg():
 def load_data():
     x_train, y_train, x_test, y_test = None, None, None, None
     if config['dataset'] == 'mnist':
-        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
         x_train = np.expand_dims(x_train, -1)
         x_test = np.expand_dims(x_test, -1)
     elif config['dataset'] == 'cifar':
