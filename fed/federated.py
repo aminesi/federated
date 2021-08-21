@@ -2,7 +2,7 @@ import time
 from typing import Callable, Dict, Any
 import tensorflow as tf
 
-from fed.aggregators import AbstractAggregator
+from fed.aggregators import AbstractAggregator, KrumAggregator
 from utils.constants import *
 from attacks.data_attacker import AbstractDataAttacker, NoDataAttacker
 from attacks.model_attacker import AbstractModelAttacker, NoModelAttacker, BackdoorAttack
@@ -44,6 +44,8 @@ class FedTester:
         results = {}
         t = time.time()
         server_model, test_data = self.initialize_federated()
+        backup_aggregator = KrumAggregator()
+        val_data = self.dataset.create_test_data(self.dataset.x_val, self.dataset.y_val)
         attacker = self.data_attacker
         if self.model_attacker:
             attacker = self.model_attacker
@@ -58,15 +60,28 @@ class FedTester:
                 self.model_attacker.chosen_attackers = attackers
             for client, client_dataset in data:
                 trainer = self.get_trainer(client)
-                self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
+                delta = trainer.forward_pass(client_dataset, server_model)
+                self.aggregator.add_client_delta(delta)
+                backup_aggregator.add_client_delta(delta)
+            old_weights = server_model.get_weights()
             self.aggregator.aggregate(server_model, byzantine)
-
+            w1 = server_model.get_weights()
+            ac1 = server_model.evaluate(val_data, verbose=0)[1]
+            server_model.set_weights(old_weights)
+            backup_aggregator.aggregate(server_model, byzantine)
+            w2 = server_model.get_weights()
+            ac2 = server_model.evaluate(val_data, verbose=0)[1]
+            if ac1 > ac2:
+                server_model.set_weights(w1)
+            else:
+                server_model.set_weights(w2)
+                print('krum')
             main_accuracy = server_model.evaluate(test_data, verbose=0)[1]
             if 'main_accuracy' not in results:
                 results['main_accuracy'] = []
             results['main_accuracy'].append(main_accuracy)
             print('Training round: {}\t\taccuracy = {}'.format(round_num, main_accuracy))
-            print(np.unique(server_model.predict(self.dataset.x_test).argmax(axis=1), return_counts=True))
+            # print(np.unique(server_model.predict(self.dataset.x_test).argmax(axis=1), return_counts=True))
             if self.model_attacker is not None and isinstance(self.model_attacker, BackdoorAttack):
                 back_data = self.dataset.create_test_data(self.model_attacker.x_test, self.model_attacker.y_test)
                 backdoor_accuracy = server_model.evaluate(back_data, verbose=0)[1]
