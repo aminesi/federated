@@ -66,7 +66,7 @@ class FedTester:
                 results['main_accuracy'] = []
             results['main_accuracy'].append(main_accuracy)
             print('Training round: {}\t\taccuracy = {}'.format(round_num, main_accuracy))
-            print(np.unique(server_model.predict(self.dataset.x_test).argmax(axis=1), return_counts=True))
+            # print(np.unique(server_model.predict(self.dataset.x_test).argmax(axis=1), return_counts=True))
             if self.model_attacker is not None and isinstance(self.model_attacker, BackdoorAttack):
                 back_data = self.dataset.create_test_data(self.model_attacker.x_test, self.model_attacker.y_test)
                 backdoor_accuracy = server_model.evaluate(back_data, verbose=0)[1]
