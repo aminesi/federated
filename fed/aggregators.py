@@ -76,7 +76,7 @@ class MultiKrumAggregator(AbstractAggregator):
 
     def aggregate(self, server_model: tf.keras.Model, num_byzantine: int):
         num_clients = len(self.layers_delta[0])
-        num_layers = len(server_model.get_weights())
+        num_layers = len(self.layers_delta)
         k = num_clients - num_byzantine - 2
         k = max(1, k)
         flattened_deltas = []
