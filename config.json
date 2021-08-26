@@ -1,1 +1,1 @@
-{"num-rounds": 100, "dataset": "adni", "non-iid-deg": 0, "aggregator": "krum"}
+{"num-rounds": 200, "dataset": "mnist", "non-iid-deg": 0.4, "aggregator": "median", "attack": "sign-flip", "attack-fraction": 0.3}
