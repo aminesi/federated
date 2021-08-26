@@ -85,6 +85,8 @@ class ADNIDataset(Dataset):
 
         self.x_test = np.load(root_dir + 'X_test_ax.npz.npy')
         self.y_test = np.load(root_dir + 'Y_test_ax.npz.npy')
+        self.x_val = np.load(root_dir + 'X_val_ax.npz.npy')
+        self.y_val = np.load(root_dir + 'Y_val_ax.npz.npy')
     # def create_client_data(self, data):
     #     data = self.data_preprocessor(*data)
     #     gen_params = {"featurewise_center": False, "samplewise_center": False, "featurewise_std_normalization": False,
