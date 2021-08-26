@@ -14,14 +14,18 @@ class Dataset(object):
     def __init__(self, x_train, y_train, x_test, y_test,
                  data_preprocessor: Callable[[any, any], Tuple],
                  non_iid_deg: float = 0) -> None:
-        indices = np.random.choice(range(len(x_train)), 5000, False)
-        other_indices = list(set(range(len(x_train))) - set(indices))
 
-        self.x_val = x_train[indices]
-        self.y_val = y_train[indices]
-        self.x_train = x_train[other_indices]
-
-        self.y_train = y_train[other_indices].flatten()
+        self.x_val = None
+        self.y_val = None
+        self.x_train = x_train
+        self.y_train = y_train
+        if x_train is not None:
+            indices = np.random.choice(range(len(x_train)), 5000, False)
+            other_indices = list(set(range(len(x_train))) - set(indices))
+            self.x_val = x_train[indices]
+            self.y_val = y_train[indices]
+            self.x_train = x_train[other_indices]
+            self.y_train = y_train[other_indices].flatten()
         self.x_test = x_test
         self.y_test = y_test.flatten()
         self.partitioned_data = None
