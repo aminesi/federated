@@ -1,10 +1,10 @@
 import json
 
 datasets = ['cifar']
-non_iids = [0, 0.4]
-attacks = ['label-flip', 'sign-flip']
-attack_fractions = [0.1, 0.3]
-aggregators = ['median']
+non_iids = [0, 0.4, 0.7]
+attacks = [None, 'label-flip', 'random-update', 'sign-flip', 'backdoor']
+attack_fractions = [0.1, 0.3, 0.5]
+aggregators = ['fed-avg', 'krum', 'median', 'trimmed-mean']
 
 conf = {'num-rounds': 1000}
 
@@ -13,10 +13,14 @@ i = 0
 
 def show(i):
     for aggregator in aggregators:
+        if aggregator == 'fed-avg' and 'attack' in conf and conf['attack'] != 'label-flip':
+            continue
+        if aggregator != 'krum' and 'attack' in conf and conf['attack'] == 'backdoor':
+            continue
         i += 1
         conf['aggregator'] = aggregator
         print(conf)
-        with open('../configs/config-{}.json'.format(i), 'w') as file:
+        with open('../runs/config-{}.json'.format(i), 'w') as file:
             json.dump(conf, file)
             file.close()
     return i

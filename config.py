@@ -2,9 +2,10 @@ import json
 from typing import Dict
 import tensorflow as tf
 import numpy as np
-from tensorflow.keras.applications.efficientnet import EfficientNetB0
+from tensorflow.keras.applications.vgg16 import VGG16
 import os
 import shutil
+import copy
 
 ADNI_ROOT = os.environ.get('ADNI_ROOT', './adni')
 RESULTS_ROOT = os.environ.get('RESULTS_ROOT', './results')
@@ -48,7 +49,8 @@ def get_non_iid_deg():
 def load_data():
     x_train, y_train, x_test, y_test = None, None, None, None
     if config['dataset'] == 'mnist':
-        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
+        y_test = copy.deepcopy(y_test)
         x_train = np.expand_dims(x_train, -1)
         x_test = np.expand_dims(x_test, -1)
     elif config['dataset'] == 'cifar':
@@ -89,17 +91,28 @@ def get_model():
             tf.keras.layers.Dense(10, activation='softmax'),
         ])
     elif config['dataset'] == 'adni':
-        model = EfficientNetB0(include_top=False, weights='imagenet', input_shape=(128, 128, 3))
+        model = VGG16(include_top=False, input_shape=(256, 256, 3))
+        model.get_layer('block1_conv1').trainable = False
+        model.get_layer('block1_conv2').trainable = False
+        model.get_layer('block2_conv1').trainable = False
+        model.get_layer('block2_conv2').trainable = False
+        model.get_layer('block3_conv1').trainable = False
+        model.get_layer('block3_conv2').trainable = False
+        model.get_layer('block3_conv3').trainable = False
+        model.get_layer('block4_conv1').trainable = False
+        model.get_layer('block4_conv2').trainable = False
+        model.get_layer('block4_conv3').trainable = False
+        model.get_layer('block5_conv1').trainable = False
+        model.get_layer('block5_conv2').trainable = False
+        model.get_layer('block5_conv3').trainable = False
 
-        model.trainable = False
         # add new classifier layers
-        x1 = model(model.inputs, training=False)
-
-        flat1 = tf.keras.layers.Flatten()(x1)
-        dense1 = tf.keras.layers.Dense(100, activation='relu')(flat1)
-        output = tf.keras.layers.Dense(2, activation='softmax')(dense1)
+        flat1 = tf.keras.layers.Flatten()(model.layers[-1].output)
+        class1 = tf.keras.layers.Dense(512, activation='relu')(flat1)
+        output = tf.keras.layers.Dense(2, activation='softmax')(class1)
         # define new model
         model = tf.keras.Model(inputs=model.inputs, outputs=output)
+
         return model
     else:
         throw_conf_error('dataset')

@@ -70,8 +70,6 @@ class ADNIDataset(Dataset):
         super(ADNIDataset, self).__init__(None, np.array([]), None, np.array([]), lambda x, y: (x, y))
         if not root_dir.endswith('/'):
             root_dir += '/'
-        self.x_test = np.load(root_dir + 'X_test_ax.npz.npy')
-        self.y_test = np.load(root_dir + 'Y_test_ax.npz.npy')
 
         x_train = np.load(root_dir + 'X_train_ax.npz.npy')
         y_train = np.load(root_dir + 'Y_train_ax.npz.npy')
@@ -81,22 +79,28 @@ class ADNIDataset(Dataset):
             indices = center_train == i
             self.partitioned_data.append((x_train[indices], y_train[indices]))
 
-    def create_client_data(self, data):
-        data = self.data_preprocessor(*data)
-        gen_params = {"featurewise_center": False, "samplewise_center": False, "featurewise_std_normalization": False,
-                      "samplewise_std_normalization": False, "zca_whitening": False, "rotation_range": 5,
-                      "width_shift_range": 0.1, "height_shift_range": 0.1,
-                      "shear_range": 0.1, "horizontal_flip": True, "vertical_flip": True, "fill_mode": 'constant',
-                      "cval": 0}
-        gen = tf.keras.preprocessing.image.ImageDataGenerator(**gen_params)
+        del x_train
+        del y_train
+        del center_train
 
-        gen.fit(data[0], seed=1)
+        self.x_test = np.load(root_dir + 'X_test_ax.npz.npy')
+        self.y_test = np.load(root_dir + 'Y_test_ax.npz.npy')
+    # def create_client_data(self, data):
+    #     data = self.data_preprocessor(*data)
+    #     gen_params = {"featurewise_center": False, "samplewise_center": False, "featurewise_std_normalization": False,
+    #                   "samplewise_std_normalization": False, "zca_whitening": False, "rotation_range": 5,
+    #                   "width_shift_range": 0.1, "height_shift_range": 0.1,
+    #                   "shear_range": 0.1, "horizontal_flip": True, "vertical_flip": True, "fill_mode": 'constant',
+    #                   "cval": 0}
+    #     gen = tf.keras.preprocessing.image.ImageDataGenerator(**gen_params)
+    #
+    #     gen.fit(data[0], seed=1)
+    #
+    #     return gen.flow(data[0], data[1], batch_size=BATCH_SIZE, shuffle=True)
 
-        return gen.flow(data[0], data[1], batch_size=BATCH_SIZE, shuffle=True)
-
-    def create_test_data(self, x_test=None, y_test=None):
-        if x_test is None:
-            x_test = self.x_test
-        if y_test is None:
-            y_test = self.y_test
-        return super(ADNIDataset, self).create_client_data((x_test, y_test))
+    # def create_test_data(self, x_test=None, y_test=None):
+    #     if x_test is None:
+    #         x_test = self.x_test
+    #     if y_test is None:
+    #         y_test = self.y_test
+    #     return super(ADNIDataset, self).create_client_data((x_test, y_test))
