@@ -37,7 +37,8 @@ class FedTester:
                 break
         self.set_first_trainable_layer(first_trainable_layer)
         server_model.compile(metrics=tf.keras.metrics.SparseCategoricalAccuracy())
-        self.aggregator.clear_aggregator()
+        if self.aggregator is not None:
+            self.aggregator.clear_aggregator()
         test_data = self.dataset.create_test_data()
         return server_model, test_data
 
@@ -65,20 +66,27 @@ class FedTester:
             for client, client_dataset in data:
                 trainer = self.get_trainer(client)
                 delta = trainer.forward_pass(client_dataset, server_model)
+                if self.aggregator is not None:
+                    self.aggregator.add_client_delta(delta)
+                else:
+                    for aggregator in aggregators:
+                        aggregator.add_client_delta(delta)
+
+            if self.aggregator is not None:
+                self.aggregator.aggregate(server_model, byzantine)
+            else:
+                old_weights = server_model.get_weights()
+
+                weights = []
+                accuracies = []
                 for aggregator in aggregators:
-                    aggregator.add_client_delta(delta)
+                    server_model.set_weights(old_weights)
+                    aggregator.aggregate(server_model, byzantine)
+                    weights.append(server_model.get_weights())
+                    accuracies.append(server_model.evaluate(val_data, verbose=0)[1])
 
-            old_weights = server_model.get_weights()
+                server_model.set_weights(weights[np.argmax(accuracies)])
 
-            weights = []
-            accuracies = []
-            for aggregator in aggregators:
-                server_model.set_weights(old_weights)
-                aggregator.aggregate(server_model, byzantine)
-                weights.append(server_model.get_weights())
-                accuracies.append(server_model.evaluate(val_data, verbose=0)[1])
-
-            server_model.set_weights(weights[np.argmax(accuracies)])
             main_accuracy = server_model.evaluate(test_data, verbose=0)[1]
             if 'main_accuracy' not in results:
                 results['main_accuracy'] = []
@@ -109,4 +117,5 @@ class FedTester:
         self.benign_trainer.set_first_trainable_layer(first_trainable_layer)
         if self.model_attacker:
             self.model_attacker.set_first_trainable_layer(first_trainable_layer)
-        self.aggregator.set_first_trainable_layer(first_trainable_layer)
+        if self.aggregator is not None:
+            self.aggregator.set_first_trainable_layer(first_trainable_layer)

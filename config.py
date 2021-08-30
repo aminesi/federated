@@ -16,8 +16,8 @@ with open(CONFIG_PATH) as config_file:
     config_file.close()
 
 possible_configs = {
-    'dataset': {'mnist', 'cifar'},
-    'aggregator': {'fed-avg', 'median', 'trimmed-mean', 'krum'},
+    'dataset': {'adni', 'mnist', 'cifar'},
+    'aggregator': {'fed-avg', 'median', 'trimmed-mean', 'krum', 'combine'},
     'attack': {'label-flip', 'noise-data', 'overlap-data', 'delete-data', 'unbalance-data', 'random-update',
                'sign-flip', 'backdoor'},
     'attack-fraction': 'float between 0 and 1',
