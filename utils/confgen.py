@@ -1,12 +1,12 @@
 import json
 
-datasets = ['cifar']
-non_iids = [0, 0.4, 0.7]
-attacks = [None, 'label-flip', 'random-update', 'sign-flip', 'backdoor']
+datasets = ['adni', 'cifar']
+non_iids = [0.4]
+attacks = ['label-flip', 'sign-flip']
 attack_fractions = [0.1, 0.3, 0.5]
-aggregators = ['fed-avg', 'krum', 'median', 'trimmed-mean']
+aggregators = ['fed-avg']
 
-conf = {'num-rounds': 1000}
+conf = {'num-rounds': 100}
 
 i = 0
 
@@ -26,6 +26,8 @@ def show(i):
     return i
 
 for dataset in datasets:
+    if dataset == 'adni':
+        conf['num-rounds'] = 100
     conf['dataset'] = dataset
     for non_iid in non_iids:
         conf['non-iid-deg'] = non_iid

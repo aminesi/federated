@@ -2,7 +2,8 @@ import time
 from typing import Callable, Dict, Any
 import tensorflow as tf
 
-from fed.aggregators import AbstractAggregator
+from fed.aggregators import AbstractAggregator, KrumAggregator, FedAvgAggregator, MedianAggregator, \
+    TrimmedMeanAggregator
 from utils.constants import *
 from attacks.data_attacker import AbstractDataAttacker, NoDataAttacker
 from attacks.model_attacker import AbstractModelAttacker, NoModelAttacker, BackdoorAttack
@@ -36,7 +37,8 @@ class FedTester:
                 break
         self.set_first_trainable_layer(first_trainable_layer)
         server_model.compile(metrics=tf.keras.metrics.SparseCategoricalAccuracy())
-        self.aggregator.clear_aggregator()
+        if self.aggregator is not None:
+            self.aggregator.clear_aggregator()
         test_data = self.dataset.create_test_data()
         return server_model, test_data
 
@@ -44,6 +46,11 @@ class FedTester:
         results = {}
         t = time.time()
         server_model, test_data = self.initialize_federated()
+        aggregators = [FedAvgAggregator(), KrumAggregator(), MedianAggregator(), TrimmedMeanAggregator()]
+        for aggregator in aggregators:
+            aggregator.set_first_trainable_layer(self.first_trainable_layer)
+
+        val_data = self.dataset.create_test_data(self.dataset.x_val, self.dataset.y_val)
         attacker = self.data_attacker
         if self.model_attacker:
             attacker = self.model_attacker
@@ -58,8 +65,27 @@ class FedTester:
                 self.model_attacker.chosen_attackers = attackers
             for client, client_dataset in data:
                 trainer = self.get_trainer(client)
-                self.aggregator.add_client_delta(trainer.forward_pass(client_dataset, server_model))
-            self.aggregator.aggregate(server_model, byzantine)
+                delta = trainer.forward_pass(client_dataset, server_model)
+                if self.aggregator is not None:
+                    self.aggregator.add_client_delta(delta)
+                else:
+                    for aggregator in aggregators:
+                        aggregator.add_client_delta(delta)
+
+            if self.aggregator is not None:
+                self.aggregator.aggregate(server_model, byzantine)
+            else:
+                old_weights = server_model.get_weights()
+
+                weights = []
+                accuracies = []
+                for aggregator in aggregators:
+                    server_model.set_weights(old_weights)
+                    aggregator.aggregate(server_model, byzantine)
+                    weights.append(server_model.get_weights())
+                    accuracies.append(server_model.evaluate(val_data, verbose=0)[1])
+
+                server_model.set_weights(weights[np.argmax(accuracies)])
 
             main_accuracy = server_model.evaluate(test_data, verbose=0)[1]
             if 'main_accuracy' not in results:
@@ -91,4 +117,5 @@ class FedTester:
         self.benign_trainer.set_first_trainable_layer(first_trainable_layer)
         if self.model_attacker:
             self.model_attacker.set_first_trainable_layer(first_trainable_layer)
-        self.aggregator.set_first_trainable_layer(first_trainable_layer)
+        if self.aggregator is not None:
+            self.aggregator.set_first_trainable_layer(first_trainable_layer)

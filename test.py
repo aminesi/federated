@@ -25,6 +25,8 @@ def get_aggregator():
         return MedianAggregator()
     if aggregator == 'trimmed-mean':
         return TrimmedMeanAggregator()
+    if aggregator == 'combine':
+        return None
     throw_conf_error('aggregator')
 
 

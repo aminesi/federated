@@ -2,7 +2,7 @@ from typing import Callable, Tuple
 
 import os
 import tensorflow as tf
-
+import numpy as np
 from attacks.data_attacker import AbstractDataAttacker
 from attacks.model_attacker import BackdoorAttack
 from utils.constants import *
@@ -14,8 +14,18 @@ class Dataset(object):
     def __init__(self, x_train, y_train, x_test, y_test,
                  data_preprocessor: Callable[[any, any], Tuple],
                  non_iid_deg: float = 0) -> None:
+
+        self.x_val = None
+        self.y_val = None
         self.x_train = x_train
-        self.y_train = y_train.flatten()
+        self.y_train = y_train
+        if x_train is not None:
+            indices = np.random.choice(range(len(x_train)), 5000, False)
+            other_indices = list(set(range(len(x_train))) - set(indices))
+            self.x_val = x_train[indices]
+            self.y_val = y_train[indices]
+            self.x_train = x_train[other_indices]
+            self.y_train = y_train[other_indices].flatten()
         self.x_test = x_test
         self.y_test = y_test.flatten()
         self.partitioned_data = None
@@ -79,6 +89,8 @@ class ADNIDataset(Dataset):
 
         self.x_test = np.load(root_dir + 'X_test_ax.npz.npy')
         self.y_test = np.load(root_dir + 'Y_test_ax.npz.npy')
+        self.x_val = np.load(root_dir + 'X_val_ax.npz.npy')
+        self.y_val = np.load(root_dir + 'Y_val_ax.npz.npy')
     # def create_client_data(self, data):
     #     data = self.data_preprocessor(*data)
     #     gen_params = {"featurewise_center": False, "samplewise_center": False, "featurewise_std_normalization": False,
