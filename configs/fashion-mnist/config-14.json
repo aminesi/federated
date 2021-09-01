@@ -1,0 +1,1 @@
+{"num-rounds": 100, "dataset": "mnist", "non-iid-deg": 0.4, "attack": "noise-data", "attack-fraction": 0.3, "aggregator": "fed-avg"}

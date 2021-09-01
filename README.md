@@ -52,6 +52,7 @@ Notes:
 1. attack field is optional. If it is not present, no attack will be applied and attack-fraction is not necessary.
 2. If dataset is set to adni, non-iid-deg field is not necessary
 3. The aggregator field is optional and if it is not present it will use the default fed-avg.
+4. All configurations used in our experiments are available in `configs` folder
 
 ### ADNI dataset
 
