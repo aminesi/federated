@@ -1,0 +1,248 @@
+2021-08-22 00:19:48.385303: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 00:20:13.083610: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-08-22 00:20:13.086604: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-08-22 00:20:13.110409: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:06:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-08-22 00:20:13.110631: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 00:20:13.127194: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-22 00:20:13.127373: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-22 00:20:13.132895: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-08-22 00:20:13.135238: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-08-22 00:20:13.144049: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-08-22 00:20:13.146251: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-08-22 00:20:13.147149: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 00:20:13.149775: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-08-22 00:20:13.150567: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-08-22 00:20:13.150999: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-08-22 00:20:13.152365: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:06:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-08-22 00:20:13.152475: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 00:20:13.152568: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-22 00:20:13.152700: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-22 00:20:13.152769: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-08-22 00:20:13.152834: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-08-22 00:20:13.152902: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-08-22 00:20:13.152989: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-08-22 00:20:13.153043: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 00:20:13.155520: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-08-22 00:20:13.155686: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 00:20:13.798299: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-08-22 00:20:13.798509: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-08-22 00:20:13.798632: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-08-22 00:20:13.803133: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14957 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:06:00.0, compute capability: 6.0)
+2021-08-22 00:20:21.425686: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-08-22 00:20:21.429468: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2200195000 Hz
+2021-08-22 00:20:21.499131: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-22 00:20:21.884443: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-22 00:20:21.890438: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 00:20:23.622330: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2021-08-22 00:20:23.702196: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+BackdoorAttack started.
+BackdoorAttack finished.
+Training round: 1		accuracy = 0.5710799098014832
+backdoor accuracy: 0.3255814015865326
+Training round: 2		accuracy = 0.6244661211967468
+backdoor accuracy: 0.4360465109348297
+Training round: 3		accuracy = 0.6613788604736328
+backdoor accuracy: 0.5639534592628479
+Training round: 4		accuracy = 0.6543624401092529
+backdoor accuracy: 0.5116279125213623
+Training round: 5		accuracy = 0.6604636907577515
+backdoor accuracy: 0.5232558250427246
+Training round: 6		accuracy = 0.47193410992622375
+backdoor accuracy: 0.15697674453258514
+Training round: 7		accuracy = 0.5375228524208069
+backdoor accuracy: 0.26744186878204346
+Training round: 8		accuracy = 0.592739462852478
+backdoor accuracy: 0.29651162028312683
+Training round: 9		accuracy = 0.5814521312713623
+backdoor accuracy: 0.27906978130340576
+Training round: 10		accuracy = 0.6098230481147766
+backdoor accuracy: 0.3255814015865326
+Training round: 11		accuracy = 0.5921293497085571
+backdoor accuracy: 0.2906976640224457
+Training round: 12		accuracy = 0.6089078783988953
+backdoor accuracy: 0.3139534890651703
+Training round: 13		accuracy = 0.6198901534080505
+backdoor accuracy: 0.3488371968269348
+Training round: 14		accuracy = 0.6281269192695618
+backdoor accuracy: 0.3604651093482971
+Training round: 15		accuracy = 0.6275168061256409
+backdoor accuracy: 0.3604651093482971
+Training round: 16		accuracy = 0.6418547630310059
+backdoor accuracy: 0.3895348906517029
+Training round: 17		accuracy = 0.6439902186393738
+backdoor accuracy: 0.39534884691238403
+Training round: 18		accuracy = 0.6381940245628357
+backdoor accuracy: 0.38372093439102173
+Training round: 19		accuracy = 0.6558877229690552
+backdoor accuracy: 0.4244185984134674
+Training round: 20		accuracy = 0.6449054479598999
+backdoor accuracy: 0.4011628031730652
+Training round: 21		accuracy = 0.6607687473297119
+backdoor accuracy: 0.4244185984134674
+Training round: 22		accuracy = 0.6525320410728455
+backdoor accuracy: 0.4244185984134674
+Training round: 23		accuracy = 0.6564978361129761
+backdoor accuracy: 0.4244185984134674
+Training round: 24		accuracy = 0.6595485210418701
+backdoor accuracy: 0.4244185984134674
+Training round: 25		accuracy = 0.661683976650238
+backdoor accuracy: 0.43023255467414856
+Training round: 26		accuracy = 0.6607687473297119
+backdoor accuracy: 0.43023255467414856
+Training round: 27		accuracy = 0.6629042029380798
+backdoor accuracy: 0.43023255467414856
+Training round: 28		accuracy = 0.6641244888305664
+backdoor accuracy: 0.3895348906517029
+Training round: 29		accuracy = 0.6262965202331543
+backdoor accuracy: 0.2383720874786377
+Training round: 30		accuracy = 0.6647346019744873
+backdoor accuracy: 0.2906976640224457
+Training round: 31		accuracy = 0.6580231785774231
+backdoor accuracy: 0.2848837077617645
+Training round: 32		accuracy = 0.6690055131912231
+backdoor accuracy: 0.3372093141078949
+Training round: 33		accuracy = 0.6738865375518799
+backdoor accuracy: 0.3372093141078949
+Training round: 34		accuracy = 0.6741915941238403
+backdoor accuracy: 0.34302327036857605
+Training round: 35		accuracy = 0.6818181872367859
+backdoor accuracy: 0.35465115308761597
+Training round: 36		accuracy = 0.6763270497322083
+backdoor accuracy: 0.3372093141078949
+Training round: 37		accuracy = 0.679682731628418
+backdoor accuracy: 0.35465115308761597
+Training round: 38		accuracy = 0.6830384135246277
+backdoor accuracy: 0.3604651093482971
+Training round: 39		accuracy = 0.6888346672058105
+backdoor accuracy: 0.3604651093482971
+Training round: 40		accuracy = 0.6900548934936523
+backdoor accuracy: 0.36627906560897827
+Training round: 41		accuracy = 0.690665066242218
+backdoor accuracy: 0.3720930218696594
+Training round: 42		accuracy = 0.6921903491020203
+backdoor accuracy: 0.3895348906517029
+Training round: 43		accuracy = 0.6915802359580994
+backdoor accuracy: 0.3720930218696594
+Training round: 44		accuracy = 0.6918852925300598
+backdoor accuracy: 0.3779069781303406
+Training round: 45		accuracy = 0.6918852925300598
+backdoor accuracy: 0.3779069781303406
+Training round: 46		accuracy = 0.6903599500656128
+backdoor accuracy: 0.38372093439102173
+Training round: 47		accuracy = 0.6748017072677612
+backdoor accuracy: 0.4651162922382355
+Training round: 48		accuracy = 0.6653447151184082
+backdoor accuracy: 0.35465115308761597
+Training round: 49		accuracy = 0.6735814809799194
+backdoor accuracy: 0.3604651093482971
+Training round: 50		accuracy = 0.6790726184844971
+backdoor accuracy: 0.3604651093482971
+Training round: 51		accuracy = 0.6836485862731934
+backdoor accuracy: 0.3720930218696594
+Training round: 52		accuracy = 0.6809030175209045
+backdoor accuracy: 0.3720930218696594
+Training round: 53		accuracy = 0.6842586994171143
+backdoor accuracy: 0.3779069781303406
+Training round: 54		accuracy = 0.6857840418815613
+backdoor accuracy: 0.3720930218696594
+Training round: 55		accuracy = 0.6848688125610352
+backdoor accuracy: 0.3779069781303406
+Training round: 56		accuracy = 0.6860890984535217
+backdoor accuracy: 0.39534884691238403
+Training round: 57		accuracy = 0.685478925704956
+backdoor accuracy: 0.39534884691238403
+Training round: 58		accuracy = 0.685478925704956
+backdoor accuracy: 0.39534884691238403
+Training round: 59		accuracy = 0.685478925704956
+backdoor accuracy: 0.39534884691238403
+Training round: 60		accuracy = 0.6885296106338501
+backdoor accuracy: 0.39534884691238403
+Training round: 61		accuracy = 0.6860890984535217
+backdoor accuracy: 0.3895348906517029
+Training round: 62		accuracy = 0.6857840418815613
+backdoor accuracy: 0.3895348906517029
+Training round: 63		accuracy = 0.6866992115974426
+backdoor accuracy: 0.39534884691238403
+Training round: 64		accuracy = 0.6873093247413635
+backdoor accuracy: 0.39534884691238403
+Training round: 65		accuracy = 0.6866992115974426
+backdoor accuracy: 0.39534884691238403
+Training round: 66		accuracy = 0.6873093247413635
+backdoor accuracy: 0.39534884691238403
+Training round: 67		accuracy = 0.6885296106338501
+backdoor accuracy: 0.39534884691238403
+Training round: 68		accuracy = 0.67754727602005
+backdoor accuracy: 0.39534884691238403
+Training round: 69		accuracy = 0.6857840418815613
+backdoor accuracy: 0.35465115308761597
+Training round: 70		accuracy = 0.6909701228141785
+backdoor accuracy: 0.36627906560897827
+Training round: 71		accuracy = 0.6958511471748352
+backdoor accuracy: 0.3604651093482971
+Training round: 72		accuracy = 0.6952409744262695
+backdoor accuracy: 0.36627906560897827
+Training round: 73		accuracy = 0.6973764300346375
+backdoor accuracy: 0.3604651093482971
+Training round: 74		accuracy = 0.6976814866065979
+backdoor accuracy: 0.3604651093482971
+Training round: 75		accuracy = 0.6973764300346375
+backdoor accuracy: 0.3604651093482971
+Training round: 76		accuracy = 0.6979866027832031
+backdoor accuracy: 0.3604651093482971
+Training round: 77		accuracy = 0.6979866027832031
+backdoor accuracy: 0.3604651093482971
+Training round: 78		accuracy = 0.6979866027832031
+backdoor accuracy: 0.3604651093482971
+Training round: 79		accuracy = 0.6979866027832031
+backdoor accuracy: 0.3720930218696594
+Training round: 80		accuracy = 0.6967663168907166
+backdoor accuracy: 0.35465115308761597
+Training round: 81		accuracy = 0.6964612603187561
+backdoor accuracy: 0.3604651093482971
+Training round: 82		accuracy = 0.6982916593551636
+backdoor accuracy: 0.3604651093482971
+Training round: 83		accuracy = 0.6964612603187561
+backdoor accuracy: 0.36627906560897827
+Training round: 84		accuracy = 0.697071373462677
+backdoor accuracy: 0.3720930218696594
+Training round: 85		accuracy = 0.697071373462677
+backdoor accuracy: 0.3779069781303406
+Training round: 86		accuracy = 0.697071373462677
+backdoor accuracy: 0.3779069781303406
+Training round: 87		accuracy = 0.697071373462677
+backdoor accuracy: 0.3779069781303406
+Training round: 88		accuracy = 0.6967663168907166
+backdoor accuracy: 0.3779069781303406
+Training round: 89		accuracy = 0.6964612603187561
+backdoor accuracy: 0.3779069781303406
+Training round: 90		accuracy = 0.6976814866065979
+backdoor accuracy: 0.3779069781303406
+Training round: 91		accuracy = 0.698596715927124
+backdoor accuracy: 0.3779069781303406
+Training round: 92		accuracy = 0.6989017724990845
+backdoor accuracy: 0.3779069781303406
+Training round: 93		accuracy = 0.6989017724990845
+backdoor accuracy: 0.3779069781303406
+Training round: 94		accuracy = 0.6992068290710449
+backdoor accuracy: 0.3779069781303406
+Training round: 95		accuracy = 0.6992068290710449
+backdoor accuracy: 0.3720930218696594
+Training round: 96		accuracy = 0.698596715927124
+backdoor accuracy: 0.3720930218696594
+Training round: 97		accuracy = 0.6982916593551636
+backdoor accuracy: 0.3720930218696594
+Training round: 98		accuracy = 0.698596715927124
+backdoor accuracy: 0.3720930218696594
+Training round: 99		accuracy = 0.6979866027832031
+backdoor accuracy: 0.3720930218696594
+Training round: 100		accuracy = 0.6982916593551636
+backdoor accuracy: 0.3720930218696594
+Training duration 6282.450266122818

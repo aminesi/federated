@@ -1,0 +1,1 @@
+{"num-rounds": 100, "dataset": "adni", "non-iid-deg": 0, "aggregator": "fed-avg", "attack": "sign-flip", "attack-fraction": 0.3}

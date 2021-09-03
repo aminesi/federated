@@ -1,0 +1,2048 @@
+2021-08-11 20:13:10.997810: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-11 20:13:22.967603: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-08-11 20:13:22.972754: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-08-11 20:13:23.037427: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:1e:00.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.78GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-08-11 20:13:23.037662: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-11 20:13:23.059756: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-11 20:13:23.059871: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-11 20:13:23.066616: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-08-11 20:13:23.069784: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-08-11 20:13:23.080611: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-08-11 20:13:23.083554: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-08-11 20:13:23.084206: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-11 20:13:23.089965: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-08-11 20:13:23.099921: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-08-11 20:13:23.100264: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-08-11 20:13:23.101327: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:1e:00.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.78GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-08-11 20:13:23.101371: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-11 20:13:23.101398: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-11 20:13:23.101414: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-11 20:13:23.101429: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-08-11 20:13:23.101445: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-08-11 20:13:23.101460: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-08-11 20:13:23.101475: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-08-11 20:13:23.101491: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-11 20:13:23.103113: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-08-11 20:13:23.104837: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-11 20:13:24.035390: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-08-11 20:13:24.035433: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-08-11 20:13:24.035447: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-08-11 20:13:24.042326: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14761 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:1e:00.0, compute capability: 7.0)
+2021-08-11 20:13:24.708877: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-08-11 20:13:24.710346: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2400000000 Hz
+2021-08-11 20:13:25.213452: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-11 20:13:25.727379: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-11 20:13:25.746966: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-11 20:13:28.415446: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2021-08-11 20:13:28.483294: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+BackdoorAttack started.
+BackdoorAttack finished.
+Training round: 1		accuracy = 0.09936842322349548
+backdoor accuracy: 0.0
+Training round: 2		accuracy = 0.09978947043418884
+backdoor accuracy: 0.0
+Training round: 3		accuracy = 0.09936842322349548
+backdoor accuracy: 0.0
+Training round: 4		accuracy = 0.09978947043418884
+backdoor accuracy: 0.0
+Training round: 5		accuracy = 0.09978947043418884
+backdoor accuracy: 0.0
+Training round: 6		accuracy = 0.12578947842121124
+backdoor accuracy: 0.2160000056028366
+Training round: 7		accuracy = 0.10400000214576721
+backdoor accuracy: 0.014000000432133675
+Training round: 8		accuracy = 0.10831578820943832
+backdoor accuracy: 0.0
+Training round: 9		accuracy = 0.11526315659284592
+backdoor accuracy: 0.0
+Training round: 10		accuracy = 0.14536842703819275
+backdoor accuracy: 0.0
+Training round: 11		accuracy = 0.09978947043418884
+backdoor accuracy: 0.0
+Training round: 12		accuracy = 0.12389473617076874
+backdoor accuracy: 0.0
+Training round: 13		accuracy = 0.12652631103992462
+backdoor accuracy: 0.17800000309944153
+Training round: 14		accuracy = 0.11800000071525574
+backdoor accuracy: 0.22599999606609344
+Training round: 15		accuracy = 0.12200000137090683
+backdoor accuracy: 0.07199999690055847
+Training round: 16		accuracy = 0.15652631223201752
+backdoor accuracy: 0.0
+Training round: 17		accuracy = 0.1345263123512268
+backdoor accuracy: 0.0020000000949949026
+Training round: 18		accuracy = 0.14063158631324768
+backdoor accuracy: 0.0
+Training round: 19		accuracy = 0.16336841881275177
+backdoor accuracy: 0.3440000116825104
+Training round: 20		accuracy = 0.09978947043418884
+backdoor accuracy: 0.0
+Training round: 21		accuracy = 0.14515788853168488
+backdoor accuracy: 0.0
+Training round: 22		accuracy = 0.15526315569877625
+backdoor accuracy: 0.012000000104308128
+Training round: 23		accuracy = 0.1921052634716034
+backdoor accuracy: 0.0
+Training round: 24		accuracy = 0.13568420708179474
+backdoor accuracy: 0.0
+Training round: 25		accuracy = 0.09978947043418884
+backdoor accuracy: 0.0
+Training round: 26		accuracy = 0.16231578588485718
+backdoor accuracy: 0.14800000190734863
+Training round: 27		accuracy = 0.1768421083688736
+backdoor accuracy: 0.0
+Training round: 28		accuracy = 0.16673684120178223
+backdoor accuracy: 0.20800000429153442
+Training round: 29		accuracy = 0.22178947925567627
+backdoor accuracy: 0.4300000071525574
+Training round: 30		accuracy = 0.1336842179298401
+backdoor accuracy: 0.0020000000949949026
+Training round: 31		accuracy = 0.17536842823028564
+backdoor accuracy: 0.10000000149011612
+Training round: 32		accuracy = 0.24431578814983368
+backdoor accuracy: 0.0
+Training round: 33		accuracy = 0.11031579226255417
+backdoor accuracy: 0.0
+Training round: 34		accuracy = 0.24694736301898956
+backdoor accuracy: 0.004000000189989805
+Training round: 35		accuracy = 0.16873684525489807
+backdoor accuracy: 0.07999999821186066
+Training round: 36		accuracy = 0.20810526609420776
+backdoor accuracy: 0.0
+Training round: 37		accuracy = 0.13378947973251343
+backdoor accuracy: 0.0
+Training round: 38		accuracy = 0.1513684242963791
+backdoor accuracy: 0.0
+Training round: 39		accuracy = 0.2406315803527832
+backdoor accuracy: 0.0
+Training round: 40		accuracy = 0.29115790128707886
+backdoor accuracy: 0.0560000017285347
+Training round: 41		accuracy = 0.2610526382923126
+backdoor accuracy: 0.04800000041723251
+Training round: 42		accuracy = 0.11105263233184814
+backdoor accuracy: 0.0
+Training round: 43		accuracy = 0.12294736504554749
+backdoor accuracy: 0.0
+Training round: 44		accuracy = 0.1929473727941513
+backdoor accuracy: 0.0
+Training round: 45		accuracy = 0.2470526248216629
+backdoor accuracy: 0.00800000037997961
+Training round: 46		accuracy = 0.20800000429153442
+backdoor accuracy: 0.0
+Training round: 47		accuracy = 0.285052627325058
+backdoor accuracy: 0.06599999964237213
+Training round: 48		accuracy = 0.2644210457801819
+backdoor accuracy: 0.34200000762939453
+Training round: 49		accuracy = 0.25094735622406006
+backdoor accuracy: 0.06199999898672104
+Training round: 50		accuracy = 0.13336841762065887
+backdoor accuracy: 0.0
+Training round: 51		accuracy = 0.14315789937973022
+backdoor accuracy: 0.0
+Training round: 52		accuracy = 0.2661052644252777
+backdoor accuracy: 0.11999999731779099
+Training round: 53		accuracy = 0.29652631282806396
+backdoor accuracy: 0.04800000041723251
+Training round: 54		accuracy = 0.29863157868385315
+backdoor accuracy: 0.004000000189989805
+Training round: 55		accuracy = 0.2607368528842926
+backdoor accuracy: 0.0
+Training round: 56		accuracy = 0.21610526740550995
+backdoor accuracy: 0.004000000189989805
+Training round: 57		accuracy = 0.12852631509304047
+backdoor accuracy: 0.0
+Training round: 58		accuracy = 0.34252631664276123
+backdoor accuracy: 0.03400000184774399
+Training round: 59		accuracy = 0.19631579518318176
+backdoor accuracy: 0.0
+Training round: 60		accuracy = 0.25757893919944763
+backdoor accuracy: 0.017999999225139618
+Training round: 61		accuracy = 0.3016842007637024
+backdoor accuracy: 0.16200000047683716
+Training round: 62		accuracy = 0.18421052396297455
+backdoor accuracy: 0.0
+Training round: 63		accuracy = 0.2639999985694885
+backdoor accuracy: 0.28600001335144043
+Training round: 64		accuracy = 0.2449473738670349
+backdoor accuracy: 0.07999999821186066
+Training round: 65		accuracy = 0.16473683714866638
+backdoor accuracy: 0.006000000052154064
+Training round: 66		accuracy = 0.27021053433418274
+backdoor accuracy: 0.0
+Training round: 67		accuracy = 0.28336840867996216
+backdoor accuracy: 0.08399999886751175
+Training round: 68		accuracy = 0.25873684883117676
+backdoor accuracy: 0.0020000000949949026
+Training round: 69		accuracy = 0.3153684139251709
+backdoor accuracy: 0.0
+Training round: 70		accuracy = 0.31663158535957336
+backdoor accuracy: 0.07199999690055847
+Training round: 71		accuracy = 0.2907368540763855
+backdoor accuracy: 0.26600000262260437
+Training round: 72		accuracy = 0.3322105407714844
+backdoor accuracy: 0.1599999964237213
+Training round: 73		accuracy = 0.34147369861602783
+backdoor accuracy: 0.07800000160932541
+Training round: 74		accuracy = 0.3670526444911957
+backdoor accuracy: 0.17000000178813934
+Training round: 75		accuracy = 0.32115790247917175
+backdoor accuracy: 0.0
+Training round: 76		accuracy = 0.23431578278541565
+backdoor accuracy: 0.0
+Training round: 77		accuracy = 0.30105262994766235
+backdoor accuracy: 0.0
+Training round: 78		accuracy = 0.3588421046733856
+backdoor accuracy: 0.16200000047683716
+Training round: 79		accuracy = 0.34663158655166626
+backdoor accuracy: 0.014000000432133675
+Training round: 80		accuracy = 0.1827368438243866
+backdoor accuracy: 0.0
+Training round: 81		accuracy = 0.3563157916069031
+backdoor accuracy: 0.13600000739097595
+Training round: 82		accuracy = 0.2886315882205963
+backdoor accuracy: 0.27000001072883606
+Training round: 83		accuracy = 0.3651579022407532
+backdoor accuracy: 0.07199999690055847
+Training round: 84		accuracy = 0.16831578314304352
+backdoor accuracy: 0.0
+Training round: 85		accuracy = 0.2684210538864136
+backdoor accuracy: 0.0
+Training round: 86		accuracy = 0.35221052169799805
+backdoor accuracy: 0.25600001215934753
+Training round: 87		accuracy = 0.37515789270401
+backdoor accuracy: 0.10400000214576721
+Training round: 88		accuracy = 0.3607368469238281
+backdoor accuracy: 0.2980000078678131
+Training round: 89		accuracy = 0.3151578903198242
+backdoor accuracy: 0.2199999988079071
+Training round: 90		accuracy = 0.21400000154972076
+backdoor accuracy: 0.004000000189989805
+Training round: 91		accuracy = 0.2425263226032257
+backdoor accuracy: 0.0
+Training round: 92		accuracy = 0.1532631516456604
+backdoor accuracy: 0.0
+Training round: 93		accuracy = 0.3210526406764984
+backdoor accuracy: 0.019999999552965164
+Training round: 94		accuracy = 0.1843157857656479
+backdoor accuracy: 0.0
+Training round: 95		accuracy = 0.1856842041015625
+backdoor accuracy: 0.0
+Training round: 96		accuracy = 0.33915790915489197
+backdoor accuracy: 0.2919999957084656
+Training round: 97		accuracy = 0.33799999952316284
+backdoor accuracy: 0.24199999868869781
+Training round: 98		accuracy = 0.3370526432991028
+backdoor accuracy: 0.04399999976158142
+Training round: 99		accuracy = 0.3769473731517792
+backdoor accuracy: 0.15199999511241913
+Training round: 100		accuracy = 0.34157896041870117
+backdoor accuracy: 0.03200000151991844
+Training round: 101		accuracy = 0.3268420994281769
+backdoor accuracy: 0.05000000074505806
+Training round: 102		accuracy = 0.2401052564382553
+backdoor accuracy: 0.0
+Training round: 103		accuracy = 0.35600000619888306
+backdoor accuracy: 0.3019999861717224
+Training round: 104		accuracy = 0.3906315863132477
+backdoor accuracy: 0.20000000298023224
+Training round: 105		accuracy = 0.38442105054855347
+backdoor accuracy: 0.0860000029206276
+Training round: 106		accuracy = 0.25600001215934753
+backdoor accuracy: 0.0020000000949949026
+Training round: 107		accuracy = 0.24978947639465332
+backdoor accuracy: 0.0
+Training round: 108		accuracy = 0.3670526444911957
+backdoor accuracy: 0.1940000057220459
+Training round: 109		accuracy = 0.3252631723880768
+backdoor accuracy: 0.0020000000949949026
+Training round: 110		accuracy = 0.18684209883213043
+backdoor accuracy: 0.0
+Training round: 111		accuracy = 0.3949473798274994
+backdoor accuracy: 0.1420000046491623
+Training round: 112		accuracy = 0.38968420028686523
+backdoor accuracy: 0.17599999904632568
+Training round: 113		accuracy = 0.24368421733379364
+backdoor accuracy: 0.0020000000949949026
+Training round: 114		accuracy = 0.3504210412502289
+backdoor accuracy: 0.12600000202655792
+Training round: 115		accuracy = 0.20326316356658936
+backdoor accuracy: 0.004000000189989805
+Training round: 116		accuracy = 0.18989473581314087
+backdoor accuracy: 0.0
+Training round: 117		accuracy = 0.37494736909866333
+backdoor accuracy: 0.10599999874830246
+Training round: 118		accuracy = 0.19094736874103546
+backdoor accuracy: 0.0
+Training round: 119		accuracy = 0.19978947937488556
+backdoor accuracy: 0.0
+Training round: 120		accuracy = 0.17705263197422028
+backdoor accuracy: 0.0020000000949949026
+Training round: 121		accuracy = 0.20368421077728271
+backdoor accuracy: 0.0
+Training round: 122		accuracy = 0.34599998593330383
+backdoor accuracy: 0.06800000369548798
+Training round: 123		accuracy = 0.3496842086315155
+backdoor accuracy: 0.07199999690055847
+Training round: 124		accuracy = 0.39884209632873535
+backdoor accuracy: 0.1340000033378601
+Training round: 125		accuracy = 0.39189472794532776
+backdoor accuracy: 0.06599999964237213
+Training round: 126		accuracy = 0.26115790009498596
+backdoor accuracy: 0.00800000037997961
+Training round: 127		accuracy = 0.22073684632778168
+backdoor accuracy: 0.0020000000949949026
+Training round: 128		accuracy = 0.40073683857917786
+backdoor accuracy: 0.1120000034570694
+Training round: 129		accuracy = 0.22547368705272675
+backdoor accuracy: 0.0020000000949949026
+Training round: 130		accuracy = 0.2524210512638092
+backdoor accuracy: 0.0
+Training round: 131		accuracy = 0.3647368550300598
+backdoor accuracy: 0.0020000000949949026
+Training round: 132		accuracy = 0.1979999989271164
+backdoor accuracy: 0.0
+Training round: 133		accuracy = 0.390736848115921
+backdoor accuracy: 0.13199999928474426
+Training round: 134		accuracy = 0.20505262911319733
+backdoor accuracy: 0.0
+Training round: 135		accuracy = 0.33968421816825867
+backdoor accuracy: 0.12600000202655792
+Training round: 136		accuracy = 0.3798947334289551
+backdoor accuracy: 0.1120000034570694
+Training round: 137		accuracy = 0.21557894349098206
+backdoor accuracy: 0.00800000037997961
+Training round: 138		accuracy = 0.40578946471214294
+backdoor accuracy: 0.17000000178813934
+Training round: 139		accuracy = 0.4176841974258423
+backdoor accuracy: 0.11999999731779099
+Training round: 140		accuracy = 0.3217894732952118
+backdoor accuracy: 0.0
+Training round: 141		accuracy = 0.24431578814983368
+backdoor accuracy: 0.0
+Training round: 142		accuracy = 0.21726316213607788
+backdoor accuracy: 0.0
+Training round: 143		accuracy = 0.26642104983329773
+backdoor accuracy: 0.0020000000949949026
+Training round: 144		accuracy = 0.2224210500717163
+backdoor accuracy: 0.0
+Training round: 145		accuracy = 0.1979999989271164
+backdoor accuracy: 0.0
+Training round: 146		accuracy = 0.3023158013820648
+backdoor accuracy: 0.0
+Training round: 147		accuracy = 0.3347368538379669
+backdoor accuracy: 0.0
+Training round: 148		accuracy = 0.32842105627059937
+backdoor accuracy: 0.0
+Training round: 149		accuracy = 0.3467368483543396
+backdoor accuracy: 0.0
+Training round: 150		accuracy = 0.21378947794437408
+backdoor accuracy: 0.0
+Training round: 151		accuracy = 0.20484210550785065
+backdoor accuracy: 0.0
+Training round: 152		accuracy = 0.32242104411125183
+backdoor accuracy: 0.0020000000949949026
+Training round: 153		accuracy = 0.4172631502151489
+backdoor accuracy: 0.1340000033378601
+Training round: 154		accuracy = 0.31547367572784424
+backdoor accuracy: 0.00800000037997961
+Training round: 155		accuracy = 0.2562105357646942
+backdoor accuracy: 0.0
+Training round: 156		accuracy = 0.2141052633523941
+backdoor accuracy: 0.0
+Training round: 157		accuracy = 0.42242103815078735
+backdoor accuracy: 0.11999999731779099
+Training round: 158		accuracy = 0.43578946590423584
+backdoor accuracy: 0.13199999928474426
+Training round: 159		accuracy = 0.3847368359565735
+backdoor accuracy: 0.0
+Training round: 160		accuracy = 0.4180000126361847
+backdoor accuracy: 0.0
+Training round: 161		accuracy = 0.4627368450164795
+backdoor accuracy: 0.12200000137090683
+Training round: 162		accuracy = 0.24715790152549744
+backdoor accuracy: 0.0
+Training round: 163		accuracy = 0.4202105402946472
+backdoor accuracy: 0.06199999898672104
+Training round: 164		accuracy = 0.26484209299087524
+backdoor accuracy: 0.00800000037997961
+Training round: 165		accuracy = 0.38684210181236267
+backdoor accuracy: 0.05000000074505806
+Training round: 166		accuracy = 0.4440000057220459
+backdoor accuracy: 0.09799999743700027
+Training round: 167		accuracy = 0.4148420989513397
+backdoor accuracy: 0.14800000190734863
+Training round: 168		accuracy = 0.2636842131614685
+backdoor accuracy: 0.00800000037997961
+Training round: 169		accuracy = 0.297157883644104
+backdoor accuracy: 0.006000000052154064
+Training round: 170		accuracy = 0.38999998569488525
+backdoor accuracy: 0.06599999964237213
+Training round: 171		accuracy = 0.4341052770614624
+backdoor accuracy: 0.11800000071525574
+Training round: 172		accuracy = 0.27694737911224365
+backdoor accuracy: 0.014000000432133675
+Training round: 173		accuracy = 0.4096842110157013
+backdoor accuracy: 0.052000001072883606
+Training round: 174		accuracy = 0.2184210568666458
+backdoor accuracy: 0.0
+Training round: 175		accuracy = 0.23989473283290863
+backdoor accuracy: 0.004000000189989805
+Training round: 176		accuracy = 0.2757894694805145
+backdoor accuracy: 0.0020000000949949026
+Training round: 177		accuracy = 0.2708421051502228
+backdoor accuracy: 0.0020000000949949026
+Training round: 178		accuracy = 0.4056842029094696
+backdoor accuracy: 0.08399999886751175
+Training round: 179		accuracy = 0.26410526037216187
+backdoor accuracy: 0.006000000052154064
+Training round: 180		accuracy = 0.4358947277069092
+backdoor accuracy: 0.0020000000949949026
+Training round: 181		accuracy = 0.4509473741054535
+backdoor accuracy: 0.11599999666213989
+Training round: 182		accuracy = 0.23884209990501404
+backdoor accuracy: 0.012000000104308128
+Training round: 183		accuracy = 0.38757893443107605
+backdoor accuracy: 0.026000000536441803
+Training round: 184		accuracy = 0.277052640914917
+backdoor accuracy: 0.0
+Training round: 185		accuracy = 0.4167368412017822
+backdoor accuracy: 0.07999999821186066
+Training round: 186		accuracy = 0.4252631664276123
+backdoor accuracy: 0.07999999821186066
+Training round: 187		accuracy = 0.23747368156909943
+backdoor accuracy: 0.00800000037997961
+Training round: 188		accuracy = 0.38252630829811096
+backdoor accuracy: 0.08799999952316284
+Training round: 189		accuracy = 0.2931579053401947
+backdoor accuracy: 0.019999999552965164
+Training round: 190		accuracy = 0.4075789451599121
+backdoor accuracy: 0.09399999678134918
+Training round: 191		accuracy = 0.3691578805446625
+backdoor accuracy: 0.02800000086426735
+Training round: 192		accuracy = 0.21989473700523376
+backdoor accuracy: 0.0
+Training round: 193		accuracy = 0.273263156414032
+backdoor accuracy: 0.004000000189989805
+Training round: 194		accuracy = 0.44147369265556335
+backdoor accuracy: 0.10599999874830246
+Training round: 195		accuracy = 0.3087368309497833
+backdoor accuracy: 0.01600000075995922
+Training round: 196		accuracy = 0.29568421840667725
+backdoor accuracy: 0.009999999776482582
+Training round: 197		accuracy = 0.4020000100135803
+backdoor accuracy: 0.18199999630451202
+Training round: 198		accuracy = 0.4241052567958832
+backdoor accuracy: 0.164000004529953
+Training round: 199		accuracy = 0.42936840653419495
+backdoor accuracy: 0.1340000033378601
+Training round: 200		accuracy = 0.45568421483039856
+backdoor accuracy: 0.11999999731779099
+Training round: 201		accuracy = 0.359894722700119
+backdoor accuracy: 0.07000000029802322
+Training round: 202		accuracy = 0.24536842107772827
+backdoor accuracy: 0.014000000432133675
+Training round: 203		accuracy = 0.2925263047218323
+backdoor accuracy: 0.009999999776482582
+Training round: 204		accuracy = 0.41115790605545044
+backdoor accuracy: 0.00800000037997961
+Training round: 205		accuracy = 0.36136841773986816
+backdoor accuracy: 0.009999999776482582
+Training round: 206		accuracy = 0.2602105140686035
+backdoor accuracy: 0.0020000000949949026
+Training round: 207		accuracy = 0.2953684329986572
+backdoor accuracy: 0.004000000189989805
+Training round: 208		accuracy = 0.4606315791606903
+backdoor accuracy: 0.1379999965429306
+Training round: 209		accuracy = 0.3051578998565674
+backdoor accuracy: 0.026000000536441803
+Training round: 210		accuracy = 0.4306315779685974
+backdoor accuracy: 0.052000001072883606
+Training round: 211		accuracy = 0.31115788221359253
+backdoor accuracy: 0.004000000189989805
+Training round: 212		accuracy = 0.472947359085083
+backdoor accuracy: 0.11400000005960464
+Training round: 213		accuracy = 0.44200000166893005
+backdoor accuracy: 0.03200000151991844
+Training round: 214		accuracy = 0.41842105984687805
+backdoor accuracy: 0.004000000189989805
+Training round: 215		accuracy = 0.426105260848999
+backdoor accuracy: 0.00800000037997961
+Training round: 216		accuracy = 0.2647368311882019
+backdoor accuracy: 0.0
+Training round: 217		accuracy = 0.47526314854621887
+backdoor accuracy: 0.10400000214576721
+Training round: 218		accuracy = 0.39863157272338867
+backdoor accuracy: 0.0020000000949949026
+Training round: 219		accuracy = 0.4702105224132538
+backdoor accuracy: 0.004000000189989805
+Training round: 220		accuracy = 0.30178946256637573
+backdoor accuracy: 0.0
+Training round: 221		accuracy = 0.285052627325058
+backdoor accuracy: 0.0
+Training round: 222		accuracy = 0.28999999165534973
+backdoor accuracy: 0.0
+Training round: 223		accuracy = 0.4327368438243866
+backdoor accuracy: 0.0
+Training round: 224		accuracy = 0.41010525822639465
+backdoor accuracy: 0.0020000000949949026
+Training round: 225		accuracy = 0.4456842243671417
+backdoor accuracy: 0.0
+Training round: 226		accuracy = 0.38673684000968933
+backdoor accuracy: 0.0
+Training round: 227		accuracy = 0.42747369408607483
+backdoor accuracy: 0.13199999928474426
+Training round: 228		accuracy = 0.29757896065711975
+backdoor accuracy: 0.006000000052154064
+Training round: 229		accuracy = 0.45221051573753357
+backdoor accuracy: 0.13600000739097595
+Training round: 230		accuracy = 0.42326316237449646
+backdoor accuracy: 0.0860000029206276
+Training round: 231		accuracy = 0.4724210500717163
+backdoor accuracy: 0.03200000151991844
+Training round: 232		accuracy = 0.4865263104438782
+backdoor accuracy: 0.0
+Training round: 233		accuracy = 0.2846315801143646
+backdoor accuracy: 0.0
+Training round: 234		accuracy = 0.4622105360031128
+backdoor accuracy: 0.09200000017881393
+Training round: 235		accuracy = 0.3008421063423157
+backdoor accuracy: 0.00800000037997961
+Training round: 236		accuracy = 0.4948421120643616
+backdoor accuracy: 0.006000000052154064
+Training round: 237		accuracy = 0.421999990940094
+backdoor accuracy: 0.006000000052154064
+Training round: 238		accuracy = 0.42694735527038574
+backdoor accuracy: 0.0
+Training round: 239		accuracy = 0.27126315236091614
+backdoor accuracy: 0.0
+Training round: 240		accuracy = 0.4699999988079071
+backdoor accuracy: 0.12800000607967377
+Training round: 241		accuracy = 0.47389474511146545
+backdoor accuracy: 0.10599999874830246
+Training round: 242		accuracy = 0.29305264353752136
+backdoor accuracy: 0.004000000189989805
+Training round: 243		accuracy = 0.43715789914131165
+backdoor accuracy: 0.09399999678134918
+Training round: 244		accuracy = 0.4734736979007721
+backdoor accuracy: 0.11400000005960464
+Training round: 245		accuracy = 0.4705263078212738
+backdoor accuracy: 0.04800000041723251
+Training round: 246		accuracy = 0.47200000286102295
+backdoor accuracy: 0.017999999225139618
+Training round: 247		accuracy = 0.464315801858902
+backdoor accuracy: 0.1340000033378601
+Training round: 248		accuracy = 0.43336841464042664
+backdoor accuracy: 0.1599999964237213
+Training round: 249		accuracy = 0.2829473614692688
+backdoor accuracy: 0.00800000037997961
+Training round: 250		accuracy = 0.3465263247489929
+backdoor accuracy: 0.01600000075995922
+Training round: 251		accuracy = 0.39905261993408203
+backdoor accuracy: 0.006000000052154064
+Training round: 252		accuracy = 0.28421053290367126
+backdoor accuracy: 0.0020000000949949026
+Training round: 253		accuracy = 0.2768421173095703
+backdoor accuracy: 0.004000000189989805
+Training round: 254		accuracy = 0.2938947379589081
+backdoor accuracy: 0.0
+Training round: 255		accuracy = 0.49799999594688416
+backdoor accuracy: 0.0020000000949949026
+Training round: 256		accuracy = 0.44736841320991516
+backdoor accuracy: 0.0020000000949949026
+Training round: 257		accuracy = 0.46157893538475037
+backdoor accuracy: 0.0020000000949949026
+Training round: 258		accuracy = 0.28094735741615295
+backdoor accuracy: 0.0
+Training round: 259		accuracy = 0.2759999930858612
+backdoor accuracy: 0.0
+Training round: 260		accuracy = 0.480526328086853
+backdoor accuracy: 0.09799999743700027
+Training round: 261		accuracy = 0.49852630496025085
+backdoor accuracy: 0.0020000000949949026
+Training round: 262		accuracy = 0.4568420946598053
+backdoor accuracy: 0.06199999898672104
+Training round: 263		accuracy = 0.4574736952781677
+backdoor accuracy: 0.03200000151991844
+Training round: 264		accuracy = 0.31147369742393494
+backdoor accuracy: 0.0
+Training round: 265		accuracy = 0.4667368531227112
+backdoor accuracy: 0.10400000214576721
+Training round: 266		accuracy = 0.5027368664741516
+backdoor accuracy: 0.11599999666213989
+Training round: 267		accuracy = 0.4870526194572449
+backdoor accuracy: 0.006000000052154064
+Training round: 268		accuracy = 0.5016841888427734
+backdoor accuracy: 0.08799999952316284
+Training round: 269		accuracy = 0.49663159251213074
+backdoor accuracy: 0.10199999809265137
+Training round: 270		accuracy = 0.3489473760128021
+backdoor accuracy: 0.01600000075995922
+Training round: 271		accuracy = 0.46284210681915283
+backdoor accuracy: 0.10199999809265137
+Training round: 272		accuracy = 0.3209473788738251
+backdoor accuracy: 0.009999999776482582
+Training round: 273		accuracy = 0.49231579899787903
+backdoor accuracy: 0.0560000017285347
+Training round: 274		accuracy = 0.49242106080055237
+backdoor accuracy: 0.09799999743700027
+Training round: 275		accuracy = 0.44094735383987427
+backdoor accuracy: 0.08799999952316284
+Training round: 276		accuracy = 0.3387368321418762
+backdoor accuracy: 0.012000000104308128
+Training round: 277		accuracy = 0.4456842243671417
+backdoor accuracy: 0.15000000596046448
+Training round: 278		accuracy = 0.3081052601337433
+backdoor accuracy: 0.014000000432133675
+Training round: 279		accuracy = 0.31442105770111084
+backdoor accuracy: 0.02199999988079071
+Training round: 280		accuracy = 0.2827368378639221
+backdoor accuracy: 0.009999999776482582
+Training round: 281		accuracy = 0.4914736747741699
+backdoor accuracy: 0.1120000034570694
+Training round: 282		accuracy = 0.4997894763946533
+backdoor accuracy: 0.10400000214576721
+Training round: 283		accuracy = 0.48357895016670227
+backdoor accuracy: 0.07400000095367432
+Training round: 284		accuracy = 0.5152631402015686
+backdoor accuracy: 0.13199999928474426
+Training round: 285		accuracy = 0.49905264377593994
+backdoor accuracy: 0.02199999988079071
+Training round: 286		accuracy = 0.5035789608955383
+backdoor accuracy: 0.01600000075995922
+Training round: 287		accuracy = 0.4230526387691498
+backdoor accuracy: 0.0020000000949949026
+Training round: 288		accuracy = 0.31852632761001587
+backdoor accuracy: 0.0
+Training round: 289		accuracy = 0.4471578896045685
+backdoor accuracy: 0.0
+Training round: 290		accuracy = 0.4658947288990021
+backdoor accuracy: 0.07000000029802322
+Training round: 291		accuracy = 0.31178948283195496
+backdoor accuracy: 0.006000000052154064
+Training round: 292		accuracy = 0.33031579852104187
+backdoor accuracy: 0.00800000037997961
+Training round: 293		accuracy = 0.4894736707210541
+backdoor accuracy: 0.12800000607967377
+Training round: 294		accuracy = 0.47568419575691223
+backdoor accuracy: 0.0820000022649765
+Training round: 295		accuracy = 0.5110526084899902
+backdoor accuracy: 0.0860000029206276
+Training round: 296		accuracy = 0.48410525918006897
+backdoor accuracy: 0.024000000208616257
+Training round: 297		accuracy = 0.4587368369102478
+backdoor accuracy: 0.1459999978542328
+Training round: 298		accuracy = 0.45484209060668945
+backdoor accuracy: 0.12600000202655792
+Training round: 299		accuracy = 0.4630526304244995
+backdoor accuracy: 0.11999999731779099
+Training round: 300		accuracy = 0.4354736804962158
+backdoor accuracy: 0.05999999865889549
+Training round: 301		accuracy = 0.3524210453033447
+backdoor accuracy: 0.01600000075995922
+Training round: 302		accuracy = 0.34873685240745544
+backdoor accuracy: 0.017999999225139618
+Training round: 303		accuracy = 0.5023158192634583
+backdoor accuracy: 0.12999999523162842
+Training round: 304		accuracy = 0.40263158082962036
+backdoor accuracy: 0.06599999964237213
+Training round: 305		accuracy = 0.4481052756309509
+backdoor accuracy: 0.06800000369548798
+Training round: 306		accuracy = 0.5303158164024353
+backdoor accuracy: 0.07599999755620956
+Training round: 307		accuracy = 0.3762105405330658
+backdoor accuracy: 0.012000000104308128
+Training round: 308		accuracy = 0.5303158164024353
+backdoor accuracy: 0.07000000029802322
+Training round: 309		accuracy = 0.4632631540298462
+backdoor accuracy: 0.10400000214576721
+Training round: 310		accuracy = 0.5143157839775085
+backdoor accuracy: 0.006000000052154064
+Training round: 311		accuracy = 0.3274736702442169
+backdoor accuracy: 0.0
+Training round: 312		accuracy = 0.5199999809265137
+backdoor accuracy: 0.07800000160932541
+Training round: 313		accuracy = 0.47947368025779724
+backdoor accuracy: 0.07400000095367432
+Training round: 314		accuracy = 0.3179999887943268
+backdoor accuracy: 0.006000000052154064
+Training round: 315		accuracy = 0.29431578516960144
+backdoor accuracy: 0.0
+Training round: 316		accuracy = 0.28389474749565125
+backdoor accuracy: 0.0020000000949949026
+Training round: 317		accuracy = 0.5061052441596985
+backdoor accuracy: 0.1080000028014183
+Training round: 318		accuracy = 0.4651578962802887
+backdoor accuracy: 0.10400000214576721
+Training round: 319		accuracy = 0.4681052565574646
+backdoor accuracy: 0.09200000017881393
+Training round: 320		accuracy = 0.5268421173095703
+backdoor accuracy: 0.07599999755620956
+Training round: 321		accuracy = 0.5025263428688049
+backdoor accuracy: 0.12600000202655792
+Training round: 322		accuracy = 0.49242106080055237
+backdoor accuracy: 0.1120000034570694
+Training round: 323		accuracy = 0.5188421010971069
+backdoor accuracy: 0.0820000022649765
+Training round: 324		accuracy = 0.4381052553653717
+backdoor accuracy: 0.02199999988079071
+Training round: 325		accuracy = 0.5162105560302734
+backdoor accuracy: 0.02199999988079071
+Training round: 326		accuracy = 0.3325263261795044
+backdoor accuracy: 0.0
+Training round: 327		accuracy = 0.2938947379589081
+backdoor accuracy: 0.0
+Training round: 328		accuracy = 0.4412631690502167
+backdoor accuracy: 0.057999998331069946
+Training round: 329		accuracy = 0.50757896900177
+backdoor accuracy: 0.08799999952316284
+Training round: 330		accuracy = 0.44873684644699097
+backdoor accuracy: 0.019999999552965164
+Training round: 331		accuracy = 0.46768420934677124
+backdoor accuracy: 0.10199999809265137
+Training round: 332		accuracy = 0.4428420960903168
+backdoor accuracy: 0.14399999380111694
+Training round: 333		accuracy = 0.5258947610855103
+backdoor accuracy: 0.07800000160932541
+Training round: 334		accuracy = 0.5182105302810669
+backdoor accuracy: 0.0860000029206276
+Training round: 335		accuracy = 0.47894737124443054
+backdoor accuracy: 0.006000000052154064
+Training round: 336		accuracy = 0.3221052587032318
+backdoor accuracy: 0.0020000000949949026
+Training round: 337		accuracy = 0.519789457321167
+backdoor accuracy: 0.009999999776482582
+Training round: 338		accuracy = 0.3368421196937561
+backdoor accuracy: 0.0
+Training round: 339		accuracy = 0.46526315808296204
+backdoor accuracy: 0.006000000052154064
+Training round: 340		accuracy = 0.5211579203605652
+backdoor accuracy: 0.1080000028014183
+Training round: 341		accuracy = 0.5210526585578918
+backdoor accuracy: 0.10599999874830246
+Training round: 342		accuracy = 0.5089473724365234
+backdoor accuracy: 0.009999999776482582
+Training round: 343		accuracy = 0.3387368321418762
+backdoor accuracy: 0.0
+Training round: 344		accuracy = 0.5026316046714783
+backdoor accuracy: 0.13199999928474426
+Training round: 345		accuracy = 0.46631577610969543
+backdoor accuracy: 0.06400000303983688
+Training round: 346		accuracy = 0.5414736866950989
+backdoor accuracy: 0.014000000432133675
+Training round: 347		accuracy = 0.4933684170246124
+backdoor accuracy: 0.04800000041723251
+Training round: 348		accuracy = 0.38631579279899597
+backdoor accuracy: 0.017999999225139618
+Training round: 349		accuracy = 0.34631580114364624
+backdoor accuracy: 0.006000000052154064
+Training round: 350		accuracy = 0.5068420767784119
+backdoor accuracy: 0.014000000432133675
+Training round: 351		accuracy = 0.5306316018104553
+backdoor accuracy: 0.07599999755620956
+Training round: 352		accuracy = 0.5268421173095703
+backdoor accuracy: 0.14000000059604645
+Training round: 353		accuracy = 0.49368420243263245
+backdoor accuracy: 0.07000000029802322
+Training round: 354		accuracy = 0.4817894697189331
+backdoor accuracy: 0.0860000029206276
+Training round: 355		accuracy = 0.5030526518821716
+backdoor accuracy: 0.09600000083446503
+Training round: 356		accuracy = 0.48778948187828064
+backdoor accuracy: 0.1720000058412552
+Training round: 357		accuracy = 0.5492631793022156
+backdoor accuracy: 0.01600000075995922
+Training round: 358		accuracy = 0.5130526423454285
+backdoor accuracy: 0.08799999952316284
+Training round: 359		accuracy = 0.38357895612716675
+backdoor accuracy: 0.012000000104308128
+Training round: 360		accuracy = 0.5210526585578918
+backdoor accuracy: 0.06800000369548798
+Training round: 361		accuracy = 0.5147368311882019
+backdoor accuracy: 0.009999999776482582
+Training round: 362		accuracy = 0.5016841888427734
+backdoor accuracy: 0.07800000160932541
+Training round: 363		accuracy = 0.3483157753944397
+backdoor accuracy: 0.006000000052154064
+Training round: 364		accuracy = 0.5387368202209473
+backdoor accuracy: 0.08399999886751175
+Training round: 365		accuracy = 0.4694736897945404
+backdoor accuracy: 0.1420000046491623
+Training round: 366		accuracy = 0.359578937292099
+backdoor accuracy: 0.009999999776482582
+Training round: 367		accuracy = 0.5233684182167053
+backdoor accuracy: 0.10000000149011612
+Training round: 368		accuracy = 0.47631579637527466
+backdoor accuracy: 0.017999999225139618
+Training round: 369		accuracy = 0.4781052768230438
+backdoor accuracy: 0.10999999940395355
+Training round: 370		accuracy = 0.5334736704826355
+backdoor accuracy: 0.041999999433755875
+Training round: 371		accuracy = 0.4013684093952179
+backdoor accuracy: 0.004000000189989805
+Training round: 372		accuracy = 0.48484209179878235
+backdoor accuracy: 0.10599999874830246
+Training round: 373		accuracy = 0.5193684101104736
+backdoor accuracy: 0.10199999809265137
+Training round: 374		accuracy = 0.5127368569374084
+backdoor accuracy: 0.10400000214576721
+Training round: 375		accuracy = 0.47126317024230957
+backdoor accuracy: 0.11400000005960464
+Training round: 376		accuracy = 0.5055789351463318
+backdoor accuracy: 0.02199999988079071
+Training round: 377		accuracy = 0.5017894506454468
+backdoor accuracy: 0.017999999225139618
+Training round: 378		accuracy = 0.5286315679550171
+backdoor accuracy: 0.07400000095367432
+Training round: 379		accuracy = 0.5241052508354187
+backdoor accuracy: 0.10400000214576721
+Training round: 380		accuracy = 0.5298947095870972
+backdoor accuracy: 0.07599999755620956
+Training round: 381		accuracy = 0.3488421142101288
+backdoor accuracy: 0.012000000104308128
+Training round: 382		accuracy = 0.4861052632331848
+backdoor accuracy: 0.14399999380111694
+Training round: 383		accuracy = 0.3619999885559082
+backdoor accuracy: 0.01600000075995922
+Training round: 384		accuracy = 0.4448421001434326
+backdoor accuracy: 0.10999999940395355
+Training round: 385		accuracy = 0.5061052441596985
+backdoor accuracy: 0.02800000086426735
+Training round: 386		accuracy = 0.5211579203605652
+backdoor accuracy: 0.02199999988079071
+Training round: 387		accuracy = 0.36505264043807983
+backdoor accuracy: 0.009999999776482582
+Training round: 388		accuracy = 0.551263153553009
+backdoor accuracy: 0.00800000037997961
+Training round: 389		accuracy = 0.546842098236084
+backdoor accuracy: 0.07800000160932541
+Training round: 390		accuracy = 0.4131578803062439
+backdoor accuracy: 0.014000000432133675
+Training round: 391		accuracy = 0.3469473719596863
+backdoor accuracy: 0.012000000104308128
+Training round: 392		accuracy = 0.4814736843109131
+backdoor accuracy: 0.0020000000949949026
+Training round: 393		accuracy = 0.5376842021942139
+backdoor accuracy: 0.06199999898672104
+Training round: 394		accuracy = 0.503789484500885
+backdoor accuracy: 0.07800000160932541
+Training round: 395		accuracy = 0.5510526299476624
+backdoor accuracy: 0.004000000189989805
+Training round: 396		accuracy = 0.5457894802093506
+backdoor accuracy: 0.009999999776482582
+Training round: 397		accuracy = 0.34210526943206787
+backdoor accuracy: 0.0020000000949949026
+Training round: 398		accuracy = 0.39505264163017273
+backdoor accuracy: 0.0020000000949949026
+Training round: 399		accuracy = 0.4037894606590271
+backdoor accuracy: 0.0020000000949949026
+Training round: 400		accuracy = 0.46452632546424866
+backdoor accuracy: 0.024000000208616257
+Training round: 401		accuracy = 0.48168420791625977
+backdoor accuracy: 0.10599999874830246
+Training round: 402		accuracy = 0.5170526504516602
+backdoor accuracy: 0.09799999743700027
+Training round: 403		accuracy = 0.3852631449699402
+backdoor accuracy: 0.014000000432133675
+Training round: 404		accuracy = 0.5165263414382935
+backdoor accuracy: 0.02800000086426735
+Training round: 405		accuracy = 0.5210526585578918
+backdoor accuracy: 0.08799999952316284
+Training round: 406		accuracy = 0.38494735956192017
+backdoor accuracy: 0.03400000184774399
+Training round: 407		accuracy = 0.523894727230072
+backdoor accuracy: 0.0820000022649765
+Training round: 408		accuracy = 0.520421028137207
+backdoor accuracy: 0.02800000086426735
+Training round: 409		accuracy = 0.3941052556037903
+backdoor accuracy: 0.006000000052154064
+Training round: 410		accuracy = 0.37926316261291504
+backdoor accuracy: 0.009999999776482582
+Training round: 411		accuracy = 0.37452632188796997
+backdoor accuracy: 0.006000000052154064
+Training round: 412		accuracy = 0.5077894926071167
+backdoor accuracy: 0.057999998331069946
+Training round: 413		accuracy = 0.45915788412094116
+backdoor accuracy: 0.004000000189989805
+Training round: 414		accuracy = 0.5476841926574707
+backdoor accuracy: 0.07400000095367432
+Training round: 415		accuracy = 0.5403158068656921
+backdoor accuracy: 0.09399999678134918
+Training round: 416		accuracy = 0.3622105121612549
+backdoor accuracy: 0.01600000075995922
+Training round: 417		accuracy = 0.550631582736969
+backdoor accuracy: 0.05400000140070915
+Training round: 418		accuracy = 0.5360000133514404
+backdoor accuracy: 0.06400000303983688
+Training round: 419		accuracy = 0.4015789330005646
+backdoor accuracy: 0.02199999988079071
+Training round: 420		accuracy = 0.5491579174995422
+backdoor accuracy: 0.05400000140070915
+Training round: 421		accuracy = 0.5495789647102356
+backdoor accuracy: 0.014000000432133675
+Training round: 422		accuracy = 0.5120000243186951
+backdoor accuracy: 0.0860000029206276
+Training round: 423		accuracy = 0.5133684277534485
+backdoor accuracy: 0.0020000000949949026
+Training round: 424		accuracy = 0.5573683977127075
+backdoor accuracy: 0.0020000000949949026
+Training round: 425		accuracy = 0.5213684439659119
+backdoor accuracy: 0.07199999690055847
+Training round: 426		accuracy = 0.5767368674278259
+backdoor accuracy: 0.024000000208616257
+Training round: 427		accuracy = 0.5678947567939758
+backdoor accuracy: 0.004000000189989805
+Training round: 428		accuracy = 0.5542105436325073
+backdoor accuracy: 0.07599999755620956
+Training round: 429		accuracy = 0.4536842107772827
+backdoor accuracy: 0.0
+Training round: 430		accuracy = 0.5346315503120422
+backdoor accuracy: 0.004000000189989805
+Training round: 431		accuracy = 0.5668420791625977
+backdoor accuracy: 0.04600000008940697
+Training round: 432		accuracy = 0.5216842293739319
+backdoor accuracy: 0.004000000189989805
+Training round: 433		accuracy = 0.5282105207443237
+backdoor accuracy: 0.0020000000949949026
+Training round: 434		accuracy = 0.5354737043380737
+backdoor accuracy: 0.07999999821186066
+Training round: 435		accuracy = 0.38789474964141846
+backdoor accuracy: 0.012000000104308128
+Training round: 436		accuracy = 0.36242106556892395
+backdoor accuracy: 0.014000000432133675
+Training round: 437		accuracy = 0.3413684070110321
+backdoor accuracy: 0.009999999776482582
+Training round: 438		accuracy = 0.3855789601802826
+backdoor accuracy: 0.019999999552965164
+Training round: 439		accuracy = 0.5283157825469971
+backdoor accuracy: 0.10199999809265137
+Training round: 440		accuracy = 0.5605263113975525
+backdoor accuracy: 0.024000000208616257
+Training round: 441		accuracy = 0.5510526299476624
+backdoor accuracy: 0.019999999552965164
+Training round: 442		accuracy = 0.5715789198875427
+backdoor accuracy: 0.0860000029206276
+Training round: 443		accuracy = 0.38168421387672424
+backdoor accuracy: 0.009999999776482582
+Training round: 444		accuracy = 0.36273685097694397
+backdoor accuracy: 0.009999999776482582
+Training round: 445		accuracy = 0.351263165473938
+backdoor accuracy: 0.014000000432133675
+Training round: 446		accuracy = 0.4983157813549042
+backdoor accuracy: 0.05400000140070915
+Training round: 447		accuracy = 0.554736852645874
+backdoor accuracy: 0.006000000052154064
+Training round: 448		accuracy = 0.3976842164993286
+backdoor accuracy: 0.006000000052154064
+Training round: 449		accuracy = 0.3794736862182617
+backdoor accuracy: 0.0020000000949949026
+Training round: 450		accuracy = 0.5723158121109009
+backdoor accuracy: 0.004000000189989805
+Training round: 451		accuracy = 0.4241052567958832
+backdoor accuracy: 0.0
+Training round: 452		accuracy = 0.5438947081565857
+backdoor accuracy: 0.03799999877810478
+Training round: 453		accuracy = 0.535263180732727
+backdoor accuracy: 0.0
+Training round: 454		accuracy = 0.5408421158790588
+backdoor accuracy: 0.07599999755620956
+Training round: 455		accuracy = 0.5099999904632568
+backdoor accuracy: 0.009999999776482582
+Training round: 456		accuracy = 0.5597894787788391
+backdoor accuracy: 0.052000001072883606
+Training round: 457		accuracy = 0.5312631726264954
+backdoor accuracy: 0.0020000000949949026
+Training round: 458		accuracy = 0.5418947339057922
+backdoor accuracy: 0.0
+Training round: 459		accuracy = 0.5413684248924255
+backdoor accuracy: 0.0020000000949949026
+Training round: 460		accuracy = 0.3926315903663635
+backdoor accuracy: 0.0020000000949949026
+Training round: 461		accuracy = 0.5144210457801819
+backdoor accuracy: 0.0020000000949949026
+Training round: 462		accuracy = 0.5734736919403076
+backdoor accuracy: 0.06400000303983688
+Training round: 463		accuracy = 0.5484210252761841
+backdoor accuracy: 0.006000000052154064
+Training round: 464		accuracy = 0.4625263214111328
+backdoor accuracy: 0.0820000022649765
+Training round: 465		accuracy = 0.5172631740570068
+backdoor accuracy: 0.09600000083446503
+Training round: 466		accuracy = 0.5444210767745972
+backdoor accuracy: 0.04800000041723251
+Training round: 467		accuracy = 0.4977894723415375
+backdoor accuracy: 0.05999999865889549
+Training round: 468		accuracy = 0.3564210534095764
+backdoor accuracy: 0.006000000052154064
+Training round: 469		accuracy = 0.3609473705291748
+backdoor accuracy: 0.006000000052154064
+Training round: 470		accuracy = 0.38915789127349854
+backdoor accuracy: 0.006000000052154064
+Training round: 471		accuracy = 0.3994736969470978
+backdoor accuracy: 0.004000000189989805
+Training round: 472		accuracy = 0.38094738125801086
+backdoor accuracy: 0.006000000052154064
+Training round: 473		accuracy = 0.5637894868850708
+backdoor accuracy: 0.10599999874830246
+Training round: 474		accuracy = 0.5418947339057922
+backdoor accuracy: 0.0020000000949949026
+Training round: 475		accuracy = 0.5808420777320862
+backdoor accuracy: 0.06199999898672104
+Training round: 476		accuracy = 0.41736841201782227
+backdoor accuracy: 0.012000000104308128
+Training round: 477		accuracy = 0.4137894809246063
+backdoor accuracy: 0.006000000052154064
+Training round: 478		accuracy = 0.5334736704826355
+backdoor accuracy: 0.01600000075995922
+Training round: 479		accuracy = 0.4091579020023346
+backdoor accuracy: 0.004000000189989805
+Training round: 480		accuracy = 0.3700000047683716
+backdoor accuracy: 0.0020000000949949026
+Training round: 481		accuracy = 0.3741052746772766
+backdoor accuracy: 0.004000000189989805
+Training round: 482		accuracy = 0.5496842265129089
+backdoor accuracy: 0.0020000000949949026
+Training round: 483		accuracy = 0.36294737458229065
+backdoor accuracy: 0.0
+Training round: 484		accuracy = 0.3146315813064575
+backdoor accuracy: 0.0
+Training round: 485		accuracy = 0.3264210522174835
+backdoor accuracy: 0.0
+Training round: 486		accuracy = 0.5501052737236023
+backdoor accuracy: 0.07000000029802322
+Training round: 487		accuracy = 0.5134736895561218
+backdoor accuracy: 0.02199999988079071
+Training round: 488		accuracy = 0.47178947925567627
+backdoor accuracy: 0.0860000029206276
+Training round: 489		accuracy = 0.43073683977127075
+backdoor accuracy: 0.012000000104308128
+Training round: 490		accuracy = 0.5755789279937744
+backdoor accuracy: 0.07000000029802322
+Training round: 491		accuracy = 0.5655789375305176
+backdoor accuracy: 0.012000000104308128
+Training round: 492		accuracy = 0.5572631359100342
+backdoor accuracy: 0.03999999910593033
+Training round: 493		accuracy = 0.5393684506416321
+backdoor accuracy: 0.03799999877810478
+Training round: 494		accuracy = 0.3663157820701599
+backdoor accuracy: 0.004000000189989805
+Training round: 495		accuracy = 0.5693684220314026
+backdoor accuracy: 0.014000000432133675
+Training round: 496		accuracy = 0.5681052803993225
+backdoor accuracy: 0.0
+Training round: 497		accuracy = 0.39642104506492615
+backdoor accuracy: 0.004000000189989805
+Training round: 498		accuracy = 0.5496842265129089
+backdoor accuracy: 0.0
+Training round: 499		accuracy = 0.5615789294242859
+backdoor accuracy: 0.04600000008940697
+Training round: 500		accuracy = 0.5631579160690308
+backdoor accuracy: 0.0
+Training round: 501		accuracy = 0.5622105002403259
+backdoor accuracy: 0.03999999910593033
+Training round: 502		accuracy = 0.5526315569877625
+backdoor accuracy: 0.04600000008940697
+Training round: 503		accuracy = 0.5533684492111206
+backdoor accuracy: 0.07800000160932541
+Training round: 504		accuracy = 0.5497894883155823
+backdoor accuracy: 0.04800000041723251
+Training round: 505		accuracy = 0.5589473843574524
+backdoor accuracy: 0.03200000151991844
+Training round: 506		accuracy = 0.5856842398643494
+backdoor accuracy: 0.01600000075995922
+Training round: 507		accuracy = 0.5844210386276245
+backdoor accuracy: 0.05000000074505806
+Training round: 508		accuracy = 0.4145263135433197
+backdoor accuracy: 0.004000000189989805
+Training round: 509		accuracy = 0.5717895030975342
+backdoor accuracy: 0.03999999910593033
+Training round: 510		accuracy = 0.5667368173599243
+backdoor accuracy: 0.0820000022649765
+Training round: 511		accuracy = 0.5644210577011108
+backdoor accuracy: 0.0020000000949949026
+Training round: 512		accuracy = 0.43336841464042664
+backdoor accuracy: 0.006000000052154064
+Training round: 513		accuracy = 0.30799999833106995
+backdoor accuracy: 0.0
+Training round: 514		accuracy = 0.5809473395347595
+backdoor accuracy: 0.009999999776482582
+Training round: 515		accuracy = 0.4297894835472107
+backdoor accuracy: 0.004000000189989805
+Training round: 516		accuracy = 0.5764210820198059
+backdoor accuracy: 0.06800000369548798
+Training round: 517		accuracy = 0.4691579043865204
+backdoor accuracy: 0.07199999690055847
+Training round: 518		accuracy = 0.4708420932292938
+backdoor accuracy: 0.019999999552965164
+Training round: 519		accuracy = 0.5672631859779358
+backdoor accuracy: 0.04600000008940697
+Training round: 520		accuracy = 0.5672631859779358
+backdoor accuracy: 0.004000000189989805
+Training round: 521		accuracy = 0.566315770149231
+backdoor accuracy: 0.05000000074505806
+Training round: 522		accuracy = 0.461157888174057
+backdoor accuracy: 0.006000000052154064
+Training round: 523		accuracy = 0.40736842155456543
+backdoor accuracy: 0.004000000189989805
+Training round: 524		accuracy = 0.5767368674278259
+backdoor accuracy: 0.06599999964237213
+Training round: 525		accuracy = 0.47547367215156555
+backdoor accuracy: 0.014000000432133675
+Training round: 526		accuracy = 0.5196841955184937
+backdoor accuracy: 0.09200000017881393
+Training round: 527		accuracy = 0.5755789279937744
+backdoor accuracy: 0.07400000095367432
+Training round: 528		accuracy = 0.5841052532196045
+backdoor accuracy: 0.03799999877810478
+Training round: 529		accuracy = 0.5127368569374084
+backdoor accuracy: 0.10400000214576721
+Training round: 530		accuracy = 0.3874736726284027
+backdoor accuracy: 0.02199999988079071
+Training round: 531		accuracy = 0.5613684058189392
+backdoor accuracy: 0.09399999678134918
+Training round: 532		accuracy = 0.5583158135414124
+backdoor accuracy: 0.09600000083446503
+Training round: 533		accuracy = 0.5756841897964478
+backdoor accuracy: 0.041999999433755875
+Training round: 534		accuracy = 0.5788421034812927
+backdoor accuracy: 0.052000001072883606
+Training round: 535		accuracy = 0.5199999809265137
+backdoor accuracy: 0.07400000095367432
+Training round: 536		accuracy = 0.48757895827293396
+backdoor accuracy: 0.07000000029802322
+Training round: 537		accuracy = 0.4088421165943146
+backdoor accuracy: 0.006000000052154064
+Training round: 538		accuracy = 0.5950526595115662
+backdoor accuracy: 0.06400000303983688
+Training round: 539		accuracy = 0.5712631344795227
+backdoor accuracy: 0.0020000000949949026
+Training round: 540		accuracy = 0.5932631492614746
+backdoor accuracy: 0.006000000052154064
+Training round: 541		accuracy = 0.5559999942779541
+backdoor accuracy: 0.0860000029206276
+Training round: 542		accuracy = 0.5568420886993408
+backdoor accuracy: 0.057999998331069946
+Training round: 543		accuracy = 0.4437894821166992
+backdoor accuracy: 0.00800000037997961
+Training round: 544		accuracy = 0.4126315712928772
+backdoor accuracy: 0.006000000052154064
+Training round: 545		accuracy = 0.5023158192634583
+backdoor accuracy: 0.1080000028014183
+Training round: 546		accuracy = 0.48863157629966736
+backdoor accuracy: 0.1340000033378601
+Training round: 547		accuracy = 0.5103157758712769
+backdoor accuracy: 0.10400000214576721
+Training round: 548		accuracy = 0.4209473729133606
+backdoor accuracy: 0.02199999988079071
+Training round: 549		accuracy = 0.5478947162628174
+backdoor accuracy: 0.01600000075995922
+Training round: 550		accuracy = 0.5650526285171509
+backdoor accuracy: 0.08799999952316284
+Training round: 551		accuracy = 0.49936842918395996
+backdoor accuracy: 0.10599999874830246
+Training round: 552		accuracy = 0.4935789406299591
+backdoor accuracy: 0.11400000005960464
+Training round: 553		accuracy = 0.5493684411048889
+backdoor accuracy: 0.04600000008940697
+Training round: 554		accuracy = 0.5455789566040039
+backdoor accuracy: 0.03400000184774399
+Training round: 555		accuracy = 0.5743157863616943
+backdoor accuracy: 0.00800000037997961
+Training round: 556		accuracy = 0.5823158025741577
+backdoor accuracy: 0.04800000041723251
+Training round: 557		accuracy = 0.582105278968811
+backdoor accuracy: 0.04399999976158142
+Training round: 558		accuracy = 0.5706315636634827
+backdoor accuracy: 0.0560000017285347
+Training round: 559		accuracy = 0.5334736704826355
+backdoor accuracy: 0.02199999988079071
+Training round: 560		accuracy = 0.5488421320915222
+backdoor accuracy: 0.03200000151991844
+Training round: 561		accuracy = 0.3432631492614746
+backdoor accuracy: 0.004000000189989805
+Training round: 562		accuracy = 0.3700000047683716
+backdoor accuracy: 0.006000000052154064
+Training round: 563		accuracy = 0.535263180732727
+backdoor accuracy: 0.0
+Training round: 564		accuracy = 0.37905263900756836
+backdoor accuracy: 0.006000000052154064
+Training round: 565		accuracy = 0.5699999928474426
+backdoor accuracy: 0.0020000000949949026
+Training round: 566		accuracy = 0.421999990940094
+backdoor accuracy: 0.00800000037997961
+Training round: 567		accuracy = 0.40336841344833374
+backdoor accuracy: 0.00800000037997961
+Training round: 568		accuracy = 0.36778947710990906
+backdoor accuracy: 0.006000000052154064
+Training round: 569		accuracy = 0.5737894773483276
+backdoor accuracy: 0.004000000189989805
+Training round: 570		accuracy = 0.575157880783081
+backdoor accuracy: 0.0
+Training round: 571		accuracy = 0.5170526504516602
+backdoor accuracy: 0.08399999886751175
+Training round: 572		accuracy = 0.5875789523124695
+backdoor accuracy: 0.07800000160932541
+Training round: 573		accuracy = 0.5683158040046692
+backdoor accuracy: 0.06800000369548798
+Training round: 574		accuracy = 0.5754736661911011
+backdoor accuracy: 0.009999999776482582
+Training round: 575		accuracy = 0.581789493560791
+backdoor accuracy: 0.03200000151991844
+Training round: 576		accuracy = 0.571368396282196
+backdoor accuracy: 0.03200000151991844
+Training round: 577		accuracy = 0.5330526232719421
+backdoor accuracy: 0.1120000034570694
+Training round: 578		accuracy = 0.5841052532196045
+backdoor accuracy: 0.06400000303983688
+Training round: 579		accuracy = 0.5861052870750427
+backdoor accuracy: 0.004000000189989805
+Training round: 580		accuracy = 0.5839999914169312
+backdoor accuracy: 0.03999999910593033
+Training round: 581		accuracy = 0.5861052870750427
+backdoor accuracy: 0.07599999755620956
+Training round: 582		accuracy = 0.5715789198875427
+backdoor accuracy: 0.0860000029206276
+Training round: 583		accuracy = 0.4301052689552307
+backdoor accuracy: 0.006000000052154064
+Training round: 584		accuracy = 0.48589473962783813
+backdoor accuracy: 0.017999999225139618
+Training round: 585		accuracy = 0.5828421115875244
+backdoor accuracy: 0.012000000104308128
+Training round: 586		accuracy = 0.4988420903682709
+backdoor accuracy: 0.07400000095367432
+Training round: 587		accuracy = 0.5538947582244873
+backdoor accuracy: 0.01600000075995922
+Training round: 588		accuracy = 0.5671579241752625
+backdoor accuracy: 0.017999999225139618
+Training round: 589		accuracy = 0.5545263290405273
+backdoor accuracy: 0.009999999776482582
+Training round: 590		accuracy = 0.581473708152771
+backdoor accuracy: 0.07000000029802322
+Training round: 591		accuracy = 0.6067368388175964
+backdoor accuracy: 0.035999998450279236
+Training round: 592		accuracy = 0.5961052775382996
+backdoor accuracy: 0.057999998331069946
+Training round: 593		accuracy = 0.5904210805892944
+backdoor accuracy: 0.041999999433755875
+Training round: 594		accuracy = 0.594315767288208
+backdoor accuracy: 0.01600000075995922
+Training round: 595		accuracy = 0.5573683977127075
+backdoor accuracy: 0.07800000160932541
+Training round: 596		accuracy = 0.5874736905097961
+backdoor accuracy: 0.041999999433755875
+Training round: 597		accuracy = 0.5598947405815125
+backdoor accuracy: 0.014000000432133675
+Training round: 598		accuracy = 0.42484211921691895
+backdoor accuracy: 0.006000000052154064
+Training round: 599		accuracy = 0.3475789427757263
+backdoor accuracy: 0.0020000000949949026
+Training round: 600		accuracy = 0.3774736821651459
+backdoor accuracy: 0.004000000189989805
+Training round: 601		accuracy = 0.5849473476409912
+backdoor accuracy: 0.057999998331069946
+Training round: 602		accuracy = 0.46905264258384705
+backdoor accuracy: 0.02199999988079071
+Training round: 603		accuracy = 0.4426315724849701
+backdoor accuracy: 0.009999999776482582
+Training round: 604		accuracy = 0.594631552696228
+backdoor accuracy: 0.07000000029802322
+Training round: 605		accuracy = 0.5834736824035645
+backdoor accuracy: 0.052000001072883606
+Training round: 606		accuracy = 0.4386315643787384
+backdoor accuracy: 0.02800000086426735
+Training round: 607		accuracy = 0.5762104988098145
+backdoor accuracy: 0.019999999552965164
+Training round: 608		accuracy = 0.5717895030975342
+backdoor accuracy: 0.02800000086426735
+Training round: 609		accuracy = 0.43631577491760254
+backdoor accuracy: 0.01600000075995922
+Training round: 610		accuracy = 0.5875789523124695
+backdoor accuracy: 0.06199999898672104
+Training round: 611		accuracy = 0.5850526094436646
+backdoor accuracy: 0.10000000149011612
+Training round: 612		accuracy = 0.5664210319519043
+backdoor accuracy: 0.05400000140070915
+Training round: 613		accuracy = 0.5680000185966492
+backdoor accuracy: 0.004000000189989805
+Training round: 614		accuracy = 0.5648421049118042
+backdoor accuracy: 0.0020000000949949026
+Training round: 615		accuracy = 0.5828421115875244
+backdoor accuracy: 0.009999999776482582
+Training round: 616		accuracy = 0.5616841912269592
+backdoor accuracy: 0.0020000000949949026
+Training round: 617		accuracy = 0.573578953742981
+backdoor accuracy: 0.0
+Training round: 618		accuracy = 0.5705263018608093
+backdoor accuracy: 0.06800000369548798
+Training round: 619		accuracy = 0.5347368717193604
+backdoor accuracy: 0.10599999874830246
+Training round: 620		accuracy = 0.4368421137332916
+backdoor accuracy: 0.03400000184774399
+Training round: 621		accuracy = 0.5600000023841858
+backdoor accuracy: 0.012000000104308128
+Training round: 622		accuracy = 0.4437894821166992
+backdoor accuracy: 0.009999999776482582
+Training round: 623		accuracy = 0.3923157751560211
+backdoor accuracy: 0.006000000052154064
+Training round: 624		accuracy = 0.43157893419265747
+backdoor accuracy: 0.004000000189989805
+Training round: 625		accuracy = 0.4051578938961029
+backdoor accuracy: 0.00800000037997961
+Training round: 626		accuracy = 0.5154736638069153
+backdoor accuracy: 0.017999999225139618
+Training round: 627		accuracy = 0.578315794467926
+backdoor accuracy: 0.006000000052154064
+Training round: 628		accuracy = 0.5732631683349609
+backdoor accuracy: 0.006000000052154064
+Training round: 629		accuracy = 0.445578932762146
+backdoor accuracy: 0.004000000189989805
+Training round: 630		accuracy = 0.5864210724830627
+backdoor accuracy: 0.004000000189989805
+Training round: 631		accuracy = 0.5692631602287292
+backdoor accuracy: 0.07599999755620956
+Training round: 632		accuracy = 0.5688421130180359
+backdoor accuracy: 0.07800000160932541
+Training round: 633		accuracy = 0.4058947265148163
+backdoor accuracy: 0.00800000037997961
+Training round: 634		accuracy = 0.5910526514053345
+backdoor accuracy: 0.019999999552965164
+Training round: 635		accuracy = 0.5826315879821777
+backdoor accuracy: 0.03999999910593033
+Training round: 636		accuracy = 0.6065263152122498
+backdoor accuracy: 0.05999999865889549
+Training round: 637		accuracy = 0.5224210619926453
+backdoor accuracy: 0.12800000607967377
+Training round: 638		accuracy = 0.5628421306610107
+backdoor accuracy: 0.05000000074505806
+Training round: 639		accuracy = 0.5574736595153809
+backdoor accuracy: 0.05000000074505806
+Training round: 640		accuracy = 0.43610525131225586
+backdoor accuracy: 0.012000000104308128
+Training round: 641		accuracy = 0.4335789382457733
+backdoor accuracy: 0.004000000189989805
+Training round: 642		accuracy = 0.4188421070575714
+backdoor accuracy: 0.006000000052154064
+Training round: 643		accuracy = 0.40926316380500793
+backdoor accuracy: 0.006000000052154064
+Training round: 644		accuracy = 0.5733684301376343
+backdoor accuracy: 0.08799999952316284
+Training round: 645		accuracy = 0.5526315569877625
+backdoor accuracy: 0.0020000000949949026
+Training round: 646		accuracy = 0.40400001406669617
+backdoor accuracy: 0.0
+Training round: 647		accuracy = 0.5854736566543579
+backdoor accuracy: 0.07599999755620956
+Training round: 648		accuracy = 0.5632631778717041
+backdoor accuracy: 0.07400000095367432
+Training round: 649		accuracy = 0.5570526123046875
+backdoor accuracy: 0.09000000357627869
+Training round: 650		accuracy = 0.5792631506919861
+backdoor accuracy: 0.00800000037997961
+Training round: 651		accuracy = 0.5723158121109009
+backdoor accuracy: 0.08799999952316284
+Training round: 652		accuracy = 0.43936842679977417
+backdoor accuracy: 0.026000000536441803
+Training round: 653		accuracy = 0.5765263438224792
+backdoor accuracy: 0.024000000208616257
+Training round: 654		accuracy = 0.38547369837760925
+backdoor accuracy: 0.00800000037997961
+Training round: 655		accuracy = 0.46852630376815796
+backdoor accuracy: 0.019999999552965164
+Training round: 656		accuracy = 0.5725263357162476
+backdoor accuracy: 0.029999999329447746
+Training round: 657		accuracy = 0.5142105221748352
+backdoor accuracy: 0.11599999666213989
+Training round: 658		accuracy = 0.5190526247024536
+backdoor accuracy: 0.01600000075995922
+Training round: 659		accuracy = 0.5121052861213684
+backdoor accuracy: 0.03200000151991844
+Training round: 660		accuracy = 0.6002105474472046
+backdoor accuracy: 0.02199999988079071
+Training round: 661		accuracy = 0.5516842007637024
+backdoor accuracy: 0.10000000149011612
+Training round: 662		accuracy = 0.6030526161193848
+backdoor accuracy: 0.04399999976158142
+Training round: 663		accuracy = 0.5836842060089111
+backdoor accuracy: 0.06800000369548798
+Training round: 664		accuracy = 0.5985262989997864
+backdoor accuracy: 0.017999999225139618
+Training round: 665		accuracy = 0.569789469242096
+backdoor accuracy: 0.012000000104308128
+Training round: 666		accuracy = 0.597473680973053
+backdoor accuracy: 0.012000000104308128
+Training round: 667		accuracy = 0.5827368497848511
+backdoor accuracy: 0.004000000189989805
+Training round: 668		accuracy = 0.604736864566803
+backdoor accuracy: 0.06400000303983688
+Training round: 669		accuracy = 0.5937894582748413
+backdoor accuracy: 0.012000000104308128
+Training round: 670		accuracy = 0.5213684439659119
+backdoor accuracy: 0.0020000000949949026
+Training round: 671		accuracy = 0.5554736852645874
+backdoor accuracy: 0.04600000008940697
+Training round: 672		accuracy = 0.42084211111068726
+backdoor accuracy: 0.004000000189989805
+Training round: 673		accuracy = 0.5684210658073425
+backdoor accuracy: 0.041999999433755875
+Training round: 674		accuracy = 0.5978947281837463
+backdoor accuracy: 0.03200000151991844
+Training round: 675		accuracy = 0.4472631514072418
+backdoor accuracy: 0.009999999776482582
+Training round: 676		accuracy = 0.4316841959953308
+backdoor accuracy: 0.009999999776482582
+Training round: 677		accuracy = 0.5741052627563477
+backdoor accuracy: 0.012000000104308128
+Training round: 678		accuracy = 0.5597894787788391
+backdoor accuracy: 0.07000000029802322
+Training round: 679		accuracy = 0.5611578822135925
+backdoor accuracy: 0.1120000034570694
+Training round: 680		accuracy = 0.5965263247489929
+backdoor accuracy: 0.01600000075995922
+Training round: 681		accuracy = 0.4426315724849701
+backdoor accuracy: 0.009999999776482582
+Training round: 682		accuracy = 0.6030526161193848
+backdoor accuracy: 0.00800000037997961
+Training round: 683		accuracy = 0.582105278968811
+backdoor accuracy: 0.006000000052154064
+Training round: 684		accuracy = 0.5782105326652527
+backdoor accuracy: 0.09000000357627869
+Training round: 685		accuracy = 0.6127368211746216
+backdoor accuracy: 0.04600000008940697
+Training round: 686		accuracy = 0.5901052355766296
+backdoor accuracy: 0.0560000017285347
+Training round: 687		accuracy = 0.5689473748207092
+backdoor accuracy: 0.07199999690055847
+Training round: 688		accuracy = 0.5945262908935547
+backdoor accuracy: 0.041999999433755875
+Training round: 689		accuracy = 0.5857895016670227
+backdoor accuracy: 0.029999999329447746
+Training round: 690		accuracy = 0.5384210348129272
+backdoor accuracy: 0.03400000184774399
+Training round: 691		accuracy = 0.597157895565033
+backdoor accuracy: 0.029999999329447746
+Training round: 692		accuracy = 0.42642104625701904
+backdoor accuracy: 0.006000000052154064
+Training round: 693		accuracy = 0.5693684220314026
+backdoor accuracy: 0.09200000017881393
+Training round: 694		accuracy = 0.5571578741073608
+backdoor accuracy: 0.07599999755620956
+Training round: 695		accuracy = 0.4259999990463257
+backdoor accuracy: 0.035999998450279236
+Training round: 696		accuracy = 0.3812631666660309
+backdoor accuracy: 0.012000000104308128
+Training round: 697		accuracy = 0.5708420872688293
+backdoor accuracy: 0.03799999877810478
+Training round: 698		accuracy = 0.5852631330490112
+backdoor accuracy: 0.07400000095367432
+Training round: 699		accuracy = 0.5884210467338562
+backdoor accuracy: 0.07800000160932541
+Training round: 700		accuracy = 0.5845263004302979
+backdoor accuracy: 0.01600000075995922
+Training round: 701		accuracy = 0.5964210629463196
+backdoor accuracy: 0.01600000075995922
+Training round: 702		accuracy = 0.6086315512657166
+backdoor accuracy: 0.012000000104308128
+Training round: 703		accuracy = 0.5496842265129089
+backdoor accuracy: 0.057999998331069946
+Training round: 704		accuracy = 0.4668421149253845
+backdoor accuracy: 0.01600000075995922
+Training round: 705		accuracy = 0.5214737057685852
+backdoor accuracy: 0.05000000074505806
+Training round: 706		accuracy = 0.5518947243690491
+backdoor accuracy: 0.09399999678134918
+Training round: 707		accuracy = 0.5734736919403076
+backdoor accuracy: 0.08799999952316284
+Training round: 708		accuracy = 0.4162105321884155
+backdoor accuracy: 0.035999998450279236
+Training round: 709		accuracy = 0.41010525822639465
+backdoor accuracy: 0.01600000075995922
+Training round: 710		accuracy = 0.5920000076293945
+backdoor accuracy: 0.041999999433755875
+Training round: 711		accuracy = 0.4278947412967682
+backdoor accuracy: 0.01600000075995922
+Training round: 712		accuracy = 0.6052631735801697
+backdoor accuracy: 0.03400000184774399
+Training round: 713		accuracy = 0.5882105231285095
+backdoor accuracy: 0.07400000095367432
+Training round: 714		accuracy = 0.5265263319015503
+backdoor accuracy: 0.03799999877810478
+Training round: 715		accuracy = 0.593999981880188
+backdoor accuracy: 0.07000000029802322
+Training round: 716		accuracy = 0.5452631711959839
+backdoor accuracy: 0.0860000029206276
+Training round: 717		accuracy = 0.43768420815467834
+backdoor accuracy: 0.03200000151991844
+Training round: 718		accuracy = 0.43042105436325073
+backdoor accuracy: 0.02800000086426735
+Training round: 719		accuracy = 0.5658947229385376
+backdoor accuracy: 0.035999998450279236
+Training round: 720		accuracy = 0.5829473733901978
+backdoor accuracy: 0.10199999809265137
+Training round: 721		accuracy = 0.4284210503101349
+backdoor accuracy: 0.02800000086426735
+Training round: 722		accuracy = 0.6150526404380798
+backdoor accuracy: 0.01600000075995922
+Training round: 723		accuracy = 0.5771579146385193
+backdoor accuracy: 0.014000000432133675
+Training round: 724		accuracy = 0.5479999780654907
+backdoor accuracy: 0.08399999886751175
+Training round: 725		accuracy = 0.5906316041946411
+backdoor accuracy: 0.07599999755620956
+Training round: 726		accuracy = 0.594631552696228
+backdoor accuracy: 0.04600000008940697
+Training round: 727		accuracy = 0.4601052701473236
+backdoor accuracy: 0.006000000052154064
+Training round: 728		accuracy = 0.551578938961029
+backdoor accuracy: 0.07199999690055847
+Training round: 729		accuracy = 0.45452630519866943
+backdoor accuracy: 0.029999999329447746
+Training round: 730		accuracy = 0.558526337146759
+backdoor accuracy: 0.052000001072883606
+Training round: 731		accuracy = 0.4142105281352997
+backdoor accuracy: 0.006000000052154064
+Training round: 732		accuracy = 0.5727368593215942
+backdoor accuracy: 0.07599999755620956
+Training round: 733		accuracy = 0.5659999847412109
+backdoor accuracy: 0.03200000151991844
+Training round: 734		accuracy = 0.6008421182632446
+backdoor accuracy: 0.03400000184774399
+Training round: 735		accuracy = 0.5492631793022156
+backdoor accuracy: 0.06400000303983688
+Training round: 736		accuracy = 0.6164210438728333
+backdoor accuracy: 0.01600000075995922
+Training round: 737		accuracy = 0.574210524559021
+backdoor accuracy: 0.07800000160932541
+Training round: 738		accuracy = 0.5290526151657104
+backdoor accuracy: 0.029999999329447746
+Training round: 739		accuracy = 0.5370526313781738
+backdoor accuracy: 0.07800000160932541
+Training round: 740		accuracy = 0.5388420820236206
+backdoor accuracy: 0.09200000017881393
+Training round: 741		accuracy = 0.4467368423938751
+backdoor accuracy: 0.035999998450279236
+Training round: 742		accuracy = 0.5962105393409729
+backdoor accuracy: 0.012000000104308128
+Training round: 743		accuracy = 0.5495789647102356
+backdoor accuracy: 0.07000000029802322
+Training round: 744		accuracy = 0.557894766330719
+backdoor accuracy: 0.09399999678134918
+Training round: 745		accuracy = 0.5577894449234009
+backdoor accuracy: 0.10000000149011612
+Training round: 746		accuracy = 0.6017894744873047
+backdoor accuracy: 0.017999999225139618
+Training round: 747		accuracy = 0.4833684265613556
+backdoor accuracy: 0.00800000037997961
+Training round: 748		accuracy = 0.598105251789093
+backdoor accuracy: 0.05400000140070915
+Training round: 749		accuracy = 0.5949473977088928
+backdoor accuracy: 0.06599999964237213
+Training round: 750		accuracy = 0.472947359085083
+backdoor accuracy: 0.024000000208616257
+Training round: 751		accuracy = 0.4538947343826294
+backdoor accuracy: 0.01600000075995922
+Training round: 752		accuracy = 0.602210521697998
+backdoor accuracy: 0.03999999910593033
+Training round: 753		accuracy = 0.5964210629463196
+backdoor accuracy: 0.052000001072883606
+Training round: 754		accuracy = 0.5531578660011292
+backdoor accuracy: 0.07199999690055847
+Training round: 755		accuracy = 0.5801052451133728
+backdoor accuracy: 0.10199999809265137
+Training round: 756		accuracy = 0.5894736647605896
+backdoor accuracy: 0.08399999886751175
+Training round: 757		accuracy = 0.4467368423938751
+backdoor accuracy: 0.01600000075995922
+Training round: 758		accuracy = 0.5917894840240479
+backdoor accuracy: 0.029999999329447746
+Training round: 759		accuracy = 0.6159999966621399
+backdoor accuracy: 0.07999999821186066
+Training round: 760		accuracy = 0.6060000061988831
+backdoor accuracy: 0.0560000017285347
+Training round: 761		accuracy = 0.6002105474472046
+backdoor accuracy: 0.009999999776482582
+Training round: 762		accuracy = 0.5879999995231628
+backdoor accuracy: 0.026000000536441803
+Training round: 763		accuracy = 0.6027368307113647
+backdoor accuracy: 0.006000000052154064
+Training round: 764		accuracy = 0.5782105326652527
+backdoor accuracy: 0.07000000029802322
+Training round: 765		accuracy = 0.582421064376831
+backdoor accuracy: 0.08799999952316284
+Training round: 766		accuracy = 0.6092631816864014
+backdoor accuracy: 0.035999998450279236
+Training round: 767		accuracy = 0.550315797328949
+backdoor accuracy: 0.12800000607967377
+Training round: 768		accuracy = 0.5510526299476624
+backdoor accuracy: 0.09799999743700027
+Training round: 769		accuracy = 0.5948420763015747
+backdoor accuracy: 0.0560000017285347
+Training round: 770		accuracy = 0.571368396282196
+backdoor accuracy: 0.07400000095367432
+Training round: 771		accuracy = 0.5839999914169312
+backdoor accuracy: 0.1120000034570694
+Training round: 772		accuracy = 0.5908421277999878
+backdoor accuracy: 0.03400000184774399
+Training round: 773		accuracy = 0.5400000214576721
+backdoor accuracy: 0.0820000022649765
+Training round: 774		accuracy = 0.5912631750106812
+backdoor accuracy: 0.035999998450279236
+Training round: 775		accuracy = 0.5262105464935303
+backdoor accuracy: 0.04399999976158142
+Training round: 776		accuracy = 0.43147367238998413
+backdoor accuracy: 0.012000000104308128
+Training round: 777		accuracy = 0.620736837387085
+backdoor accuracy: 0.014000000432133675
+Training round: 778		accuracy = 0.6161052584648132
+backdoor accuracy: 0.07000000029802322
+Training round: 779		accuracy = 0.5862105488777161
+backdoor accuracy: 0.01600000075995922
+Training round: 780		accuracy = 0.6193684339523315
+backdoor accuracy: 0.05400000140070915
+Training round: 781		accuracy = 0.5947368144989014
+backdoor accuracy: 0.04399999976158142
+Training round: 782		accuracy = 0.6073684096336365
+backdoor accuracy: 0.05999999865889549
+Training round: 783		accuracy = 0.6174736618995667
+backdoor accuracy: 0.0560000017285347
+Training round: 784		accuracy = 0.609473705291748
+backdoor accuracy: 0.041999999433755875
+Training round: 785		accuracy = 0.6023157835006714
+backdoor accuracy: 0.05000000074505806
+Training round: 786		accuracy = 0.6158947348594666
+backdoor accuracy: 0.02800000086426735
+Training round: 787		accuracy = 0.6079999804496765
+backdoor accuracy: 0.02199999988079071
+Training round: 788		accuracy = 0.6230526566505432
+backdoor accuracy: 0.012000000104308128
+Training round: 789		accuracy = 0.601894736289978
+backdoor accuracy: 0.012000000104308128
+Training round: 790		accuracy = 0.5893684029579163
+backdoor accuracy: 0.009999999776482582
+Training round: 791		accuracy = 0.5829473733901978
+backdoor accuracy: 0.01600000075995922
+Training round: 792		accuracy = 0.5871579051017761
+backdoor accuracy: 0.057999998331069946
+Training round: 793		accuracy = 0.5518947243690491
+backdoor accuracy: 0.10000000149011612
+Training round: 794		accuracy = 0.4552631676197052
+backdoor accuracy: 0.03400000184774399
+Training round: 795		accuracy = 0.6072631478309631
+backdoor accuracy: 0.01600000075995922
+Training round: 796		accuracy = 0.5521052479743958
+backdoor accuracy: 0.035999998450279236
+Training round: 797		accuracy = 0.5929473638534546
+backdoor accuracy: 0.009999999776482582
+Training round: 798		accuracy = 0.4584210515022278
+backdoor accuracy: 0.0020000000949949026
+Training round: 799		accuracy = 0.4431578814983368
+backdoor accuracy: 0.0020000000949949026
+Training round: 800		accuracy = 0.6025263071060181
+backdoor accuracy: 0.03200000151991844
+Training round: 801		accuracy = 0.5881052613258362
+backdoor accuracy: 0.0820000022649765
+Training round: 802		accuracy = 0.5873684287071228
+backdoor accuracy: 0.10400000214576721
+Training round: 803		accuracy = 0.6103157997131348
+backdoor accuracy: 0.03400000184774399
+Training round: 804		accuracy = 0.6004210710525513
+backdoor accuracy: 0.08399999886751175
+Training round: 805		accuracy = 0.5983157753944397
+backdoor accuracy: 0.03999999910593033
+Training round: 806		accuracy = 0.5689473748207092
+backdoor accuracy: 0.03400000184774399
+Training round: 807		accuracy = 0.6036841869354248
+backdoor accuracy: 0.019999999552965164
+Training round: 808		accuracy = 0.46505263447761536
+backdoor accuracy: 0.014000000432133675
+Training round: 809		accuracy = 0.5958947539329529
+backdoor accuracy: 0.09000000357627869
+Training round: 810		accuracy = 0.605368435382843
+backdoor accuracy: 0.03200000151991844
+Training round: 811		accuracy = 0.5856842398643494
+backdoor accuracy: 0.07800000160932541
+Training round: 812		accuracy = 0.5969473719596863
+backdoor accuracy: 0.06400000303983688
+Training round: 813		accuracy = 0.6143158078193665
+backdoor accuracy: 0.041999999433755875
+Training round: 814		accuracy = 0.6071578860282898
+backdoor accuracy: 0.017999999225139618
+Training round: 815		accuracy = 0.6063157916069031
+backdoor accuracy: 0.041999999433755875
+Training round: 816		accuracy = 0.6355789303779602
+backdoor accuracy: 0.05000000074505806
+Training round: 817		accuracy = 0.6202105283737183
+backdoor accuracy: 0.02199999988079071
+Training round: 818		accuracy = 0.6205263137817383
+backdoor accuracy: 0.017999999225139618
+Training round: 819		accuracy = 0.6027368307113647
+backdoor accuracy: 0.00800000037997961
+Training round: 820		accuracy = 0.6131578683853149
+backdoor accuracy: 0.014000000432133675
+Training round: 821		accuracy = 0.6008421182632446
+backdoor accuracy: 0.009999999776482582
+Training round: 822		accuracy = 0.5434736609458923
+backdoor accuracy: 0.057999998331069946
+Training round: 823		accuracy = 0.5844210386276245
+backdoor accuracy: 0.02800000086426735
+Training round: 824		accuracy = 0.6025263071060181
+backdoor accuracy: 0.0860000029206276
+Training round: 825		accuracy = 0.6076841950416565
+backdoor accuracy: 0.014000000432133675
+Training round: 826		accuracy = 0.5553684234619141
+backdoor accuracy: 0.07199999690055847
+Training round: 827		accuracy = 0.6017894744873047
+backdoor accuracy: 0.019999999552965164
+Training round: 828		accuracy = 0.5972631573677063
+backdoor accuracy: 0.057999998331069946
+Training round: 829		accuracy = 0.5348421335220337
+backdoor accuracy: 0.09399999678134918
+Training round: 830		accuracy = 0.6067368388175964
+backdoor accuracy: 0.08799999952316284
+Training round: 831		accuracy = 0.6186316013336182
+backdoor accuracy: 0.035999998450279236
+Training round: 832		accuracy = 0.6074736714363098
+backdoor accuracy: 0.07999999821186066
+Training round: 833		accuracy = 0.6089473962783813
+backdoor accuracy: 0.03799999877810478
+Training round: 834		accuracy = 0.575157880783081
+backdoor accuracy: 0.026000000536441803
+Training round: 835		accuracy = 0.5996842384338379
+backdoor accuracy: 0.07999999821186066
+Training round: 836		accuracy = 0.6061052680015564
+backdoor accuracy: 0.04600000008940697
+Training round: 837		accuracy = 0.5909473896026611
+backdoor accuracy: 0.029999999329447746
+Training round: 838		accuracy = 0.6079999804496765
+backdoor accuracy: 0.014000000432133675
+Training round: 839		accuracy = 0.5733684301376343
+backdoor accuracy: 0.035999998450279236
+Training round: 840		accuracy = 0.6215789318084717
+backdoor accuracy: 0.02199999988079071
+Training round: 841		accuracy = 0.570105254650116
+backdoor accuracy: 0.07199999690055847
+Training round: 842		accuracy = 0.6041052341461182
+backdoor accuracy: 0.03400000184774399
+Training round: 843		accuracy = 0.5961052775382996
+backdoor accuracy: 0.04800000041723251
+Training round: 844		accuracy = 0.5905263423919678
+backdoor accuracy: 0.0820000022649765
+Training round: 845		accuracy = 0.4815789461135864
+backdoor accuracy: 0.019999999552965164
+Training round: 846		accuracy = 0.5875789523124695
+backdoor accuracy: 0.05000000074505806
+Training round: 847		accuracy = 0.5488421320915222
+backdoor accuracy: 0.041999999433755875
+Training round: 848		accuracy = 0.5949473977088928
+backdoor accuracy: 0.052000001072883606
+Training round: 849		accuracy = 0.5834736824035645
+backdoor accuracy: 0.04399999976158142
+Training round: 850		accuracy = 0.6110526323318481
+backdoor accuracy: 0.019999999552965164
+Training round: 851		accuracy = 0.5956842303276062
+backdoor accuracy: 0.08399999886751175
+Training round: 852		accuracy = 0.6030526161193848
+backdoor accuracy: 0.0560000017285347
+Training round: 853		accuracy = 0.6081052422523499
+backdoor accuracy: 0.07800000160932541
+Training round: 854		accuracy = 0.5966315865516663
+backdoor accuracy: 0.04399999976158142
+Training round: 855		accuracy = 0.5033684372901917
+backdoor accuracy: 0.01600000075995922
+Training round: 856		accuracy = 0.4565263092517853
+backdoor accuracy: 0.01600000075995922
+Training round: 857		accuracy = 0.6078947186470032
+backdoor accuracy: 0.009999999776482582
+Training round: 858		accuracy = 0.4740000069141388
+backdoor accuracy: 0.006000000052154064
+Training round: 859		accuracy = 0.6023157835006714
+backdoor accuracy: 0.012000000104308128
+Training round: 860		accuracy = 0.6109473705291748
+backdoor accuracy: 0.012000000104308128
+Training round: 861		accuracy = 0.6161052584648132
+backdoor accuracy: 0.012000000104308128
+Training round: 862		accuracy = 0.550315797328949
+backdoor accuracy: 0.04600000008940697
+Training round: 863		accuracy = 0.6038947105407715
+backdoor accuracy: 0.06599999964237213
+Training round: 864		accuracy = 0.61757892370224
+backdoor accuracy: 0.04600000008940697
+Training round: 865		accuracy = 0.6014736890792847
+backdoor accuracy: 0.03200000151991844
+Training round: 866		accuracy = 0.5867368578910828
+backdoor accuracy: 0.026000000536441803
+Training round: 867		accuracy = 0.5834736824035645
+backdoor accuracy: 0.03799999877810478
+Training round: 868		accuracy = 0.4561052620410919
+backdoor accuracy: 0.01600000075995922
+Training round: 869		accuracy = 0.5566315650939941
+backdoor accuracy: 0.10599999874830246
+Training round: 870		accuracy = 0.5789473652839661
+backdoor accuracy: 0.03200000151991844
+Training round: 871		accuracy = 0.6122105121612549
+backdoor accuracy: 0.01600000075995922
+Training round: 872		accuracy = 0.6064210534095764
+backdoor accuracy: 0.06800000369548798
+Training round: 873		accuracy = 0.593684196472168
+backdoor accuracy: 0.03999999910593033
+Training round: 874		accuracy = 0.5637894868850708
+backdoor accuracy: 0.08399999886751175
+Training round: 875		accuracy = 0.5513684153556824
+backdoor accuracy: 0.019999999552965164
+Training round: 876		accuracy = 0.6135789752006531
+backdoor accuracy: 0.01600000075995922
+Training round: 877		accuracy = 0.5721052885055542
+backdoor accuracy: 0.0560000017285347
+Training round: 878		accuracy = 0.5925263166427612
+backdoor accuracy: 0.06599999964237213
+Training round: 879		accuracy = 0.5664210319519043
+backdoor accuracy: 0.09600000083446503
+Training round: 880		accuracy = 0.6140000224113464
+backdoor accuracy: 0.05999999865889549
+Training round: 881		accuracy = 0.577368438243866
+backdoor accuracy: 0.04600000008940697
+Training round: 882		accuracy = 0.6258947253227234
+backdoor accuracy: 0.017999999225139618
+Training round: 883		accuracy = 0.6221052408218384
+backdoor accuracy: 0.07999999821186066
+Training round: 884		accuracy = 0.6092631816864014
+backdoor accuracy: 0.07000000029802322
+Training round: 885		accuracy = 0.47221052646636963
+backdoor accuracy: 0.026000000536441803
+Training round: 886		accuracy = 0.5927368402481079
+backdoor accuracy: 0.04800000041723251
+Training round: 887		accuracy = 0.621368408203125
+backdoor accuracy: 0.0560000017285347
+Training round: 888		accuracy = 0.6263157725334167
+backdoor accuracy: 0.017999999225139618
+Training round: 889		accuracy = 0.6240000128746033
+backdoor accuracy: 0.00800000037997961
+Training round: 890		accuracy = 0.5637894868850708
+backdoor accuracy: 0.05400000140070915
+Training round: 891		accuracy = 0.6205263137817383
+backdoor accuracy: 0.014000000432133675
+Training round: 892		accuracy = 0.6092631816864014
+backdoor accuracy: 0.012000000104308128
+Training round: 893		accuracy = 0.600947380065918
+backdoor accuracy: 0.012000000104308128
+Training round: 894		accuracy = 0.6209473609924316
+backdoor accuracy: 0.012000000104308128
+Training round: 895		accuracy = 0.641157865524292
+backdoor accuracy: 0.06400000303983688
+Training round: 896		accuracy = 0.6083157658576965
+backdoor accuracy: 0.03999999910593033
+Training round: 897		accuracy = 0.6192631721496582
+backdoor accuracy: 0.057999998331069946
+Training round: 898		accuracy = 0.6079999804496765
+backdoor accuracy: 0.052000001072883606
+Training round: 899		accuracy = 0.6426315903663635
+backdoor accuracy: 0.019999999552965164
+Training round: 900		accuracy = 0.6102105379104614
+backdoor accuracy: 0.014000000432133675
+Training round: 901		accuracy = 0.6048421263694763
+backdoor accuracy: 0.05400000140070915
+Training round: 902		accuracy = 0.5915789604187012
+backdoor accuracy: 0.08399999886751175
+Training round: 903		accuracy = 0.6177894473075867
+backdoor accuracy: 0.06599999964237213
+Training round: 904		accuracy = 0.601894736289978
+backdoor accuracy: 0.06400000303983688
+Training round: 905		accuracy = 0.5810526609420776
+backdoor accuracy: 0.07000000029802322
+Training round: 906		accuracy = 0.5967368483543396
+backdoor accuracy: 0.035999998450279236
+Training round: 907		accuracy = 0.5930526256561279
+backdoor accuracy: 0.029999999329447746
+Training round: 908		accuracy = 0.6076841950416565
+backdoor accuracy: 0.024000000208616257
+Training round: 909		accuracy = 0.6224210262298584
+backdoor accuracy: 0.024000000208616257
+Training round: 910		accuracy = 0.6399999856948853
+backdoor accuracy: 0.052000001072883606
+Training round: 911		accuracy = 0.6315789222717285
+backdoor accuracy: 0.026000000536441803
+Training round: 912		accuracy = 0.628000020980835
+backdoor accuracy: 0.06400000303983688
+Training round: 913		accuracy = 0.6095789670944214
+backdoor accuracy: 0.03999999910593033
+Training round: 914		accuracy = 0.5909473896026611
+backdoor accuracy: 0.052000001072883606
+Training round: 915		accuracy = 0.5715789198875427
+backdoor accuracy: 0.004000000189989805
+Training round: 916		accuracy = 0.6021052598953247
+backdoor accuracy: 0.05999999865889549
+Training round: 917		accuracy = 0.6185263395309448
+backdoor accuracy: 0.026000000536441803
+Training round: 918		accuracy = 0.6061052680015564
+backdoor accuracy: 0.06199999898672104
+Training round: 919		accuracy = 0.6098947525024414
+backdoor accuracy: 0.041999999433755875
+Training round: 920		accuracy = 0.628947377204895
+backdoor accuracy: 0.06199999898672104
+Training round: 921		accuracy = 0.48621052503585815
+backdoor accuracy: 0.017999999225139618
+Training round: 922		accuracy = 0.5878947377204895
+backdoor accuracy: 0.04600000008940697
+Training round: 923		accuracy = 0.601894736289978
+backdoor accuracy: 0.05999999865889549
+Training round: 924		accuracy = 0.5633684396743774
+backdoor accuracy: 0.029999999329447746
+Training round: 925		accuracy = 0.6076841950416565
+backdoor accuracy: 0.04800000041723251
+Training round: 926		accuracy = 0.5813684463500977
+backdoor accuracy: 0.035999998450279236
+Training round: 927		accuracy = 0.6370526552200317
+backdoor accuracy: 0.052000001072883606
+Training round: 928		accuracy = 0.5957894921302795
+backdoor accuracy: 0.08799999952316284
+Training round: 929		accuracy = 0.6156842112541199
+backdoor accuracy: 0.057999998331069946
+Training round: 930		accuracy = 0.5475789308547974
+backdoor accuracy: 0.07199999690055847
+Training round: 931		accuracy = 0.5385262966156006
+backdoor accuracy: 0.06199999898672104
+Training round: 932		accuracy = 0.6301052570343018
+backdoor accuracy: 0.01600000075995922
+Training round: 933		accuracy = 0.6185263395309448
+backdoor accuracy: 0.01600000075995922
+Training round: 934		accuracy = 0.6351578831672668
+backdoor accuracy: 0.01600000075995922
+Training round: 935		accuracy = 0.6138947606086731
+backdoor accuracy: 0.06199999898672104
+Training round: 936		accuracy = 0.5798947215080261
+backdoor accuracy: 0.10400000214576721
+Training round: 937		accuracy = 0.5552631616592407
+backdoor accuracy: 0.07199999690055847
+Training round: 938		accuracy = 0.5715789198875427
+backdoor accuracy: 0.08799999952316284
+Training round: 939		accuracy = 0.570421040058136
+backdoor accuracy: 0.0860000029206276
+Training round: 940		accuracy = 0.6229473948478699
+backdoor accuracy: 0.06599999964237213
+Training round: 941		accuracy = 0.6265262961387634
+backdoor accuracy: 0.05000000074505806
+Training round: 942		accuracy = 0.6083157658576965
+backdoor accuracy: 0.06800000369548798
+Training round: 943		accuracy = 0.6124210357666016
+backdoor accuracy: 0.0560000017285347
+Training round: 944		accuracy = 0.6229473948478699
+backdoor accuracy: 0.02800000086426735
+Training round: 945		accuracy = 0.5964210629463196
+backdoor accuracy: 0.02800000086426735
+Training round: 946		accuracy = 0.5926315784454346
+backdoor accuracy: 0.004000000189989805
+Training round: 947		accuracy = 0.6306315660476685
+backdoor accuracy: 0.009999999776482582
+Training round: 948		accuracy = 0.6259999871253967
+backdoor accuracy: 0.00800000037997961
+Training round: 949		accuracy = 0.6406315565109253
+backdoor accuracy: 0.00800000037997961
+Training round: 950		accuracy = 0.5698947310447693
+backdoor accuracy: 0.07999999821186066
+Training round: 951		accuracy = 0.6256842017173767
+backdoor accuracy: 0.01600000075995922
+Training round: 952		accuracy = 0.62515789270401
+backdoor accuracy: 0.012000000104308128
+Training round: 953		accuracy = 0.5502105355262756
+backdoor accuracy: 0.04600000008940697
+Training round: 954		accuracy = 0.6226315498352051
+backdoor accuracy: 0.07199999690055847
+Training round: 955		accuracy = 0.4514736831188202
+backdoor accuracy: 0.01600000075995922
+Training round: 956		accuracy = 0.6406315565109253
+backdoor accuracy: 0.026000000536441803
+Training round: 957		accuracy = 0.43768420815467834
+backdoor accuracy: 0.00800000037997961
+Training round: 958		accuracy = 0.6113684177398682
+backdoor accuracy: 0.09000000357627869
+Training round: 959		accuracy = 0.6065263152122498
+backdoor accuracy: 0.05999999865889549
+Training round: 960		accuracy = 0.6011579036712646
+backdoor accuracy: 0.06400000303983688
+Training round: 961		accuracy = 0.5592631697654724
+backdoor accuracy: 0.0860000029206276
+Training round: 962		accuracy = 0.6041052341461182
+backdoor accuracy: 0.09000000357627869
+Training round: 963		accuracy = 0.48452630639076233
+backdoor accuracy: 0.02199999988079071
+Training round: 964		accuracy = 0.6109473705291748
+backdoor accuracy: 0.041999999433755875
+Training round: 965		accuracy = 0.6336842179298401
+backdoor accuracy: 0.009999999776482582
+Training round: 966		accuracy = 0.49936842918395996
+backdoor accuracy: 0.164000004529953
+Training round: 967		accuracy = 0.5897894501686096
+backdoor accuracy: 0.041999999433755875
+Training round: 968		accuracy = 0.5261052846908569
+backdoor accuracy: 0.1080000028014183
+Training round: 969		accuracy = 0.5975789427757263
+backdoor accuracy: 0.06599999964237213
+Training round: 970		accuracy = 0.6101052761077881
+backdoor accuracy: 0.12200000137090683
+Training round: 971		accuracy = 0.6341052651405334
+backdoor accuracy: 0.06800000369548798
+Training round: 972		accuracy = 0.4873684346675873
+backdoor accuracy: 0.03400000184774399
+Training round: 973		accuracy = 0.5596842169761658
+backdoor accuracy: 0.1420000046491623
+Training round: 974		accuracy = 0.5695789456367493
+backdoor accuracy: 0.12600000202655792
+Training round: 975		accuracy = 0.6073684096336365
+backdoor accuracy: 0.12800000607967377
+Training round: 976		accuracy = 0.6244210600852966
+backdoor accuracy: 0.03200000151991844
+Training round: 977		accuracy = 0.6301052570343018
+backdoor accuracy: 0.0860000029206276
+Training round: 978		accuracy = 0.4651578962802887
+backdoor accuracy: 0.024000000208616257
+Training round: 979		accuracy = 0.6287368535995483
+backdoor accuracy: 0.09799999743700027
+Training round: 980		accuracy = 0.6305263042449951
+backdoor accuracy: 0.09799999743700027
+Training round: 981		accuracy = 0.5486316084861755
+backdoor accuracy: 0.12200000137090683
+Training round: 982		accuracy = 0.6153684258460999
+backdoor accuracy: 0.0820000022649765
+Training round: 983		accuracy = 0.5602105259895325
+backdoor accuracy: 0.10400000214576721
+Training round: 984		accuracy = 0.6234737038612366
+backdoor accuracy: 0.05000000074505806
+Training round: 985		accuracy = 0.6130526065826416
+backdoor accuracy: 0.02199999988079071
+Training round: 986		accuracy = 0.6261052489280701
+backdoor accuracy: 0.03799999877810478
+Training round: 987		accuracy = 0.61726313829422
+backdoor accuracy: 0.10000000149011612
+Training round: 988		accuracy = 0.6109473705291748
+backdoor accuracy: 0.06800000369548798
+Training round: 989		accuracy = 0.5475789308547974
+backdoor accuracy: 0.029999999329447746
+Training round: 990		accuracy = 0.6331579089164734
+backdoor accuracy: 0.029999999329447746
+Training round: 991		accuracy = 0.6287368535995483
+backdoor accuracy: 0.03200000151991844
+Training round: 992		accuracy = 0.6373684406280518
+backdoor accuracy: 0.08399999886751175
+Training round: 993		accuracy = 0.6118947267532349
+backdoor accuracy: 0.07599999755620956
+Training round: 994		accuracy = 0.5945262908935547
+backdoor accuracy: 0.052000001072883606
+Training round: 995		accuracy = 0.6348420977592468
+backdoor accuracy: 0.02199999988079071
+Training round: 996		accuracy = 0.47821053862571716
+backdoor accuracy: 0.006000000052154064
+Training round: 997		accuracy = 0.5626316070556641
+backdoor accuracy: 0.10199999809265137
+Training round: 998		accuracy = 0.620736837387085
+backdoor accuracy: 0.08399999886751175
+Training round: 999		accuracy = 0.5747368335723877
+backdoor accuracy: 0.10400000214576721
+Training round: 1000		accuracy = 0.4817894697189331
+backdoor accuracy: 0.035999998450279236
+Training duration 11005.297587871552

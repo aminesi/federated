@@ -1,0 +1,146 @@
+2021-08-22 20:25:56.226016: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 20:26:18.985553: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-08-22 20:26:18.990287: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-08-22 20:26:19.064379: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:18:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-08-22 20:26:19.064490: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 20:26:19.073081: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-22 20:26:19.073210: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-22 20:26:19.078089: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-08-22 20:26:19.079919: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-08-22 20:26:19.087550: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-08-22 20:26:19.090061: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-08-22 20:26:19.091934: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 20:26:19.107687: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-08-22 20:26:19.108567: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-08-22 20:26:19.108907: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-08-22 20:26:19.112456: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:18:00.0 name: Tesla V100-SXM2-32GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 31.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-08-22 20:26:19.112587: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 20:26:19.112716: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-22 20:26:19.112828: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-22 20:26:19.112952: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-08-22 20:26:19.113059: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-08-22 20:26:19.113128: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-08-22 20:26:19.113235: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-08-22 20:26:19.113360: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 20:26:19.163714: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-08-22 20:26:19.164103: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-08-22 20:26:20.239492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-08-22 20:26:20.239694: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-08-22 20:26:20.239835: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-08-22 20:26:20.253801: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30130 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:18:00.0, compute capability: 7.0)
+2021-08-22 20:26:35.968231: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-08-22 20:26:35.972797: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2100000000 Hz
+2021-08-22 20:26:36.050190: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-08-22 20:26:36.540235: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-08-22 20:26:36.549912: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-08-22 20:26:39.503328: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2021-08-22 20:26:40.100982: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+Training round: 1		accuracy = 0.5269564986228943
+Training round: 2		accuracy = 0.49130433797836304
+Training round: 3		accuracy = 0.5886956453323364
+Training round: 4		accuracy = 0.5889855027198792
+Training round: 5		accuracy = 0.609855055809021
+Training round: 6		accuracy = 0.5884057879447937
+Training round: 7		accuracy = 0.5643478035926819
+Training round: 8		accuracy = 0.6278260946273804
+Training round: 9		accuracy = 0.659710168838501
+Training round: 10		accuracy = 0.642318844795227
+Training round: 11		accuracy = 0.5660869479179382
+Training round: 12		accuracy = 0.6084057688713074
+Training round: 13		accuracy = 0.6078261137008667
+Training round: 14		accuracy = 0.6466666460037231
+Training round: 15		accuracy = 0.6472463607788086
+Training round: 16		accuracy = 0.5869565010070801
+Training round: 17		accuracy = 0.6017391085624695
+Training round: 18		accuracy = 0.5994203090667725
+Training round: 19		accuracy = 0.6031883955001831
+Training round: 20		accuracy = 0.5573912858963013
+Training round: 21		accuracy = 0.6156522035598755
+Training round: 22		accuracy = 0.5518840551376343
+Training round: 23		accuracy = 0.5785506963729858
+Training round: 24		accuracy = 0.6008695363998413
+Training round: 25		accuracy = 0.6318840384483337
+Training round: 26		accuracy = 0.6536231637001038
+Training round: 27		accuracy = 0.6602898836135864
+Training round: 28		accuracy = 0.6217391490936279
+Training round: 29		accuracy = 0.6556521654129028
+Training round: 30		accuracy = 0.6550724506378174
+Training round: 31		accuracy = 0.6353623270988464
+Training round: 32		accuracy = 0.6744927763938904
+Training round: 33		accuracy = 0.6191304326057434
+Training round: 34		accuracy = 0.6376811861991882
+Training round: 35		accuracy = 0.6081159710884094
+Training round: 36		accuracy = 0.6362318992614746
+Training round: 37		accuracy = 0.6408695578575134
+Training round: 38		accuracy = 0.6078261137008667
+Training round: 39		accuracy = 0.6002898812294006
+Training round: 40		accuracy = 0.5852174162864685
+Training round: 41		accuracy = 0.6113043427467346
+Training round: 42		accuracy = 0.6428985595703125
+Training round: 43		accuracy = 0.6234782338142395
+Training round: 44		accuracy = 0.643478274345398
+Training round: 45		accuracy = 0.613043487071991
+Training round: 46		accuracy = 0.6124637722969055
+Training round: 47		accuracy = 0.6217391490936279
+Training round: 48		accuracy = 0.601159393787384
+Training round: 49		accuracy = 0.6527536511421204
+Training round: 50		accuracy = 0.6475362181663513
+Training round: 51		accuracy = 0.6368116140365601
+Training round: 52		accuracy = 0.645797073841095
+Training round: 53		accuracy = 0.6263768076896667
+Training round: 54		accuracy = 0.647826075553894
+Training round: 55		accuracy = 0.6295652389526367
+Training round: 56		accuracy = 0.61507248878479
+Training round: 57		accuracy = 0.6324637532234192
+Training round: 58		accuracy = 0.5994203090667725
+Training round: 59		accuracy = 0.5947825908660889
+Training round: 60		accuracy = 0.6544927358627319
+Training round: 61		accuracy = 0.656521737575531
+Training round: 62		accuracy = 0.6489855051040649
+Training round: 63		accuracy = 0.6368116140365601
+Training round: 64		accuracy = 0.637971043586731
+Training round: 65		accuracy = 0.6350724697113037
+Training round: 66		accuracy = 0.6504347920417786
+Training round: 67		accuracy = 0.6081159710884094
+Training round: 68		accuracy = 0.6142029166221619
+Training round: 69		accuracy = 0.6156522035598755
+Training round: 70		accuracy = 0.6426087021827698
+Training round: 71		accuracy = 0.6344927549362183
+Training round: 72		accuracy = 0.6124637722969055
+Training round: 73		accuracy = 0.598840594291687
+Training round: 74		accuracy = 0.6275362372398376
+Training round: 75		accuracy = 0.6275362372398376
+Training round: 76		accuracy = 0.6028985381126404
+Training round: 77		accuracy = 0.6194202899932861
+Training round: 78		accuracy = 0.6486956477165222
+Training round: 79		accuracy = 0.6394202709197998
+Training round: 80		accuracy = 0.6530434489250183
+Training round: 81		accuracy = 0.6556521654129028
+Training round: 82		accuracy = 0.6594203114509583
+Training round: 83		accuracy = 0.6646376848220825
+Training round: 84		accuracy = 0.6373913288116455
+Training round: 85		accuracy = 0.647826075553894
+Training round: 86		accuracy = 0.6484057903289795
+Training round: 87		accuracy = 0.626086950302124
+Training round: 88		accuracy = 0.6368116140365601
+Training round: 89		accuracy = 0.6202898621559143
+Training round: 90		accuracy = 0.6321738958358765
+Training round: 91		accuracy = 0.6368116140365601
+Training round: 92		accuracy = 0.6513043642044067
+Training round: 93		accuracy = 0.6631883978843689
+Training round: 94		accuracy = 0.6530434489250183
+Training round: 95		accuracy = 0.6443478465080261
+Training round: 96		accuracy = 0.6339130401611328
+Training round: 97		accuracy = 0.6284058094024658
+Training round: 98		accuracy = 0.6350724697113037
+Training round: 99		accuracy = 0.6411594152450562
+Training round: 100		accuracy = 0.6191304326057434
+Training duration 6688.604974985123
