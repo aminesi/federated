@@ -1,1 +1,0 @@
-{"num-rounds": 100, "dataset": "mnist", "attack-fraction": 0.1, "attack": "delete-data", "aggregator": "median", "non-iid-deg": 0.7}
