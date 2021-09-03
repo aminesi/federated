@@ -51,6 +51,7 @@ def load_data():
     if config['dataset'] == 'mnist':
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
         y_test = copy.deepcopy(y_test)
+        x_test = copy.deepcopy(x_test)
         x_train = np.expand_dims(x_train, -1)
         x_test = np.expand_dims(x_test, -1)
     elif config['dataset'] == 'cifar':
