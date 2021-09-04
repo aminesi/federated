@@ -20,7 +20,7 @@ fi
 
 
 export ADNI_ROOT=./dataset
-export RESULTS_ROOT=/scratch/aminesi/federated/results
+export RESULTS_ROOT=~/scratch/federated/results
 export CONFIG_PATH="./configs/config-$CONF_ID.json"
 
 python ./test.py
