@@ -1,6 +1,6 @@
 # FL Analysis 
 
-This repository contains the code and results for the paper "Robustness Analysis of Federated Learning Algorithms" submitted to ICSE 2022.
+This repository contains the code and results for the paper "Towards Understanding Quality Challenges of the Federated Learning: A First Look from the Lens of Robustness" submitted to EMSE journal.
 
 ## Replication
 
