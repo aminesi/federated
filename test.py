@@ -39,13 +39,13 @@ def get_attacks():
     if attack == 'label-flip':
         attack_map['data_attacker'] = LabelAttacker(fraction)
     elif attack == 'noise-data':
-        attack_map['data_attacker'] = NoiseMutator(fraction)
+        attack_map['data_attacker'] = NoiseMutator(fraction, get_param('sigma_multiplier', 1))
     elif attack == 'overlap-data':
-        attack_map['data_attacker'] = OverlapMutator(fraction)
+        attack_map['data_attacker'] = OverlapMutator(fraction, get_param('overlap_percentage', 0.75))
     elif attack == 'delete-data':
-        attack_map['data_attacker'] = DeleteMutator(fraction)
+        attack_map['data_attacker'] = DeleteMutator(fraction, get_param('delete_percentage', 0.75))
     elif attack == 'unbalance-data':
-        attack_map['data_attacker'] = UnbalanceMutator(fraction)
+        attack_map['data_attacker'] = UnbalanceMutator(fraction, get_param('unbalance_percentage', 0.75))
     elif attack == 'random-update':
         attack_map['model_attacker'] = RandomModelAttacker(fraction, 2)
     elif attack == 'sign-flip':

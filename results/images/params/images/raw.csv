@@ -1,0 +1,14 @@
+,dataset,non_iid,aggregator,attack,fraction,parameter_name,parameter_val,accuracy_m,accuracy_s
+0,cifar,0.4,fedavg,noisedata,0.3,sigma_multiplier,0.5,0.7413750141859055,0.006098893724441581
+1,cifar,0.4,fedavg,deletedata,0.3,delete_percentage,0.25,0.7515249997377396,0.005417095647994589
+2,cifar,0.4,fedavg,clean,0,,0,0.7662999927997589,0.005550799506445896
+3,cifar,0.4,fedavg,overlapdata,0.3,overlap_percentage,0.25,0.7542499899864197,0.006168474026871028
+4,cifar,0.4,fedavg,overlapdata,0.3,overlap_percentage,0.5,0.754925012588501,0.006092125457081767
+5,cifar,0.4,fedavg,deletedata,0.3,delete_percentage,0.5,0.7431249767541885,0.0052499660047366555
+6,cifar,0.4,fedavg,noisedata,0.3,sigma_multiplier,0.1,0.7571500241756439,0.005107565726201392
+7,cifar,0.4,fedavg,unbalancedata,0.3,unbalance_percentage,0.5,0.7529500126838684,0.005551058112370809
+8,cifar,0.4,fedavg,unbalancedata,0.3,unbalance_percentage,0.25,0.7540000081062317,0.005770167919301104
+9,cifar,0.4,fedavg,noisedata,0.3,sigma_multiplier,1,0.713699996471405,0.006427026144294899
+10,cifar,0.4,fedavg,deletedata,0.3,delete_percentage,0.75,0.7372000217437744,0.00462579931842087
+11,cifar,0.4,fedavg,overlapdata,0.3,overlap_percentage,0.75,0.7543602608074859,0.006211008429958068
+12,cifar,0.4,fedavg,unbalancedata,0.3,unbalance_percentage,0.75,0.7385500073432922,0.0063523419368682775

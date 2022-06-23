@@ -1,0 +1,1 @@
+{"num-rounds": 1000, "dataset": "cifar", "non-iid-deg": 0.4, "attack": "overlap-data", "attack-fraction": 0.3, "aggregator": "fed-avg", "overlap_percentage": 0.75}

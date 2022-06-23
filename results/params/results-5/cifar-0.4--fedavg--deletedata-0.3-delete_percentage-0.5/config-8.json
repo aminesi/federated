@@ -1,0 +1,1 @@
+{"num-rounds": 1000, "dataset": "cifar", "non-iid-deg": 0.4, "attack": "delete-data", "attack-fraction": 0.3, "aggregator": "fed-avg", "delete_percentage": 0.5}

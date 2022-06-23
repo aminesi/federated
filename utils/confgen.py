@@ -1,14 +1,14 @@
 import json
 
 datasets = ['cifar']
-non_iids = [0, 0.4, 0.7]
-attacks = [None, 'label-flip', 'random-update', 'sign-flip', 'backdoor']
-attack_fractions = [0.1, 0.3, 0.5]
-aggregators = ['fed-avg', 'median', 'trimmed-mean', 'krum']
+non_iids = [0.4]
+attacks = ['noise-data', 'overlap-data', 'delete-data', 'unbalance-data']
+attack_fractions = [0.3]
+aggregators = ['fed-avg']
 
 conf = {'num-rounds': 1000}
 
-i = 36
+i = 0
 
 
 def show(i):
@@ -16,7 +16,7 @@ def show(i):
         i += 1
         conf['aggregator'] = aggregator
         print(conf)
-        with open('../configs/cifar/config-{}.json'.format(i), 'w') as file:
+        with open('../configs/prem/config-{}.json'.format(i), 'w') as file:
             json.dump(conf, file)
             file.close()
     return i
@@ -31,7 +31,15 @@ for dataset in datasets:
             if attack:
                 for attack_fraction in attack_fractions:
                     conf['attack-fraction'] = attack_fraction
-                    i = show(i)
+                    if 'noise' in attack:
+                        params = {'sigma_multiplier': [0.1, 0.5, 1]}
+                    else:
+                        params = {attack.replace('-data', '') + '_percentage': [0.25, 0.5, 0.75]}
+                    key = list(params.keys())[0]
+                    for p in params[key]:
+                        conf[key] = p
+                        i = show(i)
+                    del conf[key]
             else:
                 del conf['attack']
                 if 'attack-fraction' in conf:

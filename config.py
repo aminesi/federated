@@ -142,6 +142,14 @@ def get_result_dir():
     attack = get_param('attack', 'clean')
     if attack != 'clean':
         attack = '{}-{}'.format(attack.replace('-', ''), get_param('attack-fraction'))
+        if get_param('attack', 'clean') == 'noise-data':
+            attack += '-sigma_multiplier-' + str(get_param('sigma_multiplier', 1))
+        elif get_param('attack', 'clean') == 'overlap-data':
+            attack += '-overlap_percentage-' + str(get_param('overlap_percentage', 0.75))
+        elif get_param('attack', 'clean') == 'delete-data':
+            attack += '-delete_percentage-' + str(get_param('delete_percentage', 0.75))
+        elif get_param('attack', 'clean') == 'unbalance-data':
+            attack += '-unbalance_percentage-' + str(get_param('unbalance_percentage', 0.75))
     dir_name = '{}-{}--{}--{}/'.format(get_param('dataset'), get_non_iid_deg(),
                                        get_param('aggregator', 'fed-avg').replace('-', ''),
                                        attack)
